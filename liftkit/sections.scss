@@ -1,0 +1,58 @@
+/*!
+ * LiftKit is a lightweight framework for clean, minimalist designs.
+ * Copyright (c) 2024 Niklas Simandi
+ *
+ * This program is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published by the
+ * Free Software Foundation, either version 3 of the License, or (at your
+ * option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+@use "globals";
+
+.section__xs {
+  padding: var(--L);
+}
+
+.section__s {
+  padding: var(--XL) var(--XXL);
+}
+
+.section__m {
+  padding: var(--XXL);
+}
+
+.section__l {
+  padding: var(--XXXL) var(--XXL);
+}
+
+.section__xl {
+  padding: var(--XXXXL) var(--XXL);
+}
+
+@media screen and (max-width: 991px) {
+
+  .section__s {
+    padding-right: var(--L);
+    padding-left: var(--L);
+  }
+
+  .section__m {
+    padding: var(--L);
+  }
+
+  .section__l {
+    padding: var(--XXL) var(--L);
+  }
+
+  .section__xl {
+    padding: var(--XXXL) calc(var(--L) * #{globals.$MAJOR-HALF});
+  }
+}
