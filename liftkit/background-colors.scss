@@ -1,27 +1,41 @@
-@import "globals.css";
+/*!
+ * LiftKit is a lightweight framework for clean, minimalist designs.
+ * Copyright (c) 2024 Niklas Simandi
+ *
+ * This program is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published by the
+ * Free Software Foundation, either version 3 of the License, or (at your
+ * option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+@use "globals";
 
-/*
-
-Okay, this is a big one. This file is a collection of all the 
-background colors that are used in the design system.
-
-Each utility class is named according to the following pattern: bg-{light|dark}__{color}.
-
-The color names are based on variables from the globals.css file. 
-Variables are set on the :root element, so they're accessible everywhere.
-
-Each light color variable has a corresponding dark color variable, and vice versa.
-
-Therefore, you should only design for one system or the other. 
-
-The global color-swapping function will automatically swap the color scheme 
-based on the user's device preference.
-
-Background Color utility classes also set the optimal text color for child elements,
-if there are any.
-
-*/
-
+// Okay, this is a big one. This file is a collection of all the background
+// colors that are used in the design system.
+//
+// Each utility class is named according to the following pattern:
+// bg-{light|dark}__{color}.
+//
+// The color names are based on variables from the globals.css file. Variables
+// are set on the :root element, so they're accessible everywhere.
+//
+// Each light color variable has a corresponding dark color variable, and vice
+// versa.
+//
+// Therefore, you should only design for one system or the other.
+//
+// The global color-swapping function will automatically swap the color scheme
+// based on the user's device preference.
+//
+// Background Color utility classes also set the optimal text color for child
+// elements, if there are any.
 
 .bg-light__primary {
   background-color: var(--light__primary_lkv);
