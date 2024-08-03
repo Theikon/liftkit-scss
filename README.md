@@ -16,7 +16,7 @@ is definitely feasible.
 ## Quickstart
 
 Already familiar with LiftKit? Then download the latest minified CSS file
-[here](https://github.com/Theikon/liftkit-scss/releases/download/v1.0.X/liftkit-v1.0.0.min.defaults.css).
+[here](https://github.com/Theikon/liftkit-scss/releases/download/v1.0.X/liftkit-v1.0.1.min.defaults.css).
 If you are new to LiftKit, have a look at the documentation behind the design
 philosophy over on
 [chainlift.io](https://www.chainlift.io/liftkitdocs/overview).
