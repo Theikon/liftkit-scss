@@ -15,28 +15,12 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-@use "liftkit/align-items";
-@use "liftkit/align-self";
-@use "liftkit/aspect-ratios";
 @use "liftkit/background-colors";
-@use "liftkit/border-radius";
-@use "liftkit/containers";
-@use "liftkit/display";
-@use "liftkit/font-color";
-@use "liftkit/gaps";
-@use "liftkit/globals";
-@use "liftkit/grid";
-@use "liftkit/icons";
-@use "liftkit/justify-content";
-@use "liftkit/margins";
-@use "liftkit/normalize";
-@use "liftkit/opacity";
-@use "liftkit/overflow";
-@use "liftkit/padding";
-@use "liftkit/position";
-@use "liftkit/scale";
-@use "liftkit/sections";
-@use "liftkit/shadows";
 @use "liftkit/state-layers";
-@use "liftkit/text-alignment";
-@use "liftkit/typography";
+@use "liftkit/containers";
+@use "liftkit/font-color";
+@use "liftkit/normalize";
+@use "liftkit/sections";
+@use "liftkit/globals";
+@use "liftkit/margins";
+@use "liftkit/shadows";
