@@ -1,0 +1,180 @@
+/*!
+ * LiftKit is a lightweight framework for clean, minimalist designs.
+ * Copyright (c) 2024 Niklas Simandi
+ *
+ * This program is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published by the
+ * Free Software Foundation, either version 3 of the License, or (at your
+ * option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+@use "sass:math";
+
+@use "globals";
+
+$_WIDTH: 1000px; // 800px-1200px
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+
+  &__xs {
+    @extend .container;
+
+    max-width: round(math.div($_WIDTH, globals.$MAJOR-HALF));
+  }
+
+  &__s {
+    @extend .container;
+
+    max-width: round(math.div($_WIDTH, globals.$MAJOR-QUARTER));
+  }
+
+  &__m {
+    @extend .container;
+
+    max-width: #{$_WIDTH};
+  }
+
+  &__l {
+    @extend .container;
+
+    max-width: round($_WIDTH * globals.$MAJOR-QUARTER);
+  }
+
+  &__xl {
+    @extend .container;
+
+    max-width: round($_WIDTH * globals.$MAJOR-HALF);
+  }
+}
+
+.d__h-block {
+  display: flex;
+  flex-direction: row;
+
+  &__xs {
+    @extend .d__h-block;
+
+    column-gap: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+  }
+
+  &__s {
+    @extend .d__h-block;
+
+    column-gap: calc(var(--XS) * #{globals.$MAJOR-HALF});
+  }
+
+  &__m {
+    @extend .d__h-block;
+
+    column-gap: calc(var(--S) * #{globals.$MAJOR-HALF});
+  }
+
+  &__l {
+    @extend .d__h-block;
+
+    column-gap: var(--M);
+  }
+
+  &__xl {
+    @extend .d__h-block;
+
+    column-gap: var(--L);
+  }
+
+  &__xxl {
+    @extend .d__h-block;
+
+    column-gap: var(--XL);
+  }
+}
+
+.d__v-block {
+  display: flex;
+  flex-direction: column;
+
+  &__xs {
+    @extend .d__v-block;
+
+    row-gap: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+  }
+
+  &__s {
+    @extend .d__v-block;
+
+    row-gap: calc(var(--XS) * #{globals.$MAJOR-HALF});
+  }
+
+  &__m {
+    @extend .d__v-block;
+
+    row-gap: calc(var(--S) * #{globals.$MAJOR-HALF});
+  }
+
+  &__l {
+    @extend .d__v-block;
+
+    row-gap: var(--M);
+  }
+
+  &__xl {
+    @extend .d__v-block;
+
+    row-gap: var(--L);
+  }
+
+  &__xxl {
+    @extend .d__v-block;
+
+    row-gap: var(--XL);
+  }
+}
+
+.d__h-inline {
+  display: inline-flex;
+  flex-direction: row;
+
+  &__xs {
+    @extend .d__h-inline;
+
+    column-gap: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+  }
+
+  &__s {
+    @extend .d__h-inline;
+
+    column-gap: calc(var(--XS) * #{globals.$MAJOR-HALF});
+  }
+
+  &__m {
+    @extend .d__h-inline;
+
+    column-gap: calc(var(--S) * #{globals.$MAJOR-HALF});
+  }
+
+  &__l {
+    @extend .d__h-inline;
+
+    column-gap: var(--M);
+  }
+
+  &__xl {
+    @extend .d__h-inline;
+
+    column-gap: var(--L);
+  }
+
+  &__xxl {
+    @extend .d__h-inline;
+
+    column-gap: var(--XL);
+  }
+}
