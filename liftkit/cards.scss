@@ -1,0 +1,59 @@
+/*!
+ * LiftKit is a lightweight framework for clean, minimalist designs.
+ * Copyright (c) 2024 Niklas Simandi
+ *
+ * This program is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published by the
+ * Free Software Foundation, either version 3 of the License, or (at your
+ * option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+@use "globals";
+
+.card {
+  padding: calc(var(--BASE) / #{globals.$MAJOR-HALF}) var(--BASE) var(--BASE);
+  border-radius: calc(var(--BASE) / #{globals.$MAJOR-HALF});
+
+  // In order to provide optical correctness to the card padding symmetry,
+  // determine the largest font size within the card.
+  --BASE: 0;
+
+  &:has(.body) {
+    --BASE: var(--M);
+  }
+
+  &:has(.subheading) {
+    --BASE: calc(var(--M) / #{globals.$MAJOR-QUARTER});
+  }
+
+  &:has(.heading) {
+    --BASE: calc(var(--M) * #{globals.$MAJOR-QUARTER});
+  }
+
+  &:has(.title-c) {
+    --BASE: calc(var(--M) * #{globals.$MAJOR-HALF});
+  }
+
+  &:has(.title-b) {
+    --BASE: var(--L);
+  }
+
+  &:has(.title-a) {
+    --BASE: calc(var(--L) * #{globals.$MAJOR-HALF});
+  }
+
+  &:has(.display-2) {
+    --BASE: var(--XL);
+  }
+
+  &:has(.display-1) {
+    --BASE: var(--XXL);
+  }
+}
