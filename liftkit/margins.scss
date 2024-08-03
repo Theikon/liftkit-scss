@@ -1,0 +1,217 @@
+/*!
+ * LiftKit is a lightweight framework for clean, minimalist designs.
+ * Copyright (c) 2024 Niklas Simandi
+ *
+ * This program is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published by the
+ * Free Software Foundation, either version 3 of the License, or (at your
+ * option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+@use "globals";
+
+.m-top__xs {
+  margin-top: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+}
+
+.m-top__s {
+  margin-top: calc(var(--XS) * #{globals.$MAJOR-HALF});
+}
+
+.m-top__m {
+  margin-top: calc(var(--S) * #{globals.$MAJOR-HALF});
+}
+
+.m-top__l {
+  margin-top: var(--M);
+}
+
+.m-top__xl {
+  margin-top: var(--L);
+}
+
+.m-top__xxl {
+  margin-top: var(--XL);
+}
+
+
+.m-right__xs {
+  margin-right: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+}
+
+.m-right__s {
+  margin-right: calc(var(--XS) * #{globals.$MAJOR-HALF});
+}
+
+.m-right__m {
+  margin-right: calc(var(--S) * #{globals.$MAJOR-HALF});
+}
+
+.m-right__l {
+  margin-right: var(--M);
+}
+
+.m-right__xl {
+  margin-right: var(--L);
+}
+
+.m-right__xxl {
+  margin-right: var(--XL);
+}
+
+
+.m-bottom__xs {
+  margin-bottom: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+}
+
+.m-bottom__s {
+  margin-bottom: calc(var(--XS) * #{globals.$MAJOR-HALF});
+}
+
+.m-bottom__m {
+  margin-bottom: calc(var(--S) * #{globals.$MAJOR-HALF});
+}
+
+.m-bottom__l {
+  margin-bottom: var(--M);
+}
+
+.m-bottom__xl {
+  margin-bottom: var(--L);
+}
+
+.m-bottom__xxl {
+  margin-bottom: var(--XL);
+}
+
+
+.m-left__xs {
+  margin-left: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+}
+
+.m-left__s {
+  margin-left: calc(var(--XS) * #{globals.$MAJOR-HALF});
+}
+
+.m-left__m {
+  margin-left: calc(var(--S) * #{globals.$MAJOR-HALF});
+}
+
+.m-left__l {
+  margin-left: var(--M);
+}
+
+.m-left__xl {
+  margin-left: var(--L);
+}
+
+.m-left__xxl {
+  margin-left: var(--XL);
+}
+
+
+.p-top__xs {
+  padding-top: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+}
+
+.p-top__s {
+  padding-top: calc(var(--XS) * #{globals.$MAJOR-HALF});
+}
+
+.p-top__m {
+  padding-top: calc(var(--S) * #{globals.$MAJOR-HALF});
+}
+
+.p-top__l {
+  padding-top: var(--M);
+}
+
+.p-top__xl {
+  padding-top: var(--L);
+}
+
+.p-top__xxl {
+  padding-top: var(--XL);
+}
+
+
+.p-right__xs {
+  padding-right: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+}
+
+.p-right__s {
+  padding-right: calc(var(--XS) * #{globals.$MAJOR-HALF});
+}
+
+.p-right__m {
+  padding-right: calc(var(--S) * #{globals.$MAJOR-HALF});
+}
+
+.p-right__l {
+  padding-right: var(--M);
+}
+
+.p-right__xl {
+  padding-right: var(--L);
+}
+
+.p-right__xxl {
+  padding-right: var(--XL);
+}
+
+
+.p-bottom__xs {
+  padding-bottom: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+}
+
+.p-bottom__s {
+  padding-bottom: calc(var(--XS) * #{globals.$MAJOR-HALF});
+}
+
+.p-bottom__m {
+  padding-bottom: calc(var(--S) * #{globals.$MAJOR-HALF});
+}
+
+.p-bottom__l {
+  padding-bottom: var(--M);
+}
+
+.p-bottom__xl {
+  padding-bottom: var(--L);
+}
+
+.p-bottom__xxl {
+  padding-bottom: var(--XL);
+}
+
+
+.p-left__xs {
+  padding-left: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+}
+
+.p-left__s {
+  padding-left: calc(var(--XS) * #{globals.$MAJOR-HALF});
+}
+
+.p-left__m {
+  padding-left: calc(var(--S) * #{globals.$MAJOR-HALF});
+}
+
+.p-left__l {
+  padding-left: var(--M);
+}
+
+.p-left__xl {
+  padding-left: var(--L);
+}
+
+.p-left__xxl {
+  padding-left: var(--XL);
+}
