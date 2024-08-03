@@ -1,0 +1,194 @@
+/*!
+ * LiftKit is a lightweight framework for clean, minimalist designs.
+ * Copyright (c) 2024 Niklas Simandi
+ *
+ * This program is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published by the
+ * Free Software Foundation, either version 3 of the License, or (at your
+ * option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+@use "sass:math";
+
+@use "globals";
+
+:root {
+  font-family: "Inter", sans-serif;
+}
+
+.display-1 {
+  font-size: var(--XXL);
+  line-height: #{globals.$MAJOR-QUARTER};
+  letter-spacing: -0.022em;
+}
+
+.display-2 {
+  font-size: var(--XL);
+  line-height: #{globals.$MAJOR-HALF};
+  letter-spacing: -0.022em;
+}
+
+.title-a {
+  font-size: calc(var(--L) * #{globals.$MAJOR-HALF});
+  line-height: #{globals.$MAJOR-HALF};
+  letter-spacing: -0.022em;
+}
+
+.title-b {
+  font-size: var(--L);
+  line-height: #{globals.$MAJOR-HALF};
+  letter-spacing: -0.02em;
+}
+
+.title-c {
+  font-size: calc(var(--M) * #{globals.$MAJOR-HALF});
+  line-height: #{globals.$MAJOR-HALF};
+  letter-spacing: -0.017em;
+}
+
+.heading {
+  font-size: calc(var(--M) * #{globals.$MAJOR-QUARTER});
+  font-weight: 600;
+  line-height: #{globals.$MAJOR-HALF};
+  letter-spacing: -0.014em;
+}
+
+.subheading {
+  font-size: calc(var(--M) / #{globals.$MAJOR-QUARTER});
+  line-height: #{globals.$MAJOR-HALF};
+  letter-spacing: -0.007em;
+}
+
+.body {
+  font-size: var(--M);
+  line-height: #{globals.$MAJOR};
+  letter-spacing: -0.011em;
+}
+
+.callout {
+  font-size: calc(var(--M) / #{globals.$MAJOR-EIGHT});
+  line-height: #{globals.$MAJOR-HALF};
+  letter-spacing: -0.009em;
+}
+
+.label {
+  font-size: calc(var(--M) / #{globals.round_to(math.pow(globals.$MAJOR-EIGHT, 2))});
+  font-weight: 500;
+  line-height: #{globals.$MAJOR-HALF};
+  letter-spacing: -0.004em;
+}
+
+.caption {
+  font-size: calc(var(--M) / #{globals.$MAJOR-HALF});
+  line-height: #{globals.$MAJOR-HALF};
+  letter-spacing: -0.007em;
+}
+
+.overline {
+  @extend .caption;
+
+  letter-spacing: 0.1em * globals.$MINOR;
+  text-transform: uppercase;
+}
+
+
+.display-1__bold {
+  @extend .display-1;
+
+  font-weight: 700;
+}
+
+.display-2__bold {
+  @extend .display-2;
+
+  font-weight: 700;
+}
+
+.title-a__bold {
+  @extend .title-a;
+
+  font-weight: 700;
+}
+
+.title-b__bold {
+  @extend .title-b;
+
+  font-weight: 600;
+}
+
+.title-c__bold {
+  @extend .title-c;
+
+  font-weight: 600;
+}
+
+.heading__bold {
+  @extend .heading;
+
+  font-weight: 700;
+}
+
+.subheading__bold {
+  @extend .subheading;
+
+  font-weight: 600;
+}
+
+.body__bold {
+  @extend .body;
+
+  font-weight: 600;
+}
+
+.callout__bold {
+  @extend .callout;
+
+  font-weight: 600;
+}
+
+.label__bold {
+  @extend .label;
+
+  font-weight: 700;
+}
+
+.caption__bold {
+  @extend .caption;
+
+  font-weight: 600;
+}
+
+.overline__bold {
+  @extend .overline;
+
+  font-weight: 600;
+}
+
+@media screen and (max-width: 767px) {
+
+  .display-1 {
+    font-size: calc(var(--XL) * #{globals.$MAJOR-HALF});
+  }
+}
+
+@media screen and (max-width: 479px) {
+
+  .display-1 {
+    font-size: var(--XL);
+  }
+
+  .display-2 {
+    font-size: calc(var(--L) * #{globals.$MAJOR-HALF});
+  }
+
+  .title-a {
+    font-size: calc(var(--L) * #{globals.$MAJOR-QUARTER});
+  }
+}
