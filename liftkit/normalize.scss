@@ -32,8 +32,8 @@ Sections
 body {
   margin: 0; /* Remove the margin in all browsers. */
 
-  color: var(--light__onsurface_clv);
-  background-color: var(--light__background_clv);
+  color: var(--light__onbackground_lkv);
+  background-color: var(--light__background_lkv);
 }
 
 h1,
@@ -51,7 +51,7 @@ li {
 a {
   font-weight: 700;
   text-decoration: underline;
-  color: var(--light__primary_clv);
+  color: var(--light__primary_lkv);
 }
 
 ul {
