@@ -21,9 +21,11 @@
 @use "liftkit/containers";
 @use "liftkit/normalize";
 @use "liftkit/sections";
-@use "liftkit/shadows";
-@use "liftkit/margins";
-@use "liftkit/grids";
+@use "liftkit/buttons";
 @use "liftkit/fonts";
+@use "liftkit/grids";
 @use "liftkit/cards";
-@use "liftkit/sizes";
+
+@forward "liftkit/shadows";
+@forward "liftkit/margins";
+@forward "liftkit/sizes";
