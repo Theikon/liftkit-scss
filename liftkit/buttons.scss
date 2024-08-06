@@ -22,6 +22,7 @@
 .button__text {
   position: relative;
   display: inline-block;
+  overflow: hidden;
   padding: calc(var(--S) / #{globals.$MAJOR-HALF}) var(--M);
   text-decoration: none;
 
