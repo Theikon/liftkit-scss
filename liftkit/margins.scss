@@ -17,201 +17,201 @@
  */
 @use "globals";
 
-.m-top__xs {
+@mixin m-top__xs {
   margin-top: calc(var(--XXS) * #{globals.$MAJOR-HALF});
 }
 
-.m-top__s {
+@mixin m-top__s {
   margin-top: calc(var(--XS) * #{globals.$MAJOR-HALF});
 }
 
-.m-top__m {
+@mixin m-top__m {
   margin-top: calc(var(--S) * #{globals.$MAJOR-HALF});
 }
 
-.m-top__l {
+@mixin m-top__l {
   margin-top: var(--M);
 }
 
-.m-top__xl {
+@mixin m-top__xl {
   margin-top: var(--L);
 }
 
-.m-top__xxl {
+@mixin m-top__xxl {
   margin-top: var(--XL);
 }
 
 
-.m-right__xs {
+@mixin m-right__xs {
   margin-right: calc(var(--XXS) * #{globals.$MAJOR-HALF});
 }
 
-.m-right__s {
+@mixin m-right__s {
   margin-right: calc(var(--XS) * #{globals.$MAJOR-HALF});
 }
 
-.m-right__m {
+@mixin m-right__m {
   margin-right: calc(var(--S) * #{globals.$MAJOR-HALF});
 }
 
-.m-right__l {
+@mixin m-right__l {
   margin-right: var(--M);
 }
 
-.m-right__xl {
+@mixin m-right__xl {
   margin-right: var(--L);
 }
 
-.m-right__xxl {
+@mixin m-right__xxl {
   margin-right: var(--XL);
 }
 
 
-.m-bottom__xs {
+@mixin m-bottom__xs {
   margin-bottom: calc(var(--XXS) * #{globals.$MAJOR-HALF});
 }
 
-.m-bottom__s {
+@mixin m-bottom__s {
   margin-bottom: calc(var(--XS) * #{globals.$MAJOR-HALF});
 }
 
-.m-bottom__m {
+@mixin m-bottom__m {
   margin-bottom: calc(var(--S) * #{globals.$MAJOR-HALF});
 }
 
-.m-bottom__l {
+@mixin m-bottom__l {
   margin-bottom: var(--M);
 }
 
-.m-bottom__xl {
+@mixin m-bottom__xl {
   margin-bottom: var(--L);
 }
 
-.m-bottom__xxl {
+@mixin m-bottom__xxl {
   margin-bottom: var(--XL);
 }
 
 
-.m-left__xs {
+@mixin m-left__xs {
   margin-left: calc(var(--XXS) * #{globals.$MAJOR-HALF});
 }
 
-.m-left__s {
+@mixin m-left__s {
   margin-left: calc(var(--XS) * #{globals.$MAJOR-HALF});
 }
 
-.m-left__m {
+@mixin m-left__m {
   margin-left: calc(var(--S) * #{globals.$MAJOR-HALF});
 }
 
-.m-left__l {
+@mixin m-left__l {
   margin-left: var(--M);
 }
 
-.m-left__xl {
+@mixin m-left__xl {
   margin-left: var(--L);
 }
 
-.m-left__xxl {
+@mixin m-left__xxl {
   margin-left: var(--XL);
 }
 
 
-.p-top__xs {
+@mixin p-top__xs {
   padding-top: calc(var(--XXS) * #{globals.$MAJOR-HALF});
 }
 
-.p-top__s {
+@mixin p-top__s {
   padding-top: calc(var(--XS) * #{globals.$MAJOR-HALF});
 }
 
-.p-top__m {
+@mixin p-top__m {
   padding-top: calc(var(--S) * #{globals.$MAJOR-HALF});
 }
 
-.p-top__l {
+@mixin p-top__l {
   padding-top: var(--M);
 }
 
-.p-top__xl {
+@mixin p-top__xl {
   padding-top: var(--L);
 }
 
-.p-top__xxl {
+@mixin p-top__xxl {
   padding-top: var(--XL);
 }
 
 
-.p-right__xs {
+@mixin p-right__xs {
   padding-right: calc(var(--XXS) * #{globals.$MAJOR-HALF});
 }
 
-.p-right__s {
+@mixin p-right__s {
   padding-right: calc(var(--XS) * #{globals.$MAJOR-HALF});
 }
 
-.p-right__m {
+@mixin p-right__m {
   padding-right: calc(var(--S) * #{globals.$MAJOR-HALF});
 }
 
-.p-right__l {
+@mixin p-right__l {
   padding-right: var(--M);
 }
 
-.p-right__xl {
+@mixin p-right__xl {
   padding-right: var(--L);
 }
 
-.p-right__xxl {
+@mixin p-right__xxl {
   padding-right: var(--XL);
 }
 
 
-.p-bottom__xs {
+@mixin p-bottom__xs {
   padding-bottom: calc(var(--XXS) * #{globals.$MAJOR-HALF});
 }
 
-.p-bottom__s {
+@mixin p-bottom__s {
   padding-bottom: calc(var(--XS) * #{globals.$MAJOR-HALF});
 }
 
-.p-bottom__m {
+@mixin p-bottom__m {
   padding-bottom: calc(var(--S) * #{globals.$MAJOR-HALF});
 }
 
-.p-bottom__l {
+@mixin p-bottom__l {
   padding-bottom: var(--M);
 }
 
-.p-bottom__xl {
+@mixin p-bottom__xl {
   padding-bottom: var(--L);
 }
 
-.p-bottom__xxl {
+@mixin p-bottom__xxl {
   padding-bottom: var(--XL);
 }
 
 
-.p-left__xs {
+@mixin p-left__xs {
   padding-left: calc(var(--XXS) * #{globals.$MAJOR-HALF});
 }
 
-.p-left__s {
+@mixin p-left__s {
   padding-left: calc(var(--XS) * #{globals.$MAJOR-HALF});
 }
 
-.p-left__m {
+@mixin p-left__m {
   padding-left: calc(var(--S) * #{globals.$MAJOR-HALF});
 }
 
-.p-left__l {
+@mixin p-left__l {
   padding-left: var(--M);
 }
 
-.p-left__xl {
+@mixin p-left__xl {
   padding-left: var(--L);
 }
 
-.p-left__xxl {
+@mixin p-left__xxl {
   padding-left: var(--XL);
 }
