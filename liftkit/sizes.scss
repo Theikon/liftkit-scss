@@ -17,67 +17,67 @@
  */
 @use "globals";
 
-.w__xxs {
+@mixin w__xxs {
   width: var(--M);
 }
 
-.w__xs {
+@mixin w__xs {
   width: calc(var(--M) * #{globals.$MAJOR-QUARTER});
 }
 
-.w__s {
+@mixin w__s {
   width: calc(var(--M) * #{globals.$MAJOR-HALF});
 }
 
-.w__m {
+@mixin w__m {
   width: var(--L);
 }
 
-.w__l {
+@mixin w__l {
   width: calc(var(--L) * #{globals.$MAJOR-HALF});
 }
 
-.w__xl {
+@mixin w__xl {
   width: var(--XL);
 }
 
-.w__xxl {
+@mixin w__xxl {
   width: var(--XXL);
 }
 
-.w__xxxl {
+@mixin w__xxxl {
   width: var(--XXXL);
 }
 
 
-.h__xxs {
+@mixin h__xxs {
   height: var(--M);
 }
 
-.h__xs {
+@mixin h__xs {
   height: calc(var(--M) * #{globals.$MAJOR-QUARTER});
 }
 
-.h__s {
+@mixin h__s {
   height: calc(var(--M) * #{globals.$MAJOR-HALF});
 }
 
-.h__m {
+@mixin h__m {
   height: var(--L);
 }
 
-.h__l {
+@mixin h__l {
   height: calc(var(--L) * #{globals.$MAJOR-HALF});
 }
 
-.h__xl {
+@mixin h__xl {
   height: var(--XL);
 }
 
-.h__xxl {
+@mixin h__xxl {
   height: var(--XXL);
 }
 
-.h__xxxl {
+@mixin h__xxxl {
   height: var(--XXXL);
 }
