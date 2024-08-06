@@ -1,0 +1,182 @@
+/*!
+ * LiftKit is a lightweight framework for clean, minimalist designs.
+ * Copyright (c) 2024 Niklas Simandi
+ *
+ * This program is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published by the
+ * Free Software Foundation, either version 3 of the License, or (at your
+ * option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+@use "globals";
+
+@mixin h-block {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin h-block__xs {
+  @include h-block;
+
+  column-gap: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+}
+
+@mixin h-block__s {
+  @include h-block;
+
+  column-gap: calc(var(--XS) * #{globals.$MAJOR-HALF});
+}
+
+@mixin h-block__m {
+  @include h-block;
+
+  column-gap: calc(var(--S) * #{globals.$MAJOR-HALF});
+}
+
+@mixin h-block__l {
+  @include h-block;
+
+  column-gap: var(--M);
+}
+
+@mixin h-block__xl {
+  @include h-block;
+
+  column-gap: var(--L);
+}
+
+@mixin h-block__xxl {
+  @include h-block;
+
+  column-gap: var(--XL);
+}
+
+@mixin v-block {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin v-block__xs {
+  @include v-block;
+
+  row-gap: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+}
+
+@mixin v-block__s {
+  @include v-block;
+
+  row-gap: calc(var(--XS) * #{globals.$MAJOR-HALF});
+}
+
+@mixin v-block__m {
+  @include v-block;
+
+  row-gap: calc(var(--S) * #{globals.$MAJOR-HALF});
+}
+
+@mixin v-block__l {
+  @include v-block;
+
+  row-gap: var(--M);
+}
+
+@mixin v-block__xl {
+  @include v-block;
+
+  row-gap: var(--L);
+}
+
+@mixin v-block__xxl {
+  @include v-block;
+
+  row-gap: var(--XL);
+}
+
+@mixin h-inline {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+@mixin h-inline__xs {
+  @include h-inline;
+
+  column-gap: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+}
+
+@mixin h-inline__s {
+  @include h-inline;
+
+  column-gap: calc(var(--XS) * #{globals.$MAJOR-HALF});
+}
+
+@mixin h-inline__m {
+  @include h-inline;
+
+  column-gap: calc(var(--S) * #{globals.$MAJOR-HALF});
+}
+
+@mixin h-inline__l {
+  @include h-inline;
+
+  column-gap: var(--M);
+}
+
+@mixin h-inline__xl {
+  @include h-inline;
+
+  column-gap: var(--L);
+}
+
+@mixin h-inline__xxl {
+  @include h-inline;
+
+  column-gap: var(--XL);
+}
+
+@mixin v-inline {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+@mixin v-inline__xs {
+  @include v-inline;
+
+  row-gap: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+}
+
+@mixin v-inline__s {
+  @include v-inline;
+
+  row-gap: calc(var(--XS) * #{globals.$MAJOR-HALF});
+}
+
+@mixin v-inline__m {
+  @include v-inline;
+
+  row-gap: calc(var(--S) * #{globals.$MAJOR-HALF});
+}
+
+@mixin v-inline__l {
+  @include v-inline;
+
+  row-gap: var(--M);
+}
+
+@mixin v-inline__xl {
+  @include v-inline;
+
+  row-gap: var(--L);
+}
+
+@mixin v-inline__xxl {
+  @include v-inline;
+
+  row-gap: var(--XL);
+}
