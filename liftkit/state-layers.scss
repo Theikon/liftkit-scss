@@ -1,0 +1,20 @@
+.state-layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  opacity: 0;
+
+  background-color: black;
+}
+
+*:hover > .state-layer {
+  opacity: 8%;
+}
+
+*:active > .state-layer {
+  opacity: 10%;
+}
