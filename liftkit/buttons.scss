@@ -1,0 +1,71 @@
+/*!
+ * LiftKit is a lightweight framework for clean, minimalist designs.
+ * Copyright (c) 2024 Niklas Simandi
+ *
+ * This program is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published by the
+ * Free Software Foundation, either version 3 of the License, or (at your
+ * option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+@use "globals";
+@use "blocks";
+@use "sizes";
+
+.button__text {
+  position: relative;
+  display: inline-block;
+  padding: calc(var(--S) / #{globals.$MAJOR-HALF}) var(--M);
+  text-decoration: none;
+
+  color: var(--light__primary_lkv);
+  // ensure visual consistency across different buttons
+  border: 1px solid transparent;
+  border-radius: 9999px; // round
+
+  &.large {
+    font-size: calc(var(--M) * #{globals.$MAJOR-HALF});
+  }
+
+  &:has(.button__icon.start) {
+    padding-right: calc(var(--M) * #{globals.$MAJOR-HALF});
+    padding-left: var(--S);
+  }
+
+  &:has(.button__icon.end) {
+    padding-right: var(--S);
+  }
+}
+
+.button {
+  @extend .button__text;
+
+  color: var(--light__onprimary_lkv);
+  background-color: var(--light__primary_lkv);
+}
+
+.button__outline {
+  @extend .button__text;
+
+  border-color: rgb(114, 114, 114);
+  background-color: transparent;
+}
+
+.button__content {
+  @include blocks.h-block;
+
+  align-items: center;
+  column-gap: calc(var(--S) / #{globals.$MAJOR-HALF});
+}
+
+.button__icon {
+  @include sizes.w__s;
+  @include sizes.h__s;
+}
