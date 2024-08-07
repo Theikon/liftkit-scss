@@ -37,6 +37,19 @@
     font-size: calc(var(--M) * #{globals.$MAJOR-HALF});
   }
 
+  // Since the :has pseudo-class is newly available, provide a fallback to
+  // manually specify which icons are present inside the button.
+  // Do not use @extend-at rule as non-conforming browsers will drop the entire
+  // rule!
+  &.start {
+    padding-right: calc(var(--M) * #{globals.$MAJOR-HALF});
+    padding-left: var(--S);
+  }
+
+  &.end {
+    padding-right: var(--S);
+  }
+
   &:has(.button__icon.start) {
     padding-right: calc(var(--M) * #{globals.$MAJOR-HALF});
     padding-left: var(--S);
