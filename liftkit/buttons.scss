@@ -15,18 +15,21 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
+@use "background-colors";
+@use "font-color";
 @use "globals";
 @use "blocks";
 @use "sizes";
 
 .button__text {
+  @include font-color.color-light__primary;
+
   position: relative;
   display: inline-block;
   overflow: hidden;
   padding: calc(var(--S) / #{globals.$MAJOR-HALF}) var(--M);
   text-decoration: none;
 
-  color: var(--light__primary_lkv);
   // ensure visual consistency across different buttons
   border: 1px solid transparent;
   border-radius: 9999px; // round
@@ -48,13 +51,13 @@
 .button {
   @extend .button__text;
 
-  color: var(--light__onprimary_lkv);
-  background-color: var(--light__primary_lkv);
+  @include background-colors.bg-light__primary;
 }
 
 .button__outline {
   @extend .button__text;
 
+  // TODO: introduce suitable color variables
   border-color: rgb(114, 114, 114);
   background-color: transparent;
 }
