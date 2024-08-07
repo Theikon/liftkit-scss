@@ -15,1213 +15,607 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
+@use "sass:map";
+
+$LIGHT: (
+  "primary": rgb(52, 105, 63),
+  "surface-tint": rgb(52, 105, 63),
+  "on-primary": rgb(255, 255, 255),
+  "primary-container": rgb(182, 241, 187),
+  "on-primary-container": rgb(0, 33, 10),
+  "secondary": rgb(81, 99, 81),
+  "on-secondary": rgb(255, 255, 255),
+  "secondary-container": rgb(211, 232, 209),
+  "on-secondary-container": rgb(15, 31, 17),
+  "tertiary": rgb(57, 101, 109),
+  "on-tertiary": rgb(255, 255, 255),
+  "tertiary-container": rgb(189, 234, 244),
+  "on-tertiary-container": rgb(0, 31, 36),
+  "error": rgb(186, 26, 26),
+  "on-error": rgb(255, 255, 255),
+  "error-container": rgb(255, 218, 214),
+  "on-error-container": rgb(65, 0, 2),
+  "background": rgb(247, 251, 242),
+  "on-background": rgb(24, 29, 24),
+  "surface": rgb(247, 251, 242),
+  "on-surface": rgb(24, 29, 24),
+  "surface-variant": rgb(221, 229, 218),
+  "on-surface-variant": rgb(65, 73, 65),
+  "outline": rgb(114, 121, 112),
+  "outline-variant": rgb(193, 201, 190),
+  "shadow": rgb(0, 0, 0),
+  "scrim": rgb(0, 0, 0),
+  "inverse-surface": rgb(45, 50, 44),
+  "inverse-on-surface": rgb(238, 242, 234),
+  "inverse-primary": rgb(155, 212, 160),
+  "primary-fixed": rgb(182, 241, 187),
+  "on-primary-fixed": rgb(0, 33, 10),
+  "primary-fixed-dim": rgb(155, 212, 160),
+  "on-primary-fixed-variant": rgb(27, 81, 41),
+  "secondary-fixed": rgb(211, 232, 209),
+  "on-secondary-fixed": rgb(15, 31, 17),
+  "secondary-fixed-dim": rgb(184, 204, 182),
+  "on-secondary-fixed-variant": rgb(57, 75, 58),
+  "tertiary-fixed": rgb(189, 234, 244),
+  "on-tertiary-fixed": rgb(0, 31, 36),
+  "tertiary-fixed-dim": rgb(161, 206, 215),
+  "on-tertiary-fixed-variant": rgb(31, 77, 85),
+  "surface-dim": rgb(215, 219, 211),
+  "surface-bright": rgb(247, 251, 242),
+  "surface-container-lowest": rgb(255, 255, 255),
+  "surface-container-low": rgb(241, 245, 236),
+  "surface-container": rgb(235, 239, 231),
+  "surface-container-high": rgb(229, 233, 225),
+  "surface-container-highest": rgb(224, 228, 220),
+);
+$DARK: (
+  "primary": rgb(155, 212, 160),
+  "surface-tint": rgb(155, 212, 160),
+  "on-primary": rgb(0, 57, 21),
+  "primary-container": rgb(27, 81, 41),
+  "on-primary-container": rgb(182, 241, 187),
+  "secondary": rgb(184, 204, 182),
+  "on-secondary": rgb(35, 52, 37),
+  "secondary-container": rgb(57, 75, 58),
+  "on-secondary-container": rgb(211, 232, 209),
+  "tertiary": rgb(161, 206, 215),
+  "on-tertiary": rgb(0, 54, 62),
+  "tertiary-container": rgb(31, 77, 85),
+  "on-tertiary-container": rgb(189, 234, 244),
+  "error": rgb(255, 180, 171),
+  "on-error": rgb(105, 0, 5),
+  "error-container": rgb(147, 0, 10),
+  "on-error-container": rgb(255, 218, 214),
+  "background": rgb(16, 21, 16),
+  "on-background": rgb(224, 228, 220),
+  "surface": rgb(16, 21, 16),
+  "on-surface": rgb(224, 228, 220),
+  "surface-variant": rgb(65, 73, 65),
+  "on-surface-variant": rgb(193, 201, 190),
+  "outline": rgb(139, 147, 137),
+  "outline-variant": rgb(65, 73, 65),
+  "shadow": rgb(0, 0, 0),
+  "scrim": rgb(0, 0, 0),
+  "inverse-surface": rgb(224, 228, 220),
+  "inverse-on-surface": rgb(45, 50, 44),
+  "inverse-primary": rgb(52, 105, 63),
+  "primary-fixed": rgb(182, 241, 187),
+  "on-primary-fixed": rgb(0, 33, 10),
+  "primary-fixed-dim": rgb(155, 212, 160),
+  "on-primary-fixed-variant": rgb(27, 81, 41),
+  "secondary-fixed": rgb(211, 232, 209),
+  "on-secondary-fixed": rgb(15, 31, 17),
+  "secondary-fixed-dim": rgb(184, 204, 182),
+  "on-secondary-fixed-variant": rgb(57, 75, 58),
+  "tertiary-fixed": rgb(189, 234, 244),
+  "on-tertiary-fixed": rgb(0, 31, 36),
+  "tertiary-fixed-dim": rgb(161, 206, 215),
+  "on-tertiary-fixed-variant": rgb(31, 77, 85),
+  "surface-dim": rgb(16, 21, 16),
+  "surface-bright": rgb(54, 58, 53),
+  "surface-container-lowest": rgb(11, 15, 11),
+  "surface-container-low": rgb(24, 29, 24),
+  "surface-container": rgb(28, 33, 28),
+  "surface-container-high": rgb(38, 43, 38),
+  "surface-container-highest": rgb(49, 54, 48),
+);
+
+@mixin set_theme($theme) {
+  --primary: #{map.get($theme, "primary")};
+  --surface-tint: #{map.get($theme, "surface-tint")};
+  --on-primary: #{map.get($theme, "on-primary")};
+  --primary-container: #{map.get($theme, "primary-container")};
+  --on-primary-container: #{map.get($theme, "on-primary-container")};
+  --secondary: #{map.get($theme, "secondary")};
+  --on-secondary: #{map.get($theme, "on-secondary")};
+  --secondary-container: #{map.get($theme, "secondary-container")};
+  --on-secondary-container: #{map.get($theme, "on-secondary-container")};
+  --tertiary: #{map.get($theme, "tertiary")};
+  --on-tertiary: #{map.get($theme, "on-tertiary")};
+  --tertiary-container: #{map.get($theme, "tertiary-container")};
+  --on-tertiary-container: #{map.get($theme, "on-tertiary-container")};
+  --error: #{map.get($theme, "error")};
+  --on-error: #{map.get($theme, "on-error")};
+  --error-container: #{map.get($theme, "error-container")};
+  --on-error-container: #{map.get($theme, "on-error-container")};
+  --background: #{map.get($theme, "background")};
+  --on-background: #{map.get($theme, "on-background")};
+  --surface: #{map.get($theme, "surface")};
+  --on-surface: #{map.get($theme, "on-surface")};
+  --surface-variant: #{map.get($theme, "surface-variant")};
+  --on-surface-variant: #{map.get($theme, "on-surface-variant")};
+  --outline: #{map.get($theme, "outline")};
+  --outline-variant: #{map.get($theme, "outline-variant")};
+  --shadow: #{map.get($theme, "shadow")};
+  --scrim: #{map.get($theme, "scrim")};
+  --inverse-surface: #{map.get($theme, "inverse-surface")};
+  --inverse-on-surface: #{map.get($theme, "inverse-on-surface")};
+  --inverse-primary: #{map.get($theme, "inverse-primary")};
+  --primary-fixed: #{map.get($theme, "primary-fixed")};
+  --on-primary-fixed: #{map.get($theme, "on-primary-fixed")};
+  --primary-fixed-dim: #{map.get($theme, "primary-fixed-dim")};
+  --on-primary-fixed-variant: #{map.get($theme, "on-primary-fixed-variant")};
+  --secondary-fixed: #{map.get($theme, "secondary-fixed")};
+  --on-secondary-fixed: #{map.get($theme, "on-secondary-fixed")};
+  --secondary-fixed-dim: #{map.get($theme, "secondary-fixed-dim")};
+  --on-secondary-fixed-variant: #{map.get($theme, "on-secondary-fixed-variant")};
+  --tertiary-fixed: #{map.get($theme, "tertiary-fixed")};
+  --on-tertiary-fixed: #{map.get($theme, "on-tertiary-fixed")};
+  --tertiary-fixed-dim: #{map.get($theme, "tertiary-fixed-dim")};
+  --on-tertiary-fixed-variant: #{map.get($theme, "on-tertiary-fixed-variant")};
+  --surface-dim: #{map.get($theme, "surface-dim")};
+  --surface-bright: #{map.get($theme, "surface-bright")};
+  --surface-container-lowest: #{map.get($theme, "surface-container-lowest")};
+  --surface-container-low: #{map.get($theme, "surface-container-low")};
+  --surface-container: #{map.get($theme, "surface-container")};
+  --surface-container-high: #{map.get($theme, "surface-container-high")};
+  --surface-container-highest: #{map.get($theme, "surface-container-highest")};
+}
+
 :root {
-  --light__primary: #4658ac;
-  --light__onprimary: #fefbff;
-  --light__outlinevariant: #c6c5d0;
-  --light__shadow: #000;
-  --light__info: #1758c7;
-  --light__secondary: #5a5d72;
-  --light__outline: #767680;
-  --light__inverseprimary: #b9c3ff;
-  --light__surfacecontainerlowest: #fff;
-  --light__surfacecontainerlow: #cbdadd;
-  --light__successcontainer: #92f8b4;
-  --light__onsuccesscontainer: #00210f;
-  --light__infocontainer: #dae2ff;
-  --light__oninfocontainer: #001946;
-  --light__warningcontainer: #ffdea7;
-  --light__onwarningcontainer: #271900;
-  --light__errorcontainer: #ffdad6;
-  --light__onerrorcontainer: #410002;
-  --light__onsecondarycontainer: #171b2c;
-  --light__primarycontainer: #dee1ff;
-  --light__onprimarycontainer: #001258;
-  --light__onsecondary: #fff;
-  --light__secondarycontainer: #dfe1f9;
-  --light__tertiary: #76546e;
-  --light__ontertiary: #fff;
-  --light__tertiarycontainer: #ffd7f2;
-  --light__ontertiarycontainer: #2d1228;
-  --light__error: #ba1a1a;
-  --light__onerror: #fff;
-  --light__background: #fefbff;
-  --light__onbackground: #1b1b1f;
-  --light__surface: #e8eced;
-  --light__onsurface: #1b1b1f;
-  --light__surfacevariant: #e3e1ec;
-  --light__onsurfacevariant: #45464f;
-  --light__scrim: #000;
-  --light__inversesurface: #303034;
-  --light__inverseonsurface: #f3f0f4;
-  --light__success: #006d3d;
-  --light__onsuccess: #fff;
-  --light__warning: #7c5800;
-  --light__onwarning: #fff;
-  --light__oninfo: #fff;
-  --light__primaryfixed: #dee1ff;
-  --light__onprimaryfixed: #001258;
-  --light__primaryfixeddim: #b9c3ff;
-  --light__onprimaryfixedvariant: #2d3f93;
-  --light__secondaryfixed: #dfe1f9;
-  --light__onsecondaryfixed: #171b2c;
-  --light__secondaryfixeddim: #c3c5dd;
-  --light__onsecondaryfixedvariant: #434659;
-  --light__tertiaryfixed: #ffd7f2;
-  --light__ontertiaryfixed: #2d1228;
-  --light__tertiaryfixeddim: #e5bad8;
-  --light__ontertiaryfixedvariant: #5c3c55;
-  --light__surfacedim: #dcd9de;
-  --light__surfacebright: #fbf8fd;
-  --light__surfacecontainer: #f0edf1;
-  --light__surfacecontainerhigh: #eae7ec;
-  --light__surfacecontainerhighest: #e4e1e6;
-
-  --dark__primary: #b9c3ff;
-  --dark__onprimary: #11277c;
-  --dark__primarycontainer: #2d3f93;
-  --dark__onprimarycontainer: #dee1ff;
-  --dark__secondary: #c3c5dd;
-  --dark__onsecondary: #2c2f42;
-  --dark__secondarycontainer: #434659;
-  --dark__onsecondarycontainer: #dfe1f9;
-  --dark__tertiary: #e5bad8;
-  --dark__ontertiary: #44263e;
-  --dark__tertiarycontainer: #5c3c55;
-  --dark__ontertiarycontainer: #ffd7f2;
-  --dark__error: #ffb4ab;
-  --dark__onerror: #690005;
-  --dark__errorcontainer: #93000a;
-  --dark__onerrorcontainer: #ffb4ab;
-  --dark__background: #1b1b1f;
-  --dark__onbackground: #e4e1e6;
-  --dark__surface: #131316;
-  --dark__onsurface: #e4e1e6;
-  --dark__onsurfacevariant: #c6c5d0;
-  --dark__surfacevariant: #45464f;
-  --dark__shadow: #000;
-  --dark__inversesurface: #e4e1e6;
-  --dark__scrim: #000;
-  --dark__inverseonsurface: #303034;
-  --dark__inverseprimary: #4658ac;
-  --dark__success: #76db9a;
-  --dark__onsuccess: #00391d;
-  --dark__successcontainer: #00522c;
-  --dark__onsuccesscontainer: #92f8b4;
-  --dark__warning: #f7bd48;
-  --dark__onwarning: #412d00;
-  --dark__warningcontainer: #5e4200;
-  --dark__onwarningcontainer: #ffdea7;
-  --dark__info: #b1c5ff;
-  --dark__oninfo: #002c71;
-  --dark__infocontainer: #00419e;
-  --dark__oninfocontainer: #dae2ff;
-  --dark__primaryfixed: #dee1ff;
-  --dark__onprimaryfixed: #001258;
-  --dark__primaryfixeddim: #b9c3ff;
-  --dark__onprimaryfixedvariant: #2d3f93;
-  --dark__secondaryfixed: #dfe1f9;
-  --dark__secondaryfixeddim: #c3c5dd;
-  --dark__onsecondaryfixed: #171b2c;
-  --dark__onsecondaryfixedvariant: #434659;
-  --dark__tertiaryfixed: #ffd7f2;
-  --dark__ontertiaryfixed: #2d1228;
-  --dark__tertiaryfixeddim: #e5bad8;
-  --dark__ontertiaryfixedvariant: #5c3c55;
-  --dark__surfacedim: #131316;
-  --dark__surfacebright: #39393c;
-  --dark__surfacecontainerlowest: #0e0e11;
-  --dark__surfacecontainer: #1f1f23;
-  --dark__surfacecontainerhigh: #2a2a2d;
-  --dark__surfacecontainerhighest: #353438;
-  --dark__surfacecontainerlow: #1b1b1f;
-  --dark__outline: #90909a;
-  --dark__outlinevariant: #45464f;
+  @include set_theme($LIGHT);
 }
 
-// Font colors
-@mixin color-light__primary {
-  color: var(--light__primary);
-}
-
-@mixin color-light__onprimary {
-  color: var(--light__onprimary);
-}
-
-@mixin color-light__primarycontainer {
-  color: var(--light__primarycontainer);
-}
-
-@mixin color-light__onprimarycontainer {
-  color: var(--light__onprimarycontainer);
-}
-
-@mixin color-light__secondary {
-  color: var(--light__secondary);
-}
-
-@mixin color-light__onsecondary {
-  color: var(--light__onsecondary);
-}
-
-@mixin color-light__secondarycontainer {
-  color: var(--light__secondarycontainer);
-}
-
-@mixin color-light__onsecondarycontainer {
-  color: var(--light__onsecondarycontainer);
-}
-
-@mixin color-light__tertiary {
-  color: var(--light__tertiary);
-}
-
-@mixin color-light__ontertiary {
-  color: var(--light__ontertiary);
-}
-
-@mixin color-light__tertiarycontainer {
-  color: var(--light__tertiarycontainer);
-}
-
-@mixin color-light__ontertiarycontainer {
-  color: var(--light__ontertiarycontainer);
-}
-
-@mixin color-light__error {
-  color: var(--light__error);
-}
-
-@mixin color-light__onerror {
-  color: var(--light__onerror);
-}
-
-@mixin color-light__errorcontainer {
-  color: var(--light__errorcontainer);
-}
-
-@mixin color-light__onerrorcontainer {
-  color: var(--light__onerrorcontainer);
-}
-
-@mixin color-light__background {
-  color: var(--light__background);
-}
-
-@mixin color-light__onbackground {
-  color: var(--light__onbackground);
-}
-
-@mixin color-light__surface {
-  color: var(--light__surface);
-}
-
-@mixin color-light__onsurface {
-  color: var(--light__onsurface);
-}
-
-@mixin color-light__surfacevariant {
-  color: var(--light__surfacevariant);
-}
-
-@mixin color-light__onsurfacevariant {
-  color: var(--light__onsurfacevariant);
-}
-
-@mixin color-light__outline {
-  color: var(--light__outline);
-}
-
-@mixin color-light__outlinevariant {
-  color: var(--light__outlinevariant);
-}
-
-@mixin color-light__shadow {
-  color: var(--light__shadow);
-}
-
-@mixin color-light__scrim {
-  color: var(--light__scrim);
-}
-
-@mixin color-light__inversesurface {
-  color: var(--light__inversesurface);
-}
-
-@mixin color-light__inverseonsurface {
-  color: var(--light__inverseonsurface);
-}
-
-@mixin color-light__inverseprimary {
-  color: var(--light__inverseprimary);
-}
-
-@mixin color-light__success {
-  color: var(--light__success);
-}
-
-@mixin color-light__successcontainer {
-  color: var(--light__successcontainer);
-}
-
-@mixin color-light__onsuccess {
-  color: var(--light__onsuccess);
-}
-
-@mixin color-light__onsuccesscontainer {
-  color: var(--light__onsuccesscontainer);
-}
-
-@mixin color-light__warning {
-  color: var(--light__warning);
-}
-
-@mixin color-light__warningcontainer {
-  color: var(--light__warningcontainer);
-}
-
-@mixin color-light__onwarning {
-  color: var(--light__onwarning);
-}
-
-@mixin color-light__onwarningcontainer {
-  color: var(--light__onwarningcontainer);
-}
-
-@mixin color-light__info {
-  color: var(--light__info);
-}
-
-@mixin color-light__infocontainer {
-  color: var(--light__infocontainer);
-}
-
-@mixin color-light__oninfo {
-  color: var(--light__oninfo);
-}
-
-@mixin color-light__oninfocontainer {
-  color: var(--light__oninfocontainer);
-}
-
-@mixin color-light__primaryfixed {
-  color: var(--light__primaryfixed);
-}
-
-@mixin color-light__primaryfixeddim {
-  color: var(--light__primaryfixeddim);
-}
-
-@mixin color-light__onprimaryfixed {
-  color: var(--light__onprimaryfixed);
-}
-
-@mixin color-light__onprimaryfixedvariant {
-  color: var(--light__onprimaryfixedvariant);
-}
-
-@mixin color-light__secondaryfixed {
-  color: var(--light__secondaryfixed);
-}
-
-@mixin color-light__secondaryfixeddim {
-  color: var(--light__secondaryfixeddim);
-}
-
-@mixin color-light__onsecondaryfixed {
-  color: var(--light__onsecondaryfixed);
-}
-
-@mixin color-light__onsecondaryfixedvariant {
-  color: var(--light__onsecondaryfixedvariant);
-}
-
-@mixin color-light__tertiaryfixed {
-  color: var(--light__tertiaryfixed);
-}
-
-@mixin color-light__tertiaryfixeddim {
-  color: var(--light__tertiaryfixeddim);
-}
-
-@mixin color-light__ontertiaryfixed {
-  color: var(--light__ontertiaryfixed);
-}
-
-@mixin color-light__ontertiaryfixedvariant {
-  color: var(--light__ontertiaryfixedvariant);
-}
-
-@mixin color-light__surfacedim {
-  color: var(--light__surfacedim);
-}
-
-@mixin color-light__surfacebright {
-  color: var(--light__surfacebright);
-}
-
-@mixin color-light__surfacecontainerlowest {
-  color: var(--light__surfacecontainerlowest);
-}
-
-@mixin color-light__surfacecontainerlow {
-  color: var(--light__surfacecontainerlow);
-}
-
-@mixin color-light__surfacecontainer {
-  color: var(--light__surfacecontainer);
-}
-
-@mixin color-light__surfacecontainerhigh {
-  color: var(--light__surfacecontainerhigh);
-}
-
-@mixin color-light__surfacecontainerhighest {
-  color: var(--light__surfacecontainerhighest);
-}
-
-@mixin color-dark__primary {
-  color: var(--dark__primary);
-}
-
-@mixin color-dark__onprimary {
-  color: var(--dark__onprimary);
-}
-
-@mixin color-dark__primarycontainer {
-  color: var(--dark__primarycontainer);
-}
-
-@mixin color-dark__onprimarycontainer {
-  color: var(--dark__onprimarycontainer);
-}
-
-@mixin color-dark__secondary {
-  color: var(--dark__secondary);
-}
-
-@mixin color-dark__onsecondary {
-  color: var(--dark__onsecondary);
-}
-
-@mixin color-dark__secondarycontainer {
-  color: var(--dark__secondarycontainer);
-}
-
-@mixin color-dark__onsecondarycontainer {
-  color: var(--dark__onsecondarycontainer);
-}
-
-@mixin color-dark__tertiary {
-  color: var(--dark__tertiary);
-}
-
-@mixin color-dark__ontertiary {
-  color: var(--dark__ontertiary);
-}
-
-@mixin color-dark__tertiarycontainer {
-  color: var(--dark__tertiarycontainer);
-}
-
-@mixin color-dark__ontertiarycontainer {
-  color: var(--dark__ontertiarycontainer);
-}
-
-@mixin color-dark__error {
-  color: var(--dark__error);
-}
-
-@mixin color-dark__onerror {
-  color: var(--dark__onerror);
-}
-
-@mixin color-dark__errorcontainer {
-  color: var(--dark__errorcontainer);
-}
-
-@mixin color-dark__onerrorcontainer {
-  color: var(--dark__onerrorcontainer);
-}
-
-@mixin color-dark__background {
-  color: var(--dark__background);
-}
-
-@mixin color-dark__onbackground {
-  color: var(--dark__onbackground);
-}
-
-@mixin color-dark__surface {
-  color: var(--dark__surface);
-}
-
-@mixin color-dark__onsurface {
-  color: var(--dark__onsurface);
-}
-
-@mixin color-dark__surfacevariant {
-  color: var(--dark__surfacevariant);
-}
-
-@mixin color-dark__onsurfacevariant {
-  color: var(--dark__onsurfacevariant);
-}
-
-@mixin color-dark__outline {
-  color: var(--dark__outline);
-}
-
-@mixin color-dark__outlinevariant {
-  color: var(--dark__outlinevariant);
-}
-
-@mixin color-dark__shadow {
-  color: var(--dark__shadow);
-}
-
-@mixin color-dark__scrim {
-  color: var(--dark__scrim);
-}
-
-@mixin color-dark__inversesurface {
-  color: var(--dark__inversesurface);
-}
-
-@mixin color-dark__inverseonsurface {
-  color: var(--dark__inverseonsurface);
-}
-
-@mixin color-dark__inverseprimary {
-  color: var(--dark__inverseprimary);
-}
-
-@mixin color-dark__success {
-  color: var(--dark__success);
-}
-
-@mixin color-dark__successcontainer {
-  color: var(--dark__successcontainer);
-}
-
-@mixin color-dark__onsuccess {
-  color: var(--dark__onsuccess);
-}
-
-@mixin color-dark__onsuccesscontainer {
-  color: var(--dark__onsuccesscontainer);
-}
-
-@mixin color-dark__warning {
-  color: var(--dark__warning);
-}
-
-@mixin color-dark__warningcontainer {
-  color: var(--dark__warningcontainer);
-}
-
-@mixin color-dark__onwarning {
-  color: var(--dark__onwarning);
-}
-
-@mixin color-dark__onwarningcontainer {
-  color: var(--dark__onwarningcontainer);
-}
-
-@mixin color-dark__info {
-  color: var(--dark__info);
-}
-
-@mixin color-dark__infocontainer {
-  color: var(--dark__infocontainer);
-}
-
-@mixin color-dark__oninfo {
-  color: var(--dark__oninfo);
-}
-
-@mixin color-dark__oninfocontainer {
-  color: var(--dark__oninfocontainer);
-}
-
-@mixin color-dark__primaryfixed {
-  color: var(--dark__primaryfixed);
-}
-
-@mixin color-dark__primaryfixeddim {
-  color: var(--dark__primaryfixeddim);
-}
-
-@mixin color-dark__onprimaryfixed {
-  color: var(--dark__onprimaryfixed);
-}
-
-@mixin color-dark__onprimaryfixedvariant {
-  color: var(--dark__onprimaryfixedvariant);
-}
-
-@mixin color-dark__secondaryfixed {
-  color: var(--dark__secondaryfixed);
-}
-
-@mixin color-dark__secondaryfixeddim {
-  color: var(--dark__secondaryfixeddim);
-}
+@media (prefers-color-scheme: dark) {
 
-@mixin color-dark__onsecondaryfixed {
-  color: var(--dark__onsecondaryfixed);
+  :root {
+    @include set_theme($DARK);
+  }
 }
 
-@mixin color-dark__onsecondaryfixedvariant {
-  color: var(--dark__onsecondaryfixedvariant);
+@mixin fg__primary {
+  color: var(--primary);
 }
 
-@mixin color-dark__tertiaryfixed {
-  color: var(--dark__tertiaryfixed);
+@mixin fg__surface-tint {
+  color: var(--surface-tint);
 }
 
-@mixin color-dark__tertiaryfixeddim {
-  color: var(--dark__tertiaryfixeddim);
+@mixin fg__on-primary {
+  color: var(--on-primary);
 }
 
-@mixin color-dark__ontertiaryfixed {
-  color: var(--dark__ontertiaryfixed);
+@mixin fg__primary-container {
+  color: var(--primary-container);
 }
 
-@mixin color-dark__ontertiaryfixedvariant {
-  color: var(--dark__ontertiaryfixedvariant);
+@mixin fg__on-primary-container {
+  color: var(--on-primary-container);
 }
 
-@mixin color-dark__surfacedim {
-  color: var(--dark__surfacedim);
+@mixin fg__secondary {
+  color: var(--secondary);
 }
 
-@mixin color-dark__surfacebright {
-  color: var(--dark__surfacebright);
+@mixin fg__on-secondary {
+  color: var(--on-secondary);
 }
 
-@mixin color-dark__surfacecontainerlowest {
-  color: var(--dark__surfacecontainerlowest);
+@mixin fg__secondary-container {
+  color: var(--secondary-container);
 }
 
-@mixin color-dark__surfacecontainerlow {
-  color: var(--dark__surfacecontainerlow);
+@mixin fg__on-secondary-container {
+  color: var(--on-secondary-container);
 }
 
-@mixin color-dark__surfacecontainer {
-  color: var(--dark__surfacecontainer);
+@mixin fg__tertiary {
+  color: var(--tertiary);
 }
 
-@mixin color-dark__surfacecontainerhigh {
-  color: var(--dark__surfacecontainerhigh);
+@mixin fg__on-tertiary {
+  color: var(--on-tertiary);
 }
 
-@mixin color-dark__surfacecontainerhighest {
-  color: var(--dark__surfacecontainerhighest);
+@mixin fg__tertiary-container {
+  color: var(--tertiary-container);
 }
 
-
-// Background colors
-@mixin bg-light__primary {
-  background-color: var(--light__primary);
-  color: var(--light__onprimary);
-}
-
-@mixin bg-light__onprimary {
-  background-color: var(--light__onprimary);
-  color: var(--light__primary);
-}
-
-@mixin bg-light__primarycontainer {
-  background-color: var(--light__primarycontainer);
-  color: var(--light__onprimarycontainer);
-}
-
-@mixin bg-light__onprimarycontainer {
-  background-color: var(--light__onprimarycontainer);
-  color: var(--light__primarycontainer);
-}
-
-@mixin bg-light__secondary {
-  background-color: var(--light__secondary);
-  color: var(--light__onsecondary);
-}
-
-@mixin bg-light__onsecondary {
-  background-color: var(--light__onsecondary);
-  color: var(--light__secondary);
-}
-
-@mixin bg-light__secondarycontainer {
-  background-color: var(--light__secondarycontainer);
-  color: var(--light__onsecondarycontainer);
-}
-
-@mixin bg-light__onsecondarycontainer {
-  background-color: var(--light__onsecondarycontainer);
-  color: var(--light__secondarycontainer);
-}
-
-@mixin bg-light__tertiary {
-  background-color: var(--light__tertiary);
-  color: var(--light__ontertiary);
-}
-
-@mixin bg-light__ontertiary {
-  background-color: var(--light__ontertiary);
-  color: var(--light__tertiary);
-}
-
-@mixin bg-light__tertiarycontainer {
-  background-color: var(--light__tertiarycontainer);
-  color: var(--light__ontertiarycontainer);
-}
-
-@mixin bg-light__ontertiarycontainer {
-  background-color: var(--light__ontertiarycontainer);
-  color: var(--light__tertiarycontainer);
-}
-
-@mixin bg-light__error {
-  background-color: var(--light__error);
-  color: var(--light__onerror);
-}
-
-@mixin bg-light__onerror {
-  background-color: var(--light__onerror);
-  color: var(--light__error);
-}
-
-@mixin bg-light__errorcontainer {
-  background-color: var(--light__errorcontainer);
-  color: var(--light__onerrorcontainer);
-}
-
-@mixin bg-light__onerrorcontainer {
-  background-color: var(--light__onerrorcontainer);
-  color: var(--light__errorcontainer);
-}
-
-@mixin bg-light__background {
-  background-color: var(--light__background);
-  color: var(--light__onbackground);
-}
-
-@mixin bg-light__onbackground {
-  background-color: var(--light__onbackground);
-  color: var(--light__background);
-}
-
-@mixin bg-light__surface {
-  background-color: var(--light__surface);
-  color: var(--light__onsurface);
-}
-
-@mixin bg-light__onsurface {
-  background-color: var(--light__onsurface);
-  color: var(--light__surface);
-}
-
-@mixin bg-light__surfacevariant {
-  background-color: var(--light__surfacevariant);
-  color: var(--light__onsurfacevariant);
-}
-
-@mixin bg-light__onsurfacevariant {
-  background-color: var(--light__onsurfacevariant);
-  color: var(--light__surfacevariant);
-}
-
-@mixin bg-light__outline {
-  background-color: var(--light__outline);
-  color: var(--light__surface);
-}
-
-@mixin bg-light__outlinevariant {
-  background-color: var(--light__outlinevariant);
-  color: var(--light__onsurface);
-}
-
-@mixin bg-light__shadow {
-  background-color: var(--light__shadow);
-  color: var(--light__surface);
-}
-
-@mixin bg-light__scrim {
-  background-color: var(--light__scrim);
-  color: var(--light__surface);
-}
-
-@mixin bg-light__inversesurface {
-  background-color: var(--light__inversesurface);
-  color: var(--light__inverseonsurface);
-}
-
-@mixin bg-light__inverseonsurface {
-  background-color: var(--light__inverseonsurface);
-  color: var(--light__inversesurface);
-}
-
-@mixin bg-light__inverseprimary {
-  background-color: var(--light__inverseprimary);
-  color: var(--light__onprimarycontainer);
-}
-
-@mixin bg-light__success {
-  background-color: var(--light__success);
-  color: var(--light__onsuccess);
-}
-
-@mixin bg-light__successcontainer {
-  background-color: var(--light__successcontainer);
-  color: var(--light__onsuccesscontainer);
-}
-
-@mixin bg-light__onsuccess {
-  background-color: var(--light__onsuccess);
-  color: var(--light__success);
+@mixin fg__on-tertiary-container {
+  color: var(--on-tertiary-container);
 }
 
-@mixin bg-light__onsuccesscontainer {
-  background-color: var(--light__onsuccesscontainer);
-  color: var(--light__successcontainer);
+@mixin fg__error {
+  color: var(--error);
 }
 
-@mixin bg-light__warning {
-  background-color: var(--light__warning);
-  color: var(--light__onwarning);
+@mixin fg__on-error {
+  color: var(--on-error);
 }
 
-@mixin bg-light__warningcontainer {
-  background-color: var(--light__warningcontainer);
-  color: var(--light__onwarningcontainer);
+@mixin fg__error-container {
+  color: var(--error-container);
 }
 
-@mixin bg-light__onwarning {
-  background-color: var(--light__onwarning);
-  color: var(--light__warning);
+@mixin fg__on-error-container {
+  color: var(--on-error-container);
 }
 
-@mixin bg-light__onwarningcontainer {
-  background-color: var(--light__onwarningcontainer);
-  color: var(--light__warningcontainer);
+@mixin fg__background {
+  color: var(--background);
 }
 
-@mixin bg-light__info {
-  background-color: var(--light__info);
-  color: var(--light__oninfo);
+@mixin fg__on-background {
+  color: var(--on-background);
 }
 
-@mixin bg-light__infocontainer {
-  background-color: var(--light__infocontainer);
-  color: var(--light__oninfocontainer);
+@mixin fg__surface {
+  color: var(--surface);
 }
 
-@mixin bg-light__oninfo {
-  background-color: var(--light__oninfo);
-  color: var(--light__info);
+@mixin fg__on-surface {
+  color: var(--on-surface);
 }
 
-@mixin bg-light__oninfocontainer {
-  background-color: var(--light__oninfocontainer);
-  color: var(--light__infocontainer);
+@mixin fg__surface-variant {
+  color: var(--surface-variant);
 }
 
-@mixin bg-light__primaryfixed {
-  background-color: var(--light__primaryfixed);
-  color: var(--light__onprimaryfixed);
+@mixin fg__on-surface-variant {
+  color: var(--on-surface-variant);
 }
 
-@mixin bg-light__primaryfixeddim {
-  background-color: var(--light__primaryfixeddim);
-  color: var(--light__onprimaryfixedvariant);
+@mixin fg__outline {
+  color: var(--outline);
 }
 
-@mixin bg-light__onprimaryfixed {
-  background-color: var(--light__onprimaryfixed);
-  color: var(--light__primaryfixed);
+@mixin fg__outline-variant {
+  color: var(--outline-variant);
 }
 
-@mixin bg-light__onprimaryfixedvariant {
-  background-color: var(--light__onprimaryfixedvariant);
-  color: var(--light__primaryfixed);
+@mixin fg__shadow {
+  color: var(--shadow);
 }
 
-@mixin bg-light__secondaryfixed {
-  background-color: var(--light__secondaryfixed);
-  color: var(--light__onsecondaryfixed);
+@mixin fg__scrim {
+  color: var(--scrim);
 }
 
-@mixin bg-light__secondaryfixeddim {
-  background-color: var(--light__secondaryfixeddim);
-  color: var(--light__onsecondaryfixedvariant);
+@mixin fg__inverse-surface {
+  color: var(--inverse-surface);
 }
 
-@mixin bg-light__onsecondaryfixed {
-  background-color: var(--light__onsecondaryfixed);
-  color: var(--light__secondaryfixed);
+@mixin fg__inverse-on-surface {
+  color: var(--inverse-on-surface);
 }
 
-@mixin bg-light__onsecondaryfixedvariant {
-  background-color: var(--light__onsecondaryfixedvariant);
-  color: var(--light__secondaryfixed);
+@mixin fg__inverse-primary {
+  color: var(--inverse-primary);
 }
 
-@mixin bg-light__tertiaryfixed {
-  background-color: var(--light__tertiaryfixed);
-  color: var(--light__ontertiaryfixed);
+@mixin fg__primary-fixed {
+  color: var(--primary-fixed);
 }
 
-@mixin bg-light__tertiaryfixeddim {
-  background-color: var(--light__tertiaryfixeddim);
-  color: var(--light__ontertiaryfixedvariant);
+@mixin fg__on-primary-fixed {
+  color: var(--on-primary-fixed);
 }
 
-@mixin bg-light__ontertiaryfixed {
-  background-color: var(--light__ontertiaryfixed);
-  color: var(--light__tertiaryfixed);
+@mixin fg__primary-fixed-dim {
+  color: var(--primary-fixed-dim);
 }
 
-@mixin bg-light__ontertiaryfixedvariant {
-  background-color: var(--light__ontertiaryfixedvariant);
-  color: var(--light__tertiaryfixed);
+@mixin fg__on-primary-fixed-variant {
+  color: var(--on-primary-fixed-variant);
 }
 
-@mixin bg-light__surfacedim {
-  background-color: var(--light__surfacedim);
-  color: var(--light__onsurface);
+@mixin fg__secondary-fixed {
+  color: var(--secondary-fixed);
 }
 
-@mixin bg-light__surfacebright {
-  background-color: var(--light__surfacebright);
-  color: var(--light__onsurface);
+@mixin fg__on-secondary-fixed {
+  color: var(--on-secondary-fixed);
 }
 
-@mixin bg-light__surfacecontainerlowest {
-  background-color: var(--light__surfacecontainerlowest);
-  color: var(--light__onsurface);
+@mixin fg__secondary-fixed-dim {
+  color: var(--secondary-fixed-dim);
 }
 
-@mixin bg-light__surfacecontainerlow {
-  background-color: var(--light__surfacecontainerlow);
-  color: var(--light__onsurface);
+@mixin fg__on-secondary-fixed-variant {
+  color: var(--on-secondary-fixed-variant);
 }
 
-@mixin bg-light__surfacecontainer {
-  background-color: var(--light__surfacecontainer);
-  color: var(--light__onsurface);
+@mixin fg__tertiary-fixed {
+  color: var(--tertiary-fixed);
 }
 
-@mixin bg-light__surfacecontainerhigh {
-  background-color: var(--light__surfacecontainerhigh);
-  color: var(--light__onsurface);
+@mixin fg__on-tertiary-fixed {
+  color: var(--on-tertiary-fixed);
 }
 
-@mixin bg-light__surfacecontainerhighest {
-  background-color: var(--light__surfacecontainerhighest);
-  color: var(--light__onsurface);
+@mixin fg__tertiary-fixed-dim {
+  color: var(--tertiary-fixed-dim);
 }
 
-@mixin bg-dark__primary {
-  background-color: var(--dark__primary);
-  color: var(--dark__onprimary);
+@mixin fg__on-tertiary-fixed-variant {
+  color: var(--on-tertiary-fixed-variant);
 }
 
-@mixin bg-dark__onprimary {
-  background-color: var(--dark__onprimary);
-  color: var(--dark__primary);
+@mixin fg__surface-dim {
+  color: var(--surface-dim);
 }
 
-@mixin bg-dark__primarycontainer {
-  background-color: var(--dark__primarycontainer);
-  color: var(--dark__onprimarycontainer);
+@mixin fg__surface-bright {
+  color: var(--surface-bright);
 }
 
-@mixin bg-dark__onprimarycontainer {
-  background-color: var(--dark__onprimarycontainer);
-  color: var(--dark__primarycontainer);
+@mixin fg__surface-container-lowest {
+  color: var(--surface-container-lowest);
 }
 
-@mixin bg-dark__secondary {
-  background-color: var(--dark__secondary);
-  color: var(--dark__onsecondary);
+@mixin fg__surface-container-low {
+  color: var(--surface-container-low);
 }
 
-@mixin bg-dark__onsecondary {
-  background-color: var(--dark__onsecondary);
-  color: var(--dark__secondary);
+@mixin fg__surface-container {
+  color: var(--surface-container);
 }
 
-@mixin bg-dark__secondarycontainer {
-  background-color: var(--dark__secondarycontainer);
-  color: var(--dark__onsecondarycontainer);
+@mixin fg__surface-container-high {
+  color: var(--surface-container-high);
 }
 
-@mixin bg-dark__onsecondarycontainer {
-  background-color: var(--dark__onsecondarycontainer);
-  color: var(--dark__secondarycontainer);
+@mixin fg__surface-container-highest {
+  color: var(--surface-container-highest);
 }
 
-@mixin bg-dark__tertiary {
-  background-color: var(--dark__tertiary);
-  color: var(--dark__ontertiary);
-}
-
-@mixin bg-dark__ontertiary {
-  background-color: var(--dark__ontertiary);
-  color: var(--dark__tertiary);
-}
-
-@mixin bg-dark__tertiarycontainer {
-  background-color: var(--dark__tertiarycontainer);
-  color: var(--dark__ontertiarycontainer);
-}
-
-@mixin bg-dark__ontertiarycontainer {
-  background-color: var(--dark__ontertiarycontainer);
-  color: var(--dark__tertiarycontainer);
-}
-
-@mixin bg-dark__error {
-  background-color: var(--dark__error);
-  color: var(--dark__onerror);
-}
 
-@mixin bg-dark__onerror {
-  background-color: var(--dark__onerror);
-  color: var(--dark__error);
+@mixin bg__primary {
+  background-color: var(--primary);
+  color: var(--on-primary);
 }
 
-@mixin bg-dark__errorcontainer {
-  background-color: var(--dark__errorcontainer);
-  color: var(--dark__onerrorcontainer);
+@mixin bg__on-primary {
+  background-color: var(--on-primary);
+  color: var(--primary);
 }
 
-@mixin bg-dark__onerrorcontainer {
-  background-color: var(--dark__onerrorcontainer);
-  color: var(--dark__errorcontainer);
+@mixin bg__primary-container {
+  background-color: var(--primary-container);
+  color: var(--on-primary-container);
 }
 
-@mixin bg-dark__background {
-  background-color: var(--dark__background);
-  color: var(--dark__onbackground);
+@mixin bg__on-primary-container {
+  background-color: var(--on-primary-container);
+  color: var(--primary-container);
 }
 
-@mixin bg-dark__onbackground {
-  background-color: var(--dark__onbackground);
-  color: var(--dark__background);
+@mixin bg__secondary {
+  background-color: var(--secondary);
+  color: var(--on-secondary);
 }
 
-@mixin bg-dark__surface {
-  background-color: var(--dark__surface);
-  color: var(--dark__onsurface);
+@mixin bg__on-secondary {
+  background-color: var(--on-secondary);
+  color: var(--secondary);
 }
 
-@mixin bg-dark__onsurface {
-  background-color: var(--dark__onsurface);
-  color: var(--dark__surface);
+@mixin bg__secondary-container {
+  background-color: var(--secondary-container);
+  color: var(--on-secondary-container);
 }
 
-@mixin bg-dark__surfacevariant {
-  background-color: var(--dark__surfacevariant);
-  color: var(--dark__onsurfacevariant);
+@mixin bg__on-secondary-container {
+  background-color: var(--on-secondary-container);
+  color: var(--secondary-container);
 }
 
-@mixin bg-dark__onsurfacevariant {
-  background-color: var(--dark__onsurfacevariant);
-  color: var(--dark__surfacevariant);
+@mixin bg__tertiary {
+  background-color: var(--tertiary);
+  color: var(--on-tertiary);
 }
 
-@mixin bg-dark__outline {
-  background-color: var(--dark__outline);
-  color: var(--dark__onsurface);
+@mixin bg__on-tertiary {
+  background-color: var(--on-tertiary);
+  color: var(--tertiary);
 }
 
-@mixin bg-dark__outlinevariant {
-  background-color: var(--dark__outlinevariant);
-  color: var(--dark__onsurface);
+@mixin bg__tertiary-container {
+  background-color: var(--tertiary-container);
+  color: var(--on-tertiary-container);
 }
 
-@mixin bg-dark__shadow {
-  background-color: var(--dark__shadow);
-  color: var(--dark__inversesurface);
+@mixin bg__on-tertiary-container {
+  background-color: var(--on-tertiary-container);
+  color: var(--tertiary-container);
 }
 
-@mixin bg-dark__scrim {
-  background-color: var(--dark__scrim);
-  color: var(--dark__inversesurface);
+@mixin bg__error {
+  background-color: var(--error);
+  color: var(--on-error);
 }
 
-@mixin bg-dark__inversesurface {
-  background-color: var(--dark__inversesurface);
-  color: var(--dark__inverseonsurface);
+@mixin bg__on-error {
+  background-color: var(--on-error);
+  color: var(--error);
 }
 
-@mixin bg-dark__inverseonsurface {
-  background-color: var(--dark__inverseonsurface);
-  color: var(--dark__inversesurface);
+@mixin bg__error-container {
+  background-color: var(--error-container);
+  color: var(--on-error-container);
 }
 
-@mixin bg-dark__inverseprimary {
-  background-color: var(--dark__inverseprimary);
-  color: var(--dark__onprimarycontainer);
+@mixin bg__on-error-container {
+  background-color: var(--on-error-container);
+  color: var(--error-container);
 }
 
-@mixin bg-dark__success {
-  background-color: var(--dark__success);
-  color: var(--dark__onsuccess);
+@mixin bg__background {
+  background-color: var(--background);
+  color: var(--on-background);
 }
 
-@mixin bg-dark__successcontainer {
-  background-color: var(--dark__successcontainer);
-  color: var(--dark__onsuccesscontainer);
+@mixin bg__on-background {
+  background-color: var(--on-background);
+  color: var(--background);
 }
 
-@mixin bg-dark__onsuccess {
-  background-color: var(--dark__onsuccess);
-  color: var(--dark__success);
+@mixin bg__surface {
+  background-color: var(--surface);
+  color: var(--on-surface);
 }
 
-@mixin bg-dark__onsuccesscontainer {
-  background-color: var(--dark__onsuccesscontainer);
-  color: var(--dark__successcontainer);
+@mixin bg__on-surface {
+  background-color: var(--on-surface);
+  color: var(--surface);
 }
 
-@mixin bg-dark__warning {
-  background-color: var(--dark__warning);
-  color: var(--dark__onwarning);
+@mixin bg__surface-variant {
+  background-color: var(--surface-variant);
+  color: var(--on-surface-variant);
 }
 
-@mixin bg-dark__warningcontainer {
-  background-color: var(--dark__warningcontainer);
-  color: var(--dark__onwarningcontainer);
+@mixin bg__on-surface-variant {
+  background-color: var(--on-surface-variant);
+  color: var(--surface-variant);
 }
 
-@mixin bg-dark__onwarning {
-  background-color: var(--dark__onwarning);
-  color: var(--dark__warning);
+@mixin bg__outline {
+  background-color: var(--outline);
+  color: var(--surface);
 }
 
-@mixin bg-dark__onwarningcontainer {
-  background-color: var(--dark__onwarningcontainer);
-  color: var(--dark__warningcontainer);
+@mixin bg__outline-variant {
+  background-color: var(--outline-variant);
+  color: var(--on-surface);
 }
 
-@mixin bg-dark__info {
-  background-color: var(--dark__info);
-  color: var(--dark__oninfo);
+@mixin bg__shadow {
+  background-color: var(--shadow);
+  color: var(--surface);
 }
 
-@mixin bg-dark__infocontainer {
-  background-color: var(--dark__infocontainer);
-  color: var(--dark__oninfocontainer);
+@mixin bg__scrim {
+  background-color: var(--scrim);
+  color: var(--surface);
 }
 
-@mixin bg-dark__oninfo {
-  background-color: var(--dark__oninfo);
-  color: var(--dark__info);
+@mixin bg__inverse-on-surface {
+  background-color: var(--inverse-surface);
+  color: var(--inverse-on-surface);
 }
 
-@mixin bg-dark__oninfocontainer {
-  background-color: var(--dark__oninfocontainer);
-  color: var(--dark__infocontainer);
+@mixin bg__inverse-surface {
+  background-color: var(--inverse-on-surface);
+  color: var(--inverse-surface);
 }
 
-@mixin bg-dark__primaryfixed {
-  background-color: var(--dark__primaryfixed);
-  color: var(--dark__onprimaryfixed);
+@mixin bg__inverse-primary {
+  background-color: var(--inverse-primary);
+  color: var(--on-primary-container);
 }
 
-@mixin bg-dark__primaryfixeddim {
-  background-color: var(--dark__primaryfixeddim);
-  color: var(--dark__onprimaryfixedvariant);
+@mixin bg__primary-fixed {
+  background-color: var(--primary-fixed);
+  color: var(--on-primary-fixed);
 }
 
-@mixin bg-dark__onprimaryfixed {
-  background-color: var(--dark__onprimaryfixed);
-  color: var(--dark__primaryfixed);
+@mixin bg__primary-fixed-dim {
+  background-color: var(--primary-fixed-dim);
+  color: var(--on-primary-fixed-variant);
 }
 
-@mixin bg-dark__onprimaryfixedvariant {
-  background-color: var(--dark__onprimaryfixedvariant);
-  color: var(--dark__primaryfixed);
+@mixin bg__on-primary-fixed {
+  background-color: var(--on-primary-fixed);
+  color: var(--primary-fixed);
 }
 
-@mixin bg-dark__secondaryfixed {
-  background-color: var(--dark__secondaryfixed);
-  color: var(--dark__onsecondary);
+@mixin bg__on-primary-fixed-variant {
+  background-color: var(--on-primary-fixed-variant);
+  color: var(--primary-fixed);
 }
 
-@mixin bg-dark__secondaryfixeddim {
-  background-color: var(--dark__secondaryfixeddim);
-  color: var(--dark__onsecondaryfixed);
+@mixin bg__secondary-fixed {
+  background-color: var(--secondary-fixed);
+  color: var(--on-secondary-fixed);
 }
 
-@mixin bg-dark__onsecondaryfixed {
-  background-color: var(--dark__onsecondaryfixed);
-  color: var(--dark__secondaryfixed);
+@mixin bg__secondary-fixed-dim {
+  background-color: var(--secondary-fixed-dim);
+  color: var(--on-secondary-fixed-variant);
 }
 
-@mixin bg-dark__onsecondaryfixedvariant {
-  background-color: var(--dark__onsecondaryfixedvariant);
-  color: var(--dark__secondaryfixed);
+@mixin bg__on-secondary-fixed {
+  background-color: var(--on-secondary-fixed);
+  color: var(--secondary-fixed);
 }
 
-@mixin bg-dark__tertiaryfixed {
-  background-color: var(--dark__tertiaryfixed);
-  color: var(--dark__ontertiaryfixed);
+@mixin bg__on-secondary-fixed-variant {
+  background-color: var(--on-secondary-fixed-variant);
+  color: var(--secondary-fixed);
 }
 
-@mixin bg-dark__tertiaryfixeddim {
-  background-color: var(--dark__tertiaryfixeddim);
-  color: var(--dark__ontertiaryfixedvariant);
+@mixin bg__tertiary-fixed {
+  background-color: var(--tertiary-fixed);
+  color: var(--on-tertiary-fixed);
 }
 
-@mixin bg-dark__ontertiaryfixed {
-  background-color: var(--dark__ontertiaryfixed);
-  color: var(--dark__tertiaryfixed);
+@mixin bg__tertiary-fixed-dim {
+  background-color: var(--tertiary-fixed-dim);
+  color: var(--on-tertiary-fixed-variant);
 }
 
-@mixin bg-dark__ontertiaryfixedvariant {
-  background-color: var(--dark__ontertiaryfixedvariant);
-  color: var(--dark__tertiaryfixed);
+@mixin bg__on-tertiary-fixed {
+  background-color: var(--on-tertiary-fixed);
+  color: var(--tertiary-fixed);
 }
 
-@mixin bg-dark__surfacedim {
-  background-color: var(--dark__surfacedim);
-  color: var(--dark__onsurface);
+@mixin bg__on-tertiary-fixed-variant {
+  background-color: var(--on-tertiary-fixed-variant);
+  color: var(--tertiary-fixed);
 }
 
-@mixin bg-dark__surfacebright {
-  background-color: var(--dark__surfacebright);
-  color: var(--dark__onsurface);
+@mixin bg__surface-dim {
+  background-color: var(--surface-dim);
+  color: var(--on-surface);
 }
 
-@mixin bg-dark__surfacecontainerlowest {
-  background-color: var(--dark__surfacecontainerlowest);
-  color: var(--dark__onsurface);
+@mixin bg__surface-bright {
+  background-color: var(--surface-bright);
+  color: var(--on-surface);
 }
 
-@mixin bg-dark__surfacecontainerlow {
-  background-color: var(--dark__surfacecontainerlowest);
-  color: var(--dark__onsurface);
+@mixin bg__surface-container-lowest {
+  background-color: var(--surface-container-lowest);
+  color: var(--on-surface);
 }
 
-@mixin bg-dark__surfacecontainer {
-  background-color: var(--dark__surfacecontainer);
-  color: var(--dark__onsurface);
+@mixin bg__surface-container-low {
+  background-color: var(--surface-container-low);
+  color: var(--on-surface);
 }
 
-@mixin bg-dark__surfacecontainerhigh {
-  background-color: var(--dark__surfacecontainerhigh);
-  color: var(--dark__onsurface);
+@mixin bg__surface-container {
+  background-color: var(--surface-container);
+  color: var(--on-surface);
 }
 
-@mixin bg-dark__surfacecontainerhighest {
-  background-color: var(--dark__surfacecontainerhighest);
-  color: var(--dark__onsurface);
+@mixin bg__surface-container-high {
+  background-color: var(--surface-container-high);
+  color: var(--on-surface);
 }
 
-@mixin bg__transparent {
-  background-color: transparent;
+@mixin bg__surface-container-highest {
+  background-color: var(--surface-container-highest);
+  color: var(--on-surface);
 }
