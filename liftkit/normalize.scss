@@ -1,9 +1,8 @@
 /*!
  * modern-normalize v2.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize
  */
-@use "background-colors";
-@use "font-color";
 @use "globals";
+@use "colors";
 
 /*
 Document
@@ -32,7 +31,7 @@ Sections
 */
 
 body {
-  @include background-colors.bg-light__background;
+  @include colors.bg-light__background;
 
   margin: 0; /* Remove the margin in all browsers. */
 }
@@ -50,7 +49,7 @@ li {
 }
 
 a {
-  @include font-color.color-light__primary;
+  @include colors.color-light__primary;
 
   font-weight: 700;
   text-decoration: underline;
