@@ -55,8 +55,8 @@ p {
 }
 ```
 LiftKit SCSS uses [Inter](https://rsms.me/inter/) throughout its font styles by
-default, which is freely available on Google Fonts. If you are new to LiftKit,
-have a look at the official documentation behind the design philosophy over
-[here](https://www.chainlift.io/liftkitdocs/overview).
+default, which is freely available on Google Fonts. If you are new to LiftKit
+in general, have a look at the official documentation behind the design
+philosophy over [here](https://www.chainlift.io/liftkitdocs/overview).
 
 Feel free to reach out about any questions or feature requests by mail.
