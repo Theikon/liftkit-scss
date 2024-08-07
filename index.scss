@@ -15,9 +15,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-@use "liftkit/background-colors";
 @use "liftkit/state-layers";
-@use "liftkit/font-color";
 @use "liftkit/containers";
 @use "liftkit/normalize";
 @use "liftkit/sections";
@@ -26,6 +24,8 @@
 @use "liftkit/grids";
 @use "liftkit/cards";
 
+@forward "liftkit/background-colors";
+@forward "liftkit/font-color";
 @forward "liftkit/shadows";
 @forward "liftkit/margins";
 @forward "liftkit/sizes";
