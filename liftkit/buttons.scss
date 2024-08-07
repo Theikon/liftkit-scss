@@ -15,14 +15,13 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-@use "background-colors";
-@use "font-color";
 @use "globals";
 @use "blocks";
+@use "colors";
 @use "sizes";
 
 .button__text {
-  @include font-color.color-light__primary;
+  @include colors.color-light__primary;
 
   position: relative;
   display: inline-block;
@@ -51,7 +50,7 @@
 .button {
   @extend .button__text;
 
-  @include background-colors.bg-light__primary;
+  @include colors.bg-light__primary;
 }
 
 .button__outline {
