@@ -56,4 +56,40 @@
   &:has(.display-1) {
     --BASE: var(--XXL);
   }
+
+  // Since the :has pseudo-class is newly available, provide a fallback to
+  // manually specify the largest font size within the card.
+  // Do not use @extend-at rule as non-conforming browsers will drop the entire
+  // rule!
+  &.card__body {
+    --BASE: var(--M);
+  }
+
+  &.card__subheading {
+    --BASE: calc(var(--M) / #{globals.$MAJOR-QUARTER});
+  }
+
+  &.card__heading {
+    --BASE: calc(var(--M) * #{globals.$MAJOR-QUARTER});
+  }
+
+  &.card__title-c {
+    --BASE: calc(var(--M) * #{globals.$MAJOR-HALF});
+  }
+
+  &.card__title-b {
+    --BASE: var(--L);
+  }
+
+  &.card__title-a {
+    --BASE: calc(var(--L) * #{globals.$MAJOR-HALF});
+  }
+
+  &.card__display-2 {
+    --BASE: var(--XL);
+  }
+
+  &.card__display-1 {
+    --BASE: var(--XXL);
+  }
 }
