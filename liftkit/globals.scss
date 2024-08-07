@@ -46,6 +46,22 @@ $PHI: math.div(1 + math.sqrt(5), 2) !default;
   @return math.div(round($x * $n), $n);
 }
 
+@function round_to_unit($x, $dim: null, $num: 4) {
+  @if type-of($x) != number {
+    @error "#{$x} is not a number";
+  }
+  $x: strip_unit($x);
+  @if $dim == null {
+    @return round_to($x, $num);
+  } @else if $dim == rem {
+    @return round_to(1rem * $x, $num);
+  } @else if $dim == em {
+    @return round_to(1em * $x, $num);
+  } @else {
+    @error "#{$dim} is not a valid unit";
+  }
+}
+
 @function scale_to($n, $dim: null) {
   @if type-of($n) != number {
     @error "#{$n} is not a number";
@@ -54,21 +70,13 @@ $PHI: math.div(1 + math.sqrt(5), 2) !default;
     @warn "#{$n} is not dimensionless";
     $n: strip_unit($n);
   }
-  @if $dim == null {
-    @return round_to(math.pow($PHI, $n));
-  } @else if $dim == rem {
-    @return round_to(1rem * math.pow($PHI, $n));
-  } @else if $dim == em {
-    @return round_to(1em * math.pow($PHI, $n));
-  } @else {
-    @error "#{$dim} is not a valid unit";
-  }
+  @return round_to_unit(math.pow($PHI, $n), $dim);
 }
 
-$MAJOR: round_to($PHI);
-$MAJOR-HALF: scale_to(0.5);
-$MAJOR-QUARTER: scale_to(0.25);
-$MAJOR-EIGHT: scale_to(0.125);
+$MAJOR: scale_to(1);
+$MAJOR-HALF: scale_to(math.div(1, 2));
+$MAJOR-QUARTER: scale_to(math.div(1, 4));
+$MAJOR-EIGHT: scale_to(math.div(1, 8));
 
 $MINOR: $MAJOR - 1;
 $MINOR-HALF: $MAJOR-HALF - 1;
