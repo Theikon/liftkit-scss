@@ -20,12 +20,12 @@
 @use "liftkit/normalize";
 @use "liftkit/sections";
 @use "liftkit/buttons";
+@use "liftkit/cards";
 @use "liftkit/fonts";
 @use "liftkit/grids";
-@use "liftkit/cards";
 
-@forward "liftkit/background-colors";
-@forward "liftkit/font-color";
-@forward "liftkit/shadows";
+@forward "liftkit/globals";
 @forward "liftkit/margins";
+@forward "liftkit/shadows";
+@forward "liftkit/colors";
 @forward "liftkit/sizes";
