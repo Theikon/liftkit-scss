@@ -17,14 +17,22 @@
  */
 @use "globals";
 
+@mixin set_height($x) {
+  $dim: unit($x);
+  @if $dim != em {
+    @error "#{$dim} is not a valid unit";
+  }
+  --GAP-XXS: #{globals.round_to($x * globals.$MINOR-QUARTER)};
+  --GAP-XS: #{globals.round_to($x * globals.$MINOR-HALF)};
+  --GAP-S: #{globals.round_to($x * globals.$MINOR)};
+  --GAP-M: #{globals.round_to($x * globals.scale_to(0))};
+  --GAP-L: #{globals.round_to($x * globals.scale_to(1))};
+  --GAP-XL: #{globals.round_to($x * globals.scale_to(2))};
+  --GAP-XXL: #{globals.round_to($x * globals.scale_to(3))};
+}
+
 :root {
-  --GAP-XXS: #{globals.round_to_unit(globals.$MAJOR-HALF * globals.$MINOR-QUARTER, em)};
-  --GAP-XS: #{globals.round_to_unit(globals.$MAJOR-HALF * globals.$MINOR-HALF, em)};
-  --GAP-S: #{globals.round_to_unit(globals.$MAJOR-HALF * globals.$MINOR, em)};
-  --GAP-M: #{globals.round_to_unit(globals.$MAJOR-HALF, em)};
-  --GAP-L: #{globals.round_to(globals.$MAJOR-HALF * globals.scale_to(1, em))};
-  --GAP-XL: #{globals.round_to(globals.$MAJOR-HALF * globals.scale_to(2, em))};
-  --GAP-XXL: #{globals.round_to(globals.$MAJOR-HALF * globals.scale_to(3, em))};
+  @include set_height(globals.round_to_unit(globals.$MAJOR-HALF, em));
 }
 
 @mixin m-top__xxs {
