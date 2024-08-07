@@ -27,6 +27,14 @@
   font-size: var(--XXL);
   line-height: #{globals.$MAJOR-QUARTER};
   letter-spacing: -0.022em;
+
+  --GAP-XXS: #{globals.round_to(globals.$MAJOR-QUARTER * globals.scale_to(-4, em))};
+  --GAP-XS: #{globals.round_to(globals.$MAJOR-QUARTER * globals.scale_to(-3, em))};
+  --GAP-S: #{globals.round_to(globals.$MAJOR-QUARTER * globals.scale_to(-2, em))};
+  --GAP-M: #{globals.round_to(globals.$MAJOR-QUARTER * globals.scale_to(-1, em))};
+  --GAP-L: #{globals.round_to(globals.$MAJOR-QUARTER * globals.scale_to(1, em))};
+  --GAP-XL: #{globals.round_to(globals.$MAJOR-QUARTER * globals.scale_to(2, em))};
+  --GAP-XXL: #{globals.round_to(globals.$MAJOR-QUARTER * globals.scale_to(3, em))};
 }
 
 .display-2 {
@@ -94,7 +102,7 @@
 .overline {
   @extend .caption;
 
-  letter-spacing: 0.1em * globals.$MINOR;
+  letter-spacing: globals.round_to_unit(math.div(globals.$MINOR, 10), em);
   text-transform: uppercase;
 }
 
