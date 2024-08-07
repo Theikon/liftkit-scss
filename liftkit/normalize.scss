@@ -31,7 +31,7 @@ Sections
 */
 
 body {
-  @include colors.bg-light__background;
+  @include colors.bg__background;
 
   margin: 0; /* Remove the margin in all browsers. */
 }
@@ -49,7 +49,7 @@ li {
 }
 
 a {
-  @include colors.color-light__primary;
+  @include colors.fg__primary;
 
   font-weight: 700;
   text-decoration: underline;
