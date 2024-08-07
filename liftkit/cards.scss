@@ -16,8 +16,11 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 @use "globals";
+@use "colors";
 
 .card {
+  @include colors.bg__surface-container;
+
   padding: calc(var(--BASE) / #{globals.$MAJOR-HALF}) var(--BASE) var(--BASE);
   border-radius: calc(var(--BASE) / #{globals.$MAJOR-HALF});
 
