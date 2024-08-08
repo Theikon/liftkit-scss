@@ -25,10 +25,9 @@
 }
 
 .display-1 {
-  @include margins.set_height(globals.round_to_unit(globals.$MAJOR-QUARTER, em));
+  @include margins.set_height(globals.$MAJOR-QUARTER);
 
   font-size: globals.render(globals.$SIZE-2XL);
-  line-height: globals.render(globals.$MAJOR-QUARTER);
   letter-spacing: -0.022em;
 }
 
@@ -70,10 +69,9 @@
 }
 
 .body {
-  @include margins.set_height(globals.round_to_unit(globals.$MAJOR, em));
+  @include margins.set_height(globals.$MAJOR);
 
   font-size: globals.render(globals.$SIZE-MD);
-  line-height: globals.render(globals.$MAJOR);
   letter-spacing: -0.011em;
 }
 
