@@ -19,44 +19,51 @@ a significantly smaller footprint and encourage semantic naming of classes in
 the DOM. Due to this, the following utility classes of LiftKit CSS are only
 available in LiftKit SCSS using the `@include`-at rule:
 
-- Margins (such as `m-top__s`) and padding (such as `p-bottom__m`). Note the
+- Margins (such as `m-top__sm`) and padding (such as `p-bottom__md`). Note the
   shortening of `pad` to just `p`.
-- Shadows (such as `shadow__m`). Note the name change for consistency.
-- Blocks (such as `h-block` or `v-block__s`). Note the name change for
+- Shadows (such as `shadow__md`). Note the name change for consistency.
+- Blocks (such as `h-block` or `v-block__sm`). Note the name change for
   consistency.
-- Font and background colors (such as `bg-light__scrim` or `color-dark__info`).
-- Sizes for both width and height (such as `w__s` or `h__xl`). Note the name
+- Font and background colors (such as `bg__error` or `fg__primary`).
+- Sizes for both width and height (such as `w__sm` or `h__2xl`). Note the name
   change for consistency.
 
 Note that the step size variables such as `--wholestep` (equal to `$MAJOR`) or
 `--wholestep-dec` (equal to `$MINOR`) are now only available at compile-time.
 
 Containers and sections also adhere to the naming convention involving the size
-suffix (`__xs`, `__s`, `__m`, `__l`, `__xl`) for consistency.
+suffix (`__xs`, `__sm`, `__md`, `__lg`, `__xl`) for consistency.
 
 ## Quickstart
 
 Already familiar with LiftKit and Sass? Then download the latest release of
 LitKit SCSS from
 [GitHub](https://github.com/Theikon/liftkit-scss/archive/refs/heads/main.zip),
-and use the `liftkit.scss` file for example as follows:
+and import the `liftkit.scss` file for example as follows:
 
 ```SCSS
 @use "liftkit";
 
 nav {
-  @include liftkit.h-block__m;
+  @include liftkit.h-block__md;
+  @include liftkit.bg__surface-container;
 
   align-items: center;
 }
 
 p {
-  @include liftkit.m-bottom__s;
+  @include liftkit.m-bottom__sm;
 }
 ```
-LiftKit SCSS uses [Inter](https://rsms.me/inter/) throughout its font styles by
-default, which is freely available on Google Fonts. In case you are new to
-LiftKit in general, have a look at the official documentation behind the design
-philosophy over [here](https://www.chainlift.io/liftkitdocs/overview).
+Note that LiftKit SCSS uses [Inter](https://rsms.me/inter/) throughout its font
+styles by default, which is freely available on Google Fonts. LiftKit SCSS
+ships with the Material 3
+[baseline](https://m3.material.io/styles/color/static/baseline)
+color scheme by default. Feel free to design a unique color scheme using the
+[Material Theme Builder](https://material-foundation.github.io/material-theme-builder/).
+
+In case you are new to LiftKit in general, have a look at the official
+documentation behind the design philosophy over at
+[Chainlift](https://www.chainlift.io/liftkitdocs/overview).
 
 Feel free to reach out about any questions or feature requests by mail.
