@@ -1,7 +1,7 @@
 # LiftKit SCSS
 
-A fork of LiftKit CSS utilizing the power of the CSS preprocessors Sass to
-address various issues with the code style and deployment.
+A fork of LiftKit CSS utilizing the power of the CSS preprocessor Sass to
+enhance the source where possible, focusing on consistency and ease of use.
 
 Huge thanks to [@chainlift](https://www.github.com/chainlift) for designing
 LiftKit, a framework utilizing the golden ratio to provide an oddly-satisfying
@@ -9,10 +9,9 @@ look and feel.
 
 ## Overview
 
-The aim of the fork is not to provide a simple drag-and-drop replacement for
-LiftKit CSS, but to enhance the source where possible, focusing on consistency
-and clarity. This means that LiftKit SCSS is *not* compatible with LiftKit CSS
-out of the box.
+The aim of the fork is not to provide a drag-and-drop replacement for LiftKit
+CSS. This means that LiftKit SCSS is *not* compatible with LiftKit CSS out of
+the box.
 
 LiftKit SCSS uses mixins in favor of non-semantic classes in order to achieve
 a significantly smaller footprint and encourage semantic naming of classes in
