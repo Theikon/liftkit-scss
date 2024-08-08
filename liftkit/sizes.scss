@@ -17,7 +17,7 @@
  */
 @use "globals";
 
-@mixin w__xxs {
+@mixin w__2xs {
   width: globals.render(globals.$SIZE-MD);
 }
 
@@ -25,15 +25,15 @@
   width: globals.render(globals.$SIZE-MD * globals.$MAJOR-QUARTER);
 }
 
-@mixin w__s {
+@mixin w__sm {
   width: globals.render(globals.$SIZE-MD * globals.$MAJOR-HALF);
 }
 
-@mixin w__m {
+@mixin w__md {
   width: globals.render(globals.$SIZE-LG);
 }
 
-@mixin w__l {
+@mixin w__lg {
   width: calc(var(--lg) * #{globals.$MAJOR-HALF});
 }
 
@@ -41,16 +41,16 @@
   width: globals.render(globals.$SIZE-XL);
 }
 
-@mixin w__xxl {
+@mixin w__2xl {
   width: globals.render(globals.$SIZE-2XL);
 }
 
-@mixin w__xxxl {
+@mixin w__3xl {
   width: globals.render(globals.$SIZE-3XL);
 }
 
 
-@mixin h__xxs {
+@mixin h__2xs {
   height: globals.render(globals.$SIZE-MD);
 }
 
@@ -58,15 +58,15 @@
   height: globals.render(globals.$SIZE-MD * globals.$MAJOR-QUARTER);
 }
 
-@mixin h__s {
+@mixin h__sm {
   height: globals.render(globals.$SIZE-MD * globals.$MAJOR-HALF);
 }
 
-@mixin h__m {
+@mixin h__md {
   height: globals.render(globals.$SIZE-LG);
 }
 
-@mixin h__l {
+@mixin h__lg {
   height: globals.render(globals.$SIZE-LG * globals.$MAJOR-HALF);
 }
 
@@ -74,10 +74,10 @@
   height: globals.render(globals.$SIZE-XL);
 }
 
-@mixin h__xxl {
+@mixin h__2xl {
   height: globals.render(globals.$SIZE-2XL);
 }
 
-@mixin h__xxxl {
+@mixin h__3xl {
   height: globals.render(globals.$SIZE-3XL);
 }

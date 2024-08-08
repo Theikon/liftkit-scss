@@ -21,15 +21,15 @@
   padding: globals.render(globals.$SIZE-LG) globals.render(globals.$SIZE-2XL);
 }
 
-.section__s {
+.section__sm {
   padding: globals.render(globals.$SIZE-XL) globals.render(globals.$SIZE-2XL);
 }
 
-.section__m {
+.section__md {
   padding: globals.render(globals.$SIZE-2XL);
 }
 
-.section__l {
+.section__lg {
   padding: globals.render(globals.$SIZE-3XL) globals.render(globals.$SIZE-2XL);
 }
 
@@ -39,16 +39,16 @@
 
 @media screen and (max-width: 991px) {
 
-  .section__s {
+  .section__sm {
     padding-right: globals.render(globals.$SIZE-LG);
     padding-left: globals.render(globals.$SIZE-LG);
   }
 
-  .section__m {
+  .section__md {
     padding: globals.render(globals.$SIZE-LG);
   }
 
-  .section__l {
+  .section__lg {
     padding: globals.render(globals.$SIZE-2XL) globals.render(globals.$SIZE-LG);
   }
 

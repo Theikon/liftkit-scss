@@ -28,19 +28,19 @@
     gap: globals.render(globals.$SIZE-2XS * globals.$MAJOR-HALF);
   }
 
-  &__s {
+  &__sm {
     @extend .grid;
 
     gap: globals.render(globals.$SIZE-XS * globals.$MAJOR-HALF);
   }
 
-  &__m {
+  &__md {
     @extend .grid;
 
     gap: globals.render(globals.$SIZE-SM * globals.$MAJOR-HALF);
   }
 
-  &__l {
+  &__lg {
     @extend .grid;
 
     gap: globals.render(globals.$SIZE-MD);
@@ -52,7 +52,7 @@
     gap: globals.render(globals.$SIZE-LG);
   }
 
-  &__xxl {
+  &__2xl {
     @extend .grid;
 
     gap: globals.render(globals.$SIZE-XL);

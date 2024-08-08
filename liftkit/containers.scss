@@ -31,19 +31,19 @@ $_WIDTH: 1000px; // 800px-1200px
     max-width: round(math.div($_WIDTH, globals.$MAJOR-HALF));
   }
 
-  &__s {
+  &__sm {
     @extend .container;
 
     max-width: round(math.div($_WIDTH, globals.$MAJOR-QUARTER));
   }
 
-  &__m {
+  &__md {
     @extend .container;
 
     max-width: #{$_WIDTH};
   }
 
-  &__l {
+  &__lg {
     @extend .container;
 
     max-width: round($_WIDTH * globals.$MAJOR-QUARTER);

@@ -36,7 +36,7 @@
   @include set_height(globals.$MAJOR-HALF);
 }
 
-@mixin m-top__xxs {
+@mixin m-top__2xs {
   margin-top: var(--2xs);
 }
 
@@ -44,15 +44,15 @@
   margin-top: var(--xs);
 }
 
-@mixin m-top__s {
+@mixin m-top__sm {
   margin-top: var(--sm);
 }
 
-@mixin m-top__m {
+@mixin m-top__md {
   margin-top: var(--md);
 }
 
-@mixin m-top__l {
+@mixin m-top__lg {
   margin-top: var(--lg);
 }
 
@@ -60,11 +60,11 @@
   margin-top: var(--xl);
 }
 
-@mixin m-top__xxl {
+@mixin m-top__2xl {
   margin-top: var(--2xl);
 }
 
-@mixin m-top__xxs {
+@mixin m-top__2xs {
   margin-top: var(--2xs);
 }
 
@@ -73,15 +73,15 @@
   margin-right: var(--xs);
 }
 
-@mixin m-right__s {
+@mixin m-right__sm {
   margin-right: var(--sm);
 }
 
-@mixin m-right__m {
+@mixin m-right__md {
   margin-right: var(--md);
 }
 
-@mixin m-right__l {
+@mixin m-right__lg {
   margin-right: var(--lg);
 }
 
@@ -89,12 +89,12 @@
   margin-right: var(--xl);
 }
 
-@mixin m-right__xxl {
+@mixin m-right__2xl {
   margin-right: var(--2xl);
 }
 
 
-@mixin m-bottom__xxs {
+@mixin m-bottom__2xs {
   margin-bottom: var(--2xs);
 }
 
@@ -102,15 +102,15 @@
   margin-bottom: var(--xs);
 }
 
-@mixin m-bottom__s {
+@mixin m-bottom__sm {
   margin-bottom: var(--sm);
 }
 
-@mixin m-bottom__m {
+@mixin m-bottom__md {
   margin-bottom: var(--md);
 }
 
-@mixin m-bottom__l {
+@mixin m-bottom__lg {
   margin-bottom: var(--lg);
 }
 
@@ -118,12 +118,12 @@
   margin-bottom: var(--xl);
 }
 
-@mixin m-bottom__xxl {
+@mixin m-bottom__2xl {
   margin-bottom: var(--2xl);
 }
 
 
-@mixin m-left__xxs {
+@mixin m-left__2xs {
   margin-left: var(--2xs);
 }
 
@@ -131,15 +131,15 @@
   margin-left: var(--xs);
 }
 
-@mixin m-left__s {
+@mixin m-left__sm {
   margin-left: var(--sm);
 }
 
-@mixin m-left__m {
+@mixin m-left__md {
   margin-left: var(--md);
 }
 
-@mixin m-left__l {
+@mixin m-left__lg {
   margin-left: var(--lg);
 }
 
@@ -147,12 +147,12 @@
   margin-left: var(--xl);
 }
 
-@mixin m-left__xxl {
+@mixin m-left__2xl {
   margin-left: var(--2xl);
 }
 
 
-@mixin p-top__xxs {
+@mixin p-top__2xs {
   margin-top: var(--2xs);
 }
 
@@ -160,15 +160,15 @@
   margin-top: var(--xs);
 }
 
-@mixin p-top__s {
+@mixin p-top__sm {
   margin-top: var(--sm);
 }
 
-@mixin p-top__m {
+@mixin p-top__md {
   margin-top: var(--md);
 }
 
-@mixin p-top__l {
+@mixin p-top__lg {
   margin-top: var(--lg);
 }
 
@@ -176,11 +176,11 @@
   margin-top: var(--xl);
 }
 
-@mixin p-top__xxl {
+@mixin p-top__2xl {
   margin-top: var(--2xl);
 }
 
-@mixin p-top__xxs {
+@mixin p-top__2xs {
   margin-top: var(--2xs);
 }
 
@@ -189,15 +189,15 @@
   margin-right: var(--xs);
 }
 
-@mixin p-right__s {
+@mixin p-right__sm {
   margin-right: var(--sm);
 }
 
-@mixin p-right__m {
+@mixin p-right__md {
   margin-right: var(--md);
 }
 
-@mixin p-right__l {
+@mixin p-right__lg {
   margin-right: var(--lg);
 }
 
@@ -205,12 +205,12 @@
   margin-right: var(--xl);
 }
 
-@mixin p-right__xxl {
+@mixin p-right__2xl {
   margin-right: var(--2xl);
 }
 
 
-@mixin p-bottom__xxs {
+@mixin p-bottom__2xs {
   margin-bottom: var(--2xs);
 }
 
@@ -218,15 +218,15 @@
   margin-bottom: var(--xs);
 }
 
-@mixin p-bottom__s {
+@mixin p-bottom__sm {
   margin-bottom: var(--sm);
 }
 
-@mixin p-bottom__m {
+@mixin p-bottom__md {
   margin-bottom: var(--md);
 }
 
-@mixin p-bottom__l {
+@mixin p-bottom__lg {
   margin-bottom: var(--lg);
 }
 
@@ -234,12 +234,12 @@
   margin-bottom: var(--xl);
 }
 
-@mixin p-bottom__xxl {
+@mixin p-bottom__2xl {
   margin-bottom: var(--2xl);
 }
 
 
-@mixin p-left__xxs {
+@mixin p-left__2xs {
   margin-left: var(--2xs);
 }
 
@@ -247,15 +247,15 @@
   margin-left: var(--xs);
 }
 
-@mixin p-left__s {
+@mixin p-left__sm {
   margin-left: var(--sm);
 }
 
-@mixin p-left__m {
+@mixin p-left__md {
   margin-left: var(--md);
 }
 
-@mixin p-left__l {
+@mixin p-left__lg {
   margin-left: var(--lg);
 }
 
@@ -263,6 +263,6 @@
   margin-left: var(--xl);
 }
 
-@mixin p-left__xxl {
+@mixin p-left__2xl {
   margin-left: var(--2xl);
 }

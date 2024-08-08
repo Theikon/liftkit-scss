@@ -83,6 +83,6 @@
 }
 
 .button__icon {
-  @include sizes.w__s;
-  @include sizes.h__s;
+  @include sizes.w__sm;
+  @include sizes.h__sm;
 }

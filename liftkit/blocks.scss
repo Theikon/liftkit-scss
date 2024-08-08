@@ -28,19 +28,19 @@
   column-gap: globals.render(globals.$SIZE-2XS * globals.$MAJOR-HALF);
 }
 
-@mixin h-block__s {
+@mixin h-block__sm {
   @include h-block;
 
   column-gap: globals.render(globals.$SIZE-XS * globals.$MAJOR-HALF);
 }
 
-@mixin h-block__m {
+@mixin h-block__md {
   @include h-block;
 
   column-gap: globals.render(globals.$SIZE-SM * globals.$MAJOR-HALF);
 }
 
-@mixin h-block__l {
+@mixin h-block__lg {
   @include h-block;
 
   column-gap: globals.render(globals.$SIZE-MD * globals.$MAJOR-HALF);
@@ -52,7 +52,7 @@
   column-gap: globals.render(globals.$SIZE-LG * globals.$MAJOR-HALF);
 }
 
-@mixin h-block__xxl {
+@mixin h-block__2xl {
   @include h-block;
 
   column-gap: globals.render(globals.$SIZE-XL * globals.$MAJOR-HALF);
@@ -69,19 +69,19 @@
   row-gap: globals.render(globals.$SIZE-2XS * globals.$MAJOR-HALF);
 }
 
-@mixin v-block__s {
+@mixin v-block__sm {
   @include v-block;
 
   row-gap: globals.render(globals.$SIZE-XS * globals.$MAJOR-HALF);
 }
 
-@mixin v-block__m {
+@mixin v-block__md {
   @include v-block;
 
   row-gap: globals.render(globals.$SIZE-SM * globals.$MAJOR-HALF);
 }
 
-@mixin v-block__l {
+@mixin v-block__lg {
   @include v-block;
 
   row-gap: globals.render(globals.$SIZE-MD * globals.$MAJOR-HALF);
@@ -93,7 +93,7 @@
   row-gap: globals.render(globals.$SIZE-LG * globals.$MAJOR-HALF);
 }
 
-@mixin v-block__xxl {
+@mixin v-block__2xl {
   @include v-block;
 
   row-gap: globals.render(globals.$SIZE-XL * globals.$MAJOR-HALF);
@@ -111,19 +111,19 @@
   column-gap: globals.render(globals.$SIZE-2XS * globals.$MAJOR-HALF);
 }
 
-@mixin h-inline__s {
+@mixin h-inline__sm {
   @include h-inline;
 
   column-gap: globals.render(globals.$SIZE-XS * globals.$MAJOR-HALF);
 }
 
-@mixin h-inline__m {
+@mixin h-inline__md {
   @include h-inline;
 
   column-gap: globals.render(globals.$SIZE-SM * globals.$MAJOR-HALF);
 }
 
-@mixin h-inline__l {
+@mixin h-inline__lg {
   @include h-inline;
 
   column-gap: globals.render(globals.$SIZE-MD * globals.$MAJOR-HALF);
@@ -135,7 +135,7 @@
   column-gap: globals.render(globals.$SIZE-LG * globals.$MAJOR-HALF);
 }
 
-@mixin h-inline__xxl {
+@mixin h-inline__2xl {
   @include h-inline;
 
   column-gap: globals.render(globals.$SIZE-XL * globals.$MAJOR-HALF);
@@ -152,19 +152,19 @@
   row-gap: globals.render(globals.$SIZE-2XS * globals.$MAJOR-HALF);
 }
 
-@mixin v-inline__s {
+@mixin v-inline__sm {
   @include v-inline;
 
   row-gap: globals.render(globals.$SIZE-XS * globals.$MAJOR-HALF);
 }
 
-@mixin v-inline__m {
+@mixin v-inline__md {
   @include v-inline;
 
   row-gap: globals.render(globals.$SIZE-SM * globals.$MAJOR-HALF);
 }
 
-@mixin v-inline__l {
+@mixin v-inline__lg {
   @include v-inline;
 
   row-gap: globals.render(globals.$SIZE-MD * globals.$MAJOR-HALF);
@@ -176,7 +176,7 @@
   row-gap: globals.render(globals.$SIZE-LG * globals.$MAJOR-HALF);
 }
 
-@mixin v-inline__xxl {
+@mixin v-inline__2xl {
   @include v-inline;
 
   row-gap: globals.render(globals.$SIZE-XL * globals.$MAJOR-HALF);
