@@ -25,37 +25,37 @@
 @mixin h-block__xs {
   @include h-block;
 
-  column-gap: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+  column-gap: globals.render(globals.$SIZE-2XS * globals.$MAJOR-HALF);
 }
 
 @mixin h-block__s {
   @include h-block;
 
-  column-gap: calc(var(--XS) * #{globals.$MAJOR-HALF});
+  column-gap: globals.render(globals.$SIZE-XS * globals.$MAJOR-HALF);
 }
 
 @mixin h-block__m {
   @include h-block;
 
-  column-gap: calc(var(--S) * #{globals.$MAJOR-HALF});
+  column-gap: globals.render(globals.$SIZE-SM * globals.$MAJOR-HALF);
 }
 
 @mixin h-block__l {
   @include h-block;
 
-  column-gap: var(--M);
+  column-gap: globals.render(globals.$SIZE-MD * globals.$MAJOR-HALF);
 }
 
 @mixin h-block__xl {
   @include h-block;
 
-  column-gap: var(--L);
+  column-gap: globals.render(globals.$SIZE-LG * globals.$MAJOR-HALF);
 }
 
 @mixin h-block__xxl {
   @include h-block;
 
-  column-gap: var(--XL);
+  column-gap: globals.render(globals.$SIZE-XL * globals.$MAJOR-HALF);
 }
 
 @mixin v-block {
@@ -66,38 +66,39 @@
 @mixin v-block__xs {
   @include v-block;
 
-  row-gap: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+  row-gap: globals.render(globals.$SIZE-2XS * globals.$MAJOR-HALF);
 }
 
 @mixin v-block__s {
   @include v-block;
 
-  row-gap: calc(var(--XS) * #{globals.$MAJOR-HALF});
+  row-gap: globals.render(globals.$SIZE-XS * globals.$MAJOR-HALF);
 }
 
 @mixin v-block__m {
   @include v-block;
 
-  row-gap: calc(var(--S) * #{globals.$MAJOR-HALF});
+  row-gap: globals.render(globals.$SIZE-SM * globals.$MAJOR-HALF);
 }
 
 @mixin v-block__l {
   @include v-block;
 
-  row-gap: var(--M);
+  row-gap: globals.render(globals.$SIZE-MD * globals.$MAJOR-HALF);
 }
 
 @mixin v-block__xl {
   @include v-block;
 
-  row-gap: var(--L);
+  row-gap: globals.render(globals.$SIZE-LG * globals.$MAJOR-HALF);
 }
 
 @mixin v-block__xxl {
   @include v-block;
 
-  row-gap: var(--XL);
+  row-gap: globals.render(globals.$SIZE-XL * globals.$MAJOR-HALF);
 }
+
 
 @mixin h-inline {
   display: inline-flex;
@@ -107,37 +108,37 @@
 @mixin h-inline__xs {
   @include h-inline;
 
-  column-gap: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+  column-gap: globals.render(globals.$SIZE-2XS * globals.$MAJOR-HALF);
 }
 
 @mixin h-inline__s {
   @include h-inline;
 
-  column-gap: calc(var(--XS) * #{globals.$MAJOR-HALF});
+  column-gap: globals.render(globals.$SIZE-XS * globals.$MAJOR-HALF);
 }
 
 @mixin h-inline__m {
   @include h-inline;
 
-  column-gap: calc(var(--S) * #{globals.$MAJOR-HALF});
+  column-gap: globals.render(globals.$SIZE-SM * globals.$MAJOR-HALF);
 }
 
 @mixin h-inline__l {
   @include h-inline;
 
-  column-gap: var(--M);
+  column-gap: globals.render(globals.$SIZE-MD * globals.$MAJOR-HALF);
 }
 
 @mixin h-inline__xl {
   @include h-inline;
 
-  column-gap: var(--L);
+  column-gap: globals.render(globals.$SIZE-LG * globals.$MAJOR-HALF);
 }
 
 @mixin h-inline__xxl {
   @include h-inline;
 
-  column-gap: var(--XL);
+  column-gap: globals.render(globals.$SIZE-XL * globals.$MAJOR-HALF);
 }
 
 @mixin v-inline {
@@ -148,35 +149,35 @@
 @mixin v-inline__xs {
   @include v-inline;
 
-  row-gap: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+  row-gap: globals.render(globals.$SIZE-2XS * globals.$MAJOR-HALF);
 }
 
 @mixin v-inline__s {
   @include v-inline;
 
-  row-gap: calc(var(--XS) * #{globals.$MAJOR-HALF});
+  row-gap: globals.render(globals.$SIZE-XS * globals.$MAJOR-HALF);
 }
 
 @mixin v-inline__m {
   @include v-inline;
 
-  row-gap: calc(var(--S) * #{globals.$MAJOR-HALF});
+  row-gap: globals.render(globals.$SIZE-SM * globals.$MAJOR-HALF);
 }
 
 @mixin v-inline__l {
   @include v-inline;
 
-  row-gap: var(--M);
+  row-gap: globals.render(globals.$SIZE-MD * globals.$MAJOR-HALF);
 }
 
 @mixin v-inline__xl {
   @include v-inline;
 
-  row-gap: var(--L);
+  row-gap: globals.render(globals.$SIZE-LG * globals.$MAJOR-HALF);
 }
 
 @mixin v-inline__xxl {
   @include v-inline;
 
-  row-gap: var(--XL);
+  row-gap: globals.render(globals.$SIZE-XL * globals.$MAJOR-HALF);
 }
