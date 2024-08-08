@@ -18,41 +18,41 @@
 @use "globals";
 
 .section__xs {
-  padding: var(--L);
+  padding: globals.render(globals.$SIZE-LG) globals.render(globals.$SIZE-2XL);
 }
 
 .section__s {
-  padding: var(--XL) var(--XXL);
+  padding: globals.render(globals.$SIZE-XL) globals.render(globals.$SIZE-2XL);
 }
 
 .section__m {
-  padding: var(--XXL);
+  padding: globals.render(globals.$SIZE-2XL);
 }
 
 .section__l {
-  padding: var(--XXXL) var(--XXL);
+  padding: globals.render(globals.$SIZE-3XL) globals.render(globals.$SIZE-2XL);
 }
 
 .section__xl {
-  padding: var(--XXXXL) var(--XXL);
+  padding: globals.render(globals.$SIZE-4XL) globals.render(globals.$SIZE-2XL);
 }
 
 @media screen and (max-width: 991px) {
 
   .section__s {
-    padding-right: var(--L);
-    padding-left: var(--L);
+    padding-right: globals.render(globals.$SIZE-LG);
+    padding-left: globals.render(globals.$SIZE-LG);
   }
 
   .section__m {
-    padding: var(--L);
+    padding: globals.render(globals.$SIZE-LG);
   }
 
   .section__l {
-    padding: var(--XXL) var(--L);
+    padding: globals.render(globals.$SIZE-2XL) globals.render(globals.$SIZE-LG);
   }
 
   .section__xl {
-    padding: var(--XXXL) calc(var(--L) * #{globals.$MAJOR-HALF});
+    padding: globals.render(globals.$SIZE-3XL) globals.render(globals.$SIZE-LG * globals.$MAJOR-HALF);
   }
 }
