@@ -64,5 +64,3 @@ color scheme by default. Feel free to design a unique color scheme using the
 In case you are new to LiftKit in general, have a look at the official
 documentation behind the design philosophy over at
 [Chainlift](https://www.chainlift.io/liftkitdocs/overview).
-
-Feel free to reach out about any questions or feature requests by mail.
