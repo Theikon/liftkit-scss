@@ -97,7 +97,7 @@
 .overline {
   @extend .caption;
 
-  letter-spacing: globals.round_to_unit(math.div(globals.$MINOR, 10), em);
+  letter-spacing: globals.render(math.div(1em * globals.$MINOR, 10));
   text-transform: uppercase;
 }
 
