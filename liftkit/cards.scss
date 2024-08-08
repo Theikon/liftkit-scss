@@ -25,41 +25,41 @@
 
   position: relative;
   overflow: hidden;
-  padding: calc(var(--base) / #{globals.$MAJOR-HALF}) var(--base) var(--base);
-  border-radius: calc(var(--base) / #{globals.$MAJOR-HALF});
+  padding: calc(var(--scale) / #{globals.$MAJOR-HALF}) var(--scale) var(--scale);
+  border-radius: calc(var(--scale) / #{globals.$MAJOR-HALF});
 
   // In order to provide optical correctness to the card padding symmetry,
   // determine the largest font size within the card.
   &:has(.body) {
-    --base: #{globals.$SIZE-MD};
+    --scale: #{globals.$SIZE-MD};
   }
 
   &:has(.subheading) {
-    --base: #{math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER)};
+    --scale: #{math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER)};
   }
 
   &:has(.heading) {
-    --base: #{globals.$SIZE-MD * globals.$MAJOR-QUARTER};
+    --scale: #{globals.$SIZE-MD * globals.$MAJOR-QUARTER};
   }
 
   &:has(.title-c) {
-    --base: #{globals.$SIZE-MD * globals.$MAJOR-HALF};
+    --scale: #{globals.$SIZE-MD * globals.$MAJOR-HALF};
   }
 
   &:has(.title-b) {
-    --base: #{globals.$SIZE-LG};
+    --scale: #{globals.$SIZE-LG};
   }
 
   &:has(.title-a) {
-    --base: #{globals.$SIZE-LG * globals.$MAJOR-HALF};
+    --scale: #{globals.$SIZE-LG * globals.$MAJOR-HALF};
   }
 
   &:has(.display-2) {
-    --base: #{globals.$SIZE-XL};
+    --scale: #{globals.$SIZE-XL};
   }
 
   &:has(.display-1) {
-    --base: #{globals.$SIZE-2XL};
+    --scale: #{globals.$SIZE-2XL};
   }
 
   // Since the :has pseudo-class is newly available, provide a fallback to
@@ -67,34 +67,34 @@
   // Do not use @extend-at rule as non-conforming browsers will drop the entire
   // rule!
   &.card__body {
-    --base: #{globals.$SIZE-MD};
+    --scale: #{globals.$SIZE-MD};
   }
 
   &.card__subheading {
-    --base: #{math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER)};
+    --scale: #{math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER)};
   }
 
   &.card__heading {
-    --base: #{globals.$SIZE-MD * globals.$MAJOR-QUARTER};
+    --scale: #{globals.$SIZE-MD * globals.$MAJOR-QUARTER};
   }
 
   &.card__title-c {
-    --base: #{globals.$SIZE-MD * globals.$MAJOR-HALF};
+    --scale: #{globals.$SIZE-MD * globals.$MAJOR-HALF};
   }
 
   &.card__title-b {
-    --base: #{globals.$SIZE-LG};
+    --scale: #{globals.$SIZE-LG};
   }
 
   &.card__title-a {
-    --base: #{globals.$SIZE-LG * globals.$MAJOR-HALF};
+    --scale: #{globals.$SIZE-LG * globals.$MAJOR-HALF};
   }
 
   &.card__display-2 {
-    --base: #{globals.$SIZE-XL};
+    --scale: #{globals.$SIZE-XL};
   }
 
   &.card__display-1 {
-    --base: #{globals.$SIZE-2XL};
+    --scale: #{globals.$SIZE-2XL};
   }
 }
