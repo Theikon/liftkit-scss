@@ -38,7 +38,7 @@ suffix (`__xs`, `__sm`, `__md`, `__lg`, `__xl`) for consistency.
 
 Already familiar with LiftKit and Sass? Then download the latest release of
 LitKit SCSS from
-[GitHub](https://github.com/Theikon/liftkit-scss/archive/refs/heads/main.zip),
+[GitHub](https://github.com/Theikon/liftkit-scss/releases/download/v1.1.X/liftkit-v1.1.0.zip),
 and import the `liftkit.scss` file for example as follows:
 
 ```SCSS
