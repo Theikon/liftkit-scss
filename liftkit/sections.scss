@@ -18,41 +18,41 @@
 @use "globals";
 
 .section__xs {
-  padding: globals.render(globals.$SIZE-LG) globals.render(globals.$SIZE-2XL);
+  padding: globals.round-to(globals.$SIZE-LG) globals.round-to(globals.$SIZE-2XL);
 }
 
 .section__sm {
-  padding: globals.render(globals.$SIZE-XL) globals.render(globals.$SIZE-2XL);
+  padding: globals.round-to(globals.$SIZE-XL) globals.round-to(globals.$SIZE-2XL);
 }
 
 .section__md {
-  padding: globals.render(globals.$SIZE-2XL);
+  padding: globals.round-to(globals.$SIZE-2XL);
 }
 
 .section__lg {
-  padding: globals.render(globals.$SIZE-3XL) globals.render(globals.$SIZE-2XL);
+  padding: globals.round-to(globals.$SIZE-3XL) globals.round-to(globals.$SIZE-2XL);
 }
 
 .section__xl {
-  padding: globals.render(globals.$SIZE-4XL) globals.render(globals.$SIZE-2XL);
+  padding: globals.round-to(globals.$SIZE-4XL) globals.round-to(globals.$SIZE-2XL);
 }
 
 @media screen and (max-width: 991px) {
 
   .section__sm {
-    padding-right: globals.render(globals.$SIZE-LG);
-    padding-left: globals.render(globals.$SIZE-LG);
+    padding-right: globals.round-to(globals.$SIZE-LG);
+    padding-left: globals.round-to(globals.$SIZE-LG);
   }
 
   .section__md {
-    padding: globals.render(globals.$SIZE-LG);
+    padding: globals.round-to(globals.$SIZE-LG);
   }
 
   .section__lg {
-    padding: globals.render(globals.$SIZE-2XL) globals.render(globals.$SIZE-LG);
+    padding: globals.round-to(globals.$SIZE-2XL) globals.round-to(globals.$SIZE-LG);
   }
 
   .section__xl {
-    padding: globals.render(globals.$SIZE-3XL) globals.render(globals.$SIZE-LG * globals.$MAJOR-HALF);
+    padding: globals.round-to(globals.$SIZE-3XL) globals.round-to(globals.$SIZE-LG * globals.$MAJOR-HALF);
   }
 }

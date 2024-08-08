@@ -21,15 +21,15 @@
   @if not unitless($x) {
     @error "#{$x} is not dimensionless";
   }
-  line-height: globals.render($x);
+  line-height: globals.round-to($x);
 
-  --2xs: #{globals.render(1em * $x * globals.$MINOR-QUARTER)};
-  --xs: #{globals.render(1em * $x * globals.$MINOR-HALF)};
-  --sm: #{globals.render(1em * $x * globals.$MINOR)};
-  --md: #{globals.render($x * globals.$SIZE-MD)};
-  --lg: #{globals.render($x * globals.$SIZE-LG)};
-  --xl: #{globals.render($x * globals.$SIZE-XL)};
-  --2xl: #{globals.render($x * globals.$SIZE-2XL)};
+  --2xs: #{globals.round-to(1em * $x * globals.$MINOR-QUARTER)};
+  --xs: #{globals.round-to(1em * $x * globals.$MINOR-HALF)};
+  --sm: #{globals.round-to(1em * $x * globals.$MINOR)};
+  --md: #{globals.round-to($x * globals.$SIZE-MD)};
+  --lg: #{globals.round-to($x * globals.$SIZE-LG)};
+  --xl: #{globals.round-to($x * globals.$SIZE-XL)};
+  --2xl: #{globals.round-to($x * globals.$SIZE-2XL)};
 }
 
 :root {

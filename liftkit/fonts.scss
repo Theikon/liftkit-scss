@@ -27,77 +27,77 @@
 .display-1 {
   @include margins.set_height(globals.$MAJOR-QUARTER);
 
-  font-size: globals.render(globals.$SIZE-2XL);
+  font-size: globals.round-to(globals.$SIZE-2XL);
   letter-spacing: -0.022em;
 }
 
 .display-2 {
-  font-size: globals.render(globals.$SIZE-XL);
-  line-height: globals.render(globals.$MAJOR-HALF);
+  font-size: globals.round-to(globals.$SIZE-XL);
+  line-height: globals.round-to(globals.$MAJOR-HALF);
   letter-spacing: -0.022em;
 }
 
 .title-a {
-  font-size: globals.render(globals.$SIZE-LG * globals.$MAJOR-HALF);
-  line-height: globals.render(globals.$MAJOR-HALF);
+  font-size: globals.round-to(globals.$SIZE-LG * globals.$MAJOR-HALF);
+  line-height: globals.round-to(globals.$MAJOR-HALF);
   letter-spacing: -0.022em;
 }
 
 .title-b {
-  font-size: globals.render(globals.$SIZE-LG);
-  line-height: globals.render(globals.$MAJOR-HALF);
+  font-size: globals.round-to(globals.$SIZE-LG);
+  line-height: globals.round-to(globals.$MAJOR-HALF);
   letter-spacing: -0.02em;
 }
 
 .title-c {
-  font-size: globals.render(globals.$SIZE-MD * globals.$MAJOR-HALF);
-  line-height: globals.render(globals.$MAJOR-HALF);
+  font-size: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
+  line-height: globals.round-to(globals.$MAJOR-HALF);
   letter-spacing: -0.017em;
 }
 
 .heading {
-  font-size: globals.render(globals.$SIZE-MD * globals.$MAJOR-QUARTER);
+  font-size: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-QUARTER);
   font-weight: 600;
-  line-height: globals.render(globals.$MAJOR-HALF);
+  line-height: globals.round-to(globals.$MAJOR-HALF);
   letter-spacing: -0.014em;
 }
 
 .subheading {
-  font-size: globals.render(math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER));
-  line-height: globals.render(globals.$MAJOR-HALF);
+  font-size: globals.round-to(math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER));
+  line-height: globals.round-to(globals.$MAJOR-HALF);
   letter-spacing: -0.007em;
 }
 
 .body {
   @include margins.set_height(globals.$MAJOR);
 
-  font-size: globals.render(globals.$SIZE-MD);
+  font-size: globals.round-to(globals.$SIZE-MD);
   letter-spacing: -0.011em;
 }
 
 .callout {
-  font-size: globals.render(math.div(globals.$SIZE-MD, globals.$MAJOR-EIGHT));
-  line-height: globals.render(globals.$MAJOR-HALF);
+  font-size: globals.round-to(math.div(globals.$SIZE-MD, globals.$MAJOR-EIGHT));
+  line-height: globals.round-to(globals.$MAJOR-HALF);
   letter-spacing: -0.009em;
 }
 
 .label {
-  font-size: globals.render(math.div(globals.$SIZE-MD, math.pow(globals.$MAJOR-EIGHT, 2)));
+  font-size: globals.round-to(math.div(globals.$SIZE-MD, math.pow(globals.$MAJOR-EIGHT, 2)));
   font-weight: 500;
-  line-height: globals.render(globals.$MAJOR-HALF);
+  line-height: globals.round-to(globals.$MAJOR-HALF);
   letter-spacing: -0.004em;
 }
 
 .caption {
-  font-size: globals.render(math.div(globals.$SIZE-MD, globals.$MAJOR-HALF));
-  line-height: globals.render(globals.$MAJOR-HALF);
+  font-size: globals.round-to(math.div(globals.$SIZE-MD, globals.$MAJOR-HALF));
+  line-height: globals.round-to(globals.$MAJOR-HALF);
   letter-spacing: -0.007em;
 }
 
 .overline {
   @extend .caption;
 
-  letter-spacing: globals.render(math.div(1em * globals.$MINOR, 10));
+  letter-spacing: globals.round-to(math.div(1em * globals.$MINOR, 10));
   text-transform: uppercase;
 }
 
@@ -177,21 +177,21 @@
 @media screen and (max-width: 767px) {
 
   .display-1 {
-    font-size: globals.render(globals.$SIZE-XL * globals.$MAJOR-HALF);
+    font-size: globals.round-to(globals.$SIZE-XL * globals.$MAJOR-HALF);
   }
 }
 
 @media screen and (max-width: 479px) {
 
   .display-1 {
-    font-size: globals.render(globals.$SIZE-XL);
+    font-size: globals.round-to(globals.$SIZE-XL);
   }
 
   .display-2 {
-    font-size: globals.render(globals.$SIZE-LG * globals.$MAJOR-HALF);
+    font-size: globals.round-to(globals.$SIZE-LG * globals.$MAJOR-HALF);
   }
 
   .title-a {
-    font-size: globals.render(globals.$SIZE-LG * globals.$MAJOR-QUARTER);
+    font-size: globals.round-to(globals.$SIZE-LG * globals.$MAJOR-QUARTER);
   }
 }

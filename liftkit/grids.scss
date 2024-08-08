@@ -25,37 +25,37 @@
   &__xs {
     @extend .grid;
 
-    gap: globals.render(globals.$SIZE-2XS * globals.$MAJOR-HALF);
+    gap: globals.round-to(globals.$SIZE-2XS * globals.$MAJOR-HALF);
   }
 
   &__sm {
     @extend .grid;
 
-    gap: globals.render(globals.$SIZE-XS * globals.$MAJOR-HALF);
+    gap: globals.round-to(globals.$SIZE-XS * globals.$MAJOR-HALF);
   }
 
   &__md {
     @extend .grid;
 
-    gap: globals.render(globals.$SIZE-SM * globals.$MAJOR-HALF);
+    gap: globals.round-to(globals.$SIZE-SM * globals.$MAJOR-HALF);
   }
 
   &__lg {
     @extend .grid;
 
-    gap: globals.render(globals.$SIZE-MD);
+    gap: globals.round-to(globals.$SIZE-MD);
   }
 
   &__xl {
     @extend .grid;
 
-    gap: globals.render(globals.$SIZE-LG);
+    gap: globals.round-to(globals.$SIZE-LG);
   }
 
   &__2xl {
     @extend .grid;
 
-    gap: globals.render(globals.$SIZE-XL);
+    gap: globals.round-to(globals.$SIZE-XL);
   }
 
   @for $k from 1 through 9 {
