@@ -18,66 +18,66 @@
 @use "globals";
 
 @mixin w__xxs {
-  width: var(--M);
+  width: globals.render(globals.$SIZE-MD);
 }
 
 @mixin w__xs {
-  width: calc(var(--M) * #{globals.$MAJOR-QUARTER});
+  width: globals.render(globals.$SIZE-MD * globals.$MAJOR-QUARTER);
 }
 
 @mixin w__s {
-  width: calc(var(--M) * #{globals.$MAJOR-HALF});
+  width: globals.render(globals.$SIZE-MD * globals.$MAJOR-HALF);
 }
 
 @mixin w__m {
-  width: var(--L);
+  width: globals.render(globals.$SIZE-LG);
 }
 
 @mixin w__l {
-  width: calc(var(--L) * #{globals.$MAJOR-HALF});
+  width: calc(var(--lg) * #{globals.$MAJOR-HALF});
 }
 
 @mixin w__xl {
-  width: var(--XL);
+  width: globals.render(globals.$SIZE-XL);
 }
 
 @mixin w__xxl {
-  width: var(--XXL);
+  width: globals.render(globals.$SIZE-2XL);
 }
 
 @mixin w__xxxl {
-  width: var(--XXXL);
+  width: globals.render(globals.$SIZE-3XL);
 }
 
 
 @mixin h__xxs {
-  height: var(--M);
+  height: globals.render(globals.$SIZE-MD);
 }
 
 @mixin h__xs {
-  height: calc(var(--M) * #{globals.$MAJOR-QUARTER});
+  height: globals.render(globals.$SIZE-MD * globals.$MAJOR-QUARTER);
 }
 
 @mixin h__s {
-  height: calc(var(--M) * #{globals.$MAJOR-HALF});
+  height: globals.render(globals.$SIZE-MD * globals.$MAJOR-HALF);
 }
 
 @mixin h__m {
-  height: var(--L);
+  height: globals.render(globals.$SIZE-LG);
 }
 
 @mixin h__l {
-  height: calc(var(--L) * #{globals.$MAJOR-HALF});
+  height: globals.render(globals.$SIZE-LG * globals.$MAJOR-HALF);
 }
 
 @mixin h__xl {
-  height: var(--XL);
+  height: globals.render(globals.$SIZE-XL);
 }
 
 @mixin h__xxl {
-  height: var(--XXL);
+  height: globals.render(globals.$SIZE-2XL);
 }
 
 @mixin h__xxxl {
-  height: var(--XXXL);
+  height: globals.render(globals.$SIZE-3XL);
 }
