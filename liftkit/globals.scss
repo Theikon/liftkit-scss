@@ -19,6 +19,25 @@
 
 $PHI: math.div(1 + math.sqrt(5), 2) !default;
 
+$MAJOR: math.pow($PHI, 1.0); // ϕ^1
+$MAJOR-HALF: math.pow($PHI, .5); // √ϕ
+$MAJOR-QUARTER: math.pow($PHI, .25); // ϕ^1/4
+
+$MINOR: $MAJOR - 1.0; // ϕ - 1
+$MINOR-HALF: $MAJOR-HALF - 1.0; // √ϕ - 1
+$MINOR-QUARTER: $MAJOR-QUARTER - 1.0; // ϕ^1/4 - 1
+
+$SIZE-2XS: 1em * math.pow($PHI, -3);
+$SIZE-XS: 1em * math.pow($PHI, -2);
+$SIZE-SM: 1em * math.pow($PHI, -1);
+$SIZE-MD: 1em * math.pow($PHI, 0);
+$SIZE-LG: 1em * math.pow($PHI, 1);
+$SIZE-XL: 1em * math.pow($PHI, 2);
+$SIZE-2XL: 1em * math.pow($PHI, 3);
+$SIZE-3XL: 1em * math.pow($PHI, 4);
+
+$SIZE-4XL: 1em * math.pow($PHI, 5);
+
 @function strip_unit($n) {
   @if type-of($n) != number {
     @error "#{$n} is not a number";
@@ -73,24 +92,6 @@ $PHI: math.div(1 + math.sqrt(5), 2) !default;
   @return round_to_unit(math.pow($PHI, $n), $dim);
 }
 
-$MAJOR: scale_to(1);
-$MAJOR-HALF: scale_to(math.div(1, 2));
-$MAJOR-QUARTER: scale_to(math.div(1, 4));
-$MAJOR-EIGHT: scale_to(math.div(1, 8));
-
-$MINOR: $MAJOR - 1;
-$MINOR-HALF: $MAJOR-HALF - 1;
-$MINOR-QUARTER: $MAJOR-QUARTER - 1;
-$MINOR-EIGHT: $MAJOR-EIGHT - 1;
-
-:root {
-  --XXS: #{scale_to(-3, em)};
-  --XS: #{scale_to(-2, em)};
-  --S: #{scale_to(-1, em)};
-  --M: #{scale_to(0, em)};
-  --L: #{scale_to(1, em)};
-  --XL: #{scale_to(2, em)};
-  --XXL: #{scale_to(3, em)};
-  --XXXL: #{scale_to(4, em)};
-  --XXXXL: #{scale_to(5, em)};
+@function render($x) {
+  @return #{round_to($x)};
 }
