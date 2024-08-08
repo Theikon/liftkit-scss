@@ -22,6 +22,7 @@ $PHI: math.div(1 + math.sqrt(5), 2) !default;
 $MAJOR: math.pow($PHI, 1.0); // ϕ^1
 $MAJOR-HALF: math.pow($PHI, .5); // √ϕ
 $MAJOR-QUARTER: math.pow($PHI, .25); // ϕ^1/4
+$MAJOR-EIGHT: math.pow($PHI, .125); // ϕ^1/8
 
 $MINOR: $MAJOR - 1.0; // ϕ - 1
 $MINOR-HALF: $MAJOR-HALF - 1.0; // √ϕ - 1

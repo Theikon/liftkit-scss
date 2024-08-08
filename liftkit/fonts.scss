@@ -27,72 +27,72 @@
 .display-1 {
   @include margins.set_height(globals.round_to_unit(globals.$MAJOR-QUARTER, em));
 
-  font-size: var(--XXL);
-  line-height: #{globals.$MAJOR-QUARTER};
+  font-size: globals.render(globals.$SIZE-2XL);
+  line-height: globals.render(globals.$MAJOR-QUARTER);
   letter-spacing: -0.022em;
 }
 
 .display-2 {
-  font-size: var(--XL);
-  line-height: #{globals.$MAJOR-HALF};
+  font-size: globals.render(globals.$SIZE-XL);
+  line-height: globals.render(globals.$MAJOR-HALF);
   letter-spacing: -0.022em;
 }
 
 .title-a {
-  font-size: calc(var(--L) * #{globals.$MAJOR-HALF});
-  line-height: #{globals.$MAJOR-HALF};
+  font-size: globals.render(globals.$SIZE-LG * globals.$MAJOR-HALF);
+  line-height: globals.render(globals.$MAJOR-HALF);
   letter-spacing: -0.022em;
 }
 
 .title-b {
-  font-size: var(--L);
-  line-height: #{globals.$MAJOR-HALF};
+  font-size: globals.render(globals.$SIZE-LG);
+  line-height: globals.render(globals.$MAJOR-HALF);
   letter-spacing: -0.02em;
 }
 
 .title-c {
-  font-size: calc(var(--M) * #{globals.$MAJOR-HALF});
-  line-height: #{globals.$MAJOR-HALF};
+  font-size: globals.render(globals.$SIZE-MD * globals.$MAJOR-HALF);
+  line-height: globals.render(globals.$MAJOR-HALF);
   letter-spacing: -0.017em;
 }
 
 .heading {
-  font-size: calc(var(--M) * #{globals.$MAJOR-QUARTER});
+  font-size: globals.render(globals.$SIZE-MD * globals.$MAJOR-QUARTER);
   font-weight: 600;
-  line-height: #{globals.$MAJOR-HALF};
+  line-height: globals.render(globals.$MAJOR-HALF);
   letter-spacing: -0.014em;
 }
 
 .subheading {
-  font-size: calc(var(--M) / #{globals.$MAJOR-QUARTER});
-  line-height: #{globals.$MAJOR-HALF};
+  font-size: globals.render(math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER));
+  line-height: globals.render(globals.$MAJOR-HALF);
   letter-spacing: -0.007em;
 }
 
 .body {
   @include margins.set_height(globals.round_to_unit(globals.$MAJOR, em));
 
-  font-size: var(--M);
-  line-height: #{globals.$MAJOR};
+  font-size: globals.render(globals.$SIZE-MD);
+  line-height: globals.render(globals.$MAJOR);
   letter-spacing: -0.011em;
 }
 
 .callout {
-  font-size: calc(var(--M) / #{globals.$MAJOR-EIGHT});
-  line-height: #{globals.$MAJOR-HALF};
+  font-size: globals.render(math.div(globals.$SIZE-MD, globals.$MAJOR-EIGHT));
+  line-height: globals.render(globals.$MAJOR-HALF);
   letter-spacing: -0.009em;
 }
 
 .label {
-  font-size: calc(var(--M) / #{globals.round_to(math.pow(globals.$MAJOR-EIGHT, 2))});
+  font-size: globals.render(math.div(globals.$SIZE-MD, math.pow(globals.$MAJOR-EIGHT, 2)));
   font-weight: 500;
-  line-height: #{globals.$MAJOR-HALF};
+  line-height: globals.render(globals.$MAJOR-HALF);
   letter-spacing: -0.004em;
 }
 
 .caption {
-  font-size: calc(var(--M) / #{globals.$MAJOR-HALF});
-  line-height: #{globals.$MAJOR-HALF};
+  font-size: globals.render(math.div(globals.$SIZE-MD, globals.$MAJOR-HALF));
+  line-height: globals.render(globals.$MAJOR-HALF);
   letter-spacing: -0.007em;
 }
 
@@ -179,21 +179,21 @@
 @media screen and (max-width: 767px) {
 
   .display-1 {
-    font-size: calc(var(--XL) * #{globals.$MAJOR-HALF});
+    font-size: globals.render(globals.$SIZE-XL * globals.$MAJOR-HALF);
   }
 }
 
 @media screen and (max-width: 479px) {
 
   .display-1 {
-    font-size: var(--XL);
+    font-size: globals.render(globals.$SIZE-XL);
   }
 
   .display-2 {
-    font-size: calc(var(--L) * #{globals.$MAJOR-HALF});
+    font-size: globals.render(globals.$SIZE-LG * globals.$MAJOR-HALF);
   }
 
   .title-a {
-    font-size: calc(var(--L) * #{globals.$MAJOR-QUARTER});
+    font-size: globals.render(globals.$SIZE-LG * globals.$MAJOR-QUARTER);
   }
 }
