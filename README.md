@@ -4,8 +4,8 @@ A fork of LiftKit CSS utilizing the power of the CSS preprocessors Sass to
 address various issues with the code style and deployment.
 
 Huge thanks to [@chainlift](https://www.github.com/chainlift) for designing
-LiftKit, a framework utilizing the golden ratio to provide web pages with an
-oddly-satisfying look and feel.
+LiftKit, a framework utilizing the golden ratio to provide an oddly-satisfying
+look and feel.
 
 ## Overview
 
