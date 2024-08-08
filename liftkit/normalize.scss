@@ -44,6 +44,7 @@ h5,
 h6,
 p,
 li {
+  font: inherit;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -51,25 +52,21 @@ li {
 a {
   @include colors.fg__primary;
 
-  font-weight: 700;
+  font: inherit;
   text-decoration: underline;
 }
 
-ul {
-  list-style: none;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-}
-
+ul,
 ol {
-  list-style: none;
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 0;
+  list-style: none;
 }
 
-img {
+picture,
+img,
+svg {
   display: block;
   max-width: 100%;
 }
