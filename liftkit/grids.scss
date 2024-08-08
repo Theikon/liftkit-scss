@@ -25,48 +25,43 @@
   &__xs {
     @extend .grid;
 
-    gap: calc(var(--XXS) * #{globals.$MAJOR-HALF});
+    gap: globals.render(globals.$SIZE-2XS * globals.$MAJOR-HALF);
   }
 
   &__s {
     @extend .grid;
 
-    gap: calc(var(--XS) * #{globals.$MAJOR-HALF});
+    gap: globals.render(globals.$SIZE-XS * globals.$MAJOR-HALF);
   }
 
   &__m {
     @extend .grid;
 
-    gap: calc(var(--S) * #{globals.$MAJOR-HALF});
+    gap: globals.render(globals.$SIZE-SM * globals.$MAJOR-HALF);
   }
 
   &__l {
     @extend .grid;
 
-    gap: var(--M);
+    gap: globals.render(globals.$SIZE-MD);
   }
 
   &__xl {
     @extend .grid;
 
-    gap: var(--L);
+    gap: globals.render(globals.$SIZE-LG);
   }
 
   &__xxl {
     @extend .grid;
 
-    gap: var(--XL);
+    gap: globals.render(globals.$SIZE-XL);
   }
 
   @for $k from 1 through 9 {
     &.col__#{$k} {
       grid-template-rows: auto;
       grid-template-columns: repeat($k, 1fr);
-    }
-
-    &.row__#{$k} {
-      grid-template-rows: repeat($k, 1fr);
-      grid-template-columns: auto;
     }
   }
 }
