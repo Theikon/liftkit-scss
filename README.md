@@ -56,9 +56,8 @@ p {
 }
 ```
 Note that LiftKit SCSS uses [Inter](https://rsms.me/inter/) throughout its font
-styles by default, which is freely available on Google Fonts. LiftKit SCSS
-ships with the Material 3
-[baseline](https://m3.material.io/styles/color/static/baseline)
+styles, which is freely available on Google Fonts. LiftKit SCSS ships with the
+Material 3 [baseline](https://m3.material.io/styles/color/static/baseline)
 color scheme by default. Feel free to design a unique color scheme using the
 [Material Theme Builder](https://material-foundation.github.io/material-theme-builder/).
 
