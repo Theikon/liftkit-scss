@@ -35,3 +35,7 @@
 *:active > .state-layer {
   opacity: 10%;
 }
+
+*:focus-visible > .state-layer {
+  opacity: 10%;
+}
