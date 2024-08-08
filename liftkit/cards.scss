@@ -25,41 +25,41 @@
 
   position: relative;
   overflow: hidden;
-  padding: calc(var(--scale) / #{globals.$MAJOR-HALF}) var(--scale) var(--scale);
-  border-radius: calc(var(--scale) / #{globals.$MAJOR-HALF});
+  padding: calc(var(--scale) / #{globals.round-to(globals.$MAJOR-HALF)}) var(--scale) var(--scale);
+  border-radius: calc(var(--scale) / #{globals.round-to(globals.$MAJOR-HALF)});
 
   // In order to provide optical correctness to the card padding symmetry,
   // determine the largest font size within the card.
   &:has(.body) {
-    --scale: #{globals.$SIZE-MD};
+    --scale: #{globals.round-to(globals.$SIZE-MD)};
   }
 
   &:has(.subheading) {
-    --scale: #{math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER)};
+    --scale: #{globals.round-to(math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER))};
   }
 
   &:has(.heading) {
-    --scale: #{globals.$SIZE-MD * globals.$MAJOR-QUARTER};
+    --scale: #{globals.round-to(globals.$SIZE-MD * globals.$MAJOR-QUARTER)};
   }
 
   &:has(.title-c) {
-    --scale: #{globals.$SIZE-MD * globals.$MAJOR-HALF};
+    --scale: #{globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF)};
   }
 
   &:has(.title-b) {
-    --scale: #{globals.$SIZE-LG};
+    --scale: #{globals.round-to(globals.$SIZE-LG)};
   }
 
   &:has(.title-a) {
-    --scale: #{globals.$SIZE-LG * globals.$MAJOR-HALF};
+    --scale: #{globals.round-to(globals.$SIZE-LG * globals.$MAJOR-HALF)};
   }
 
   &:has(.display-2) {
-    --scale: #{globals.$SIZE-XL};
+    --scale: #{globals.round-to(globals.$SIZE-XL)};
   }
 
   &:has(.display-1) {
-    --scale: #{globals.$SIZE-2XL};
+    --scale: #{globals.round-to(globals.$SIZE-2XL)};
   }
 
   // Since the :has pseudo-class is newly available, provide a fallback to
@@ -67,34 +67,34 @@
   // Do not use @extend-at rule as non-conforming browsers will drop the entire
   // rule!
   &.card__body {
-    --scale: #{globals.$SIZE-MD};
+    --scale: #{globals.round-to(globals.$SIZE-MD)};
   }
 
   &.card__subheading {
-    --scale: #{math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER)};
+    --scale: #{globals.round-to(math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER))};
   }
 
   &.card__heading {
-    --scale: #{globals.$SIZE-MD * globals.$MAJOR-QUARTER};
+    --scale: #{globals.round-to(globals.$SIZE-MD * globals.$MAJOR-QUARTER)};
   }
 
   &.card__title-c {
-    --scale: #{globals.$SIZE-MD * globals.$MAJOR-HALF};
+    --scale: #{globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF)};
   }
 
   &.card__title-b {
-    --scale: #{globals.$SIZE-LG};
+    --scale: #{globals.round-to(globals.$SIZE-LG)};
   }
 
   &.card__title-a {
-    --scale: #{globals.$SIZE-LG * globals.$MAJOR-HALF};
+    --scale: #{globals.round-to(globals.$SIZE-LG * globals.$MAJOR-HALF)};
   }
 
   &.card__display-2 {
-    --scale: #{globals.$SIZE-XL};
+    --scale: #{globals.round-to(globals.$SIZE-XL)};
   }
 
   &.card__display-1 {
-    --scale: #{globals.$SIZE-2XL};
+    --scale: #{globals.round-to(globals.$SIZE-2XL)};
   }
 }
