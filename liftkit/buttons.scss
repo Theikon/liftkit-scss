@@ -15,6 +15,8 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
+@use "sass:math";
+
 @use "globals";
 @use "blocks";
 @use "colors";
@@ -26,15 +28,15 @@
   position: relative;
   display: inline-block;
   overflow: hidden;
-  padding: calc(var(--S) / #{globals.$MAJOR-HALF}) var(--M);
+  padding: globals.render(math.div(globals.$SIZE-SM, globals.$MAJOR-HALF)) globals.render(globals.$SIZE-MD);
   text-decoration: none;
 
-  // ensure visual consistency across different buttons
+  // Ensure visual consistency across different buttons.
   border: 1px solid transparent;
   border-radius: 9999px; // round
 
   &.large {
-    font-size: calc(var(--M) * #{globals.$MAJOR-HALF});
+    font-size: globals.render(globals.$SIZE-MD * globals.$MAJOR-HALF);
   }
 
   // Since the :has pseudo-class is newly available, provide a fallback to
@@ -42,21 +44,21 @@
   // Do not use @extend-at rule as non-conforming browsers will drop the entire
   // rule!
   &.start {
-    padding-right: calc(var(--M) * #{globals.$MAJOR-HALF});
-    padding-left: var(--S);
+    padding-right: globals.render(globals.$SIZE-MD * globals.$MAJOR-HALF);
+    padding-left: globals.render(globals.$SIZE-SM);
   }
 
   &.end {
-    padding-right: var(--S);
+    padding-right: globals.render(globals.$SIZE-SM);
   }
 
   &:has(.button__icon.start) {
-    padding-right: calc(var(--M) * #{globals.$MAJOR-HALF});
-    padding-left: var(--S);
+    padding-right: globals.render(globals.$SIZE-MD * globals.$MAJOR-HALF);
+    padding-left: globals.render(globals.$SIZE-SM);
   }
 
   &:has(.button__icon.end) {
-    padding-right: var(--S);
+    padding-right: globals.render(globals.$SIZE-SM);
   }
 }
 
@@ -77,7 +79,7 @@
   @include blocks.h-block;
 
   align-items: center;
-  column-gap: calc(var(--S) / #{globals.$MAJOR-HALF});
+  column-gap: globals.render(math.div(globals.$SIZE-MD, globals.$MAJOR-HALF));
 }
 
 .button__icon {
