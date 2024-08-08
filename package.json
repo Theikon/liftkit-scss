@@ -1,7 +1,7 @@
 {
   "name": "@theikon/liftkit-scss",
   "version": "1.1.0",
-  "description": "LiftKit is a lightweight framework for clean, minimalist designs, featuring M3 color roles, optical kerning, and unique golden ratio spacing.",
+  "description": "LiftKit is a lightweight framework for clean, minimalist designs, featuring M3 color schemes, optical kerning, and unique golden ratio spacing.",
   "main": "index.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
