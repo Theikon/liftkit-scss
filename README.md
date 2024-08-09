@@ -1,7 +1,9 @@
 # LiftKit SCSS
 
 A fork of LiftKit CSS utilizing the power of the CSS preprocessor Sass to
-enhance the source where possible, focusing on consistency and ease of use.
+enhance the source where possible, focusing on consistency and ease of use. I
+am pleased to announce that LiftKit SCSS is now stable and ready for production
+use.
 
 Huge thanks to [@chainlift](https://www.github.com/chainlift) for designing
 LiftKit, a framework utilizing the golden ratio to provide an oddly-satisfying
