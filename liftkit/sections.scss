@@ -39,6 +39,7 @@
 
 @media screen and (max-width: 991px) {
 
+  .section__xs,
   .section__sm {
     padding-right: globals.round-to(globals.$SIZE-LG);
     padding-left: globals.round-to(globals.$SIZE-LG);
