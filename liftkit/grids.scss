@@ -57,11 +57,16 @@
 
     gap: globals.round-to(globals.$SIZE-XL);
   }
+}
 
-  @for $k from 1 through 9 {
-    &.col__#{$k} {
-      grid-template-rows: auto;
-      grid-template-columns: repeat($k, 1fr);
-    }
+@for $k from 1 through 9 {
+  .col__#{$k} {
+    grid-template-rows: auto;
+    grid-template-columns: repeat($k, 1fr);
+  }
+
+  .row__#{$k} {
+    grid-template-rows: repeat($k, 1fr);
+    grid-template-columns: auto;
   }
 }
