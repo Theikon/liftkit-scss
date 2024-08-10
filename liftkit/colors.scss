@@ -413,8 +413,8 @@ $DARK: (
 }
 
 @mixin bg__inverse-surface {
-  background-color: var(--inverse-on-surface);
-  color: var(--inverse-surface);
+  background-color: var(--inverse-surface);
+  color: var(--inverse-on-surface);
 }
 
 @mixin bg__inverse-primary {
