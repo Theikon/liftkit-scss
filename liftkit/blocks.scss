@@ -25,37 +25,37 @@
 @mixin h-block__xs {
   @include h-block;
 
-  column-gap: globals.round-to(globals.$SIZE-2XS * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-2XS * globals.$MAJOR-HALF);
 }
 
 @mixin h-block__sm {
   @include h-block;
 
-  column-gap: globals.round-to(globals.$SIZE-XS * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-XS * globals.$MAJOR-HALF);
 }
 
 @mixin h-block__md {
   @include h-block;
 
-  column-gap: globals.round-to(globals.$SIZE-SM * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-SM * globals.$MAJOR-HALF);
 }
 
 @mixin h-block__lg {
   @include h-block;
 
-  column-gap: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
 }
 
 @mixin h-block__xl {
   @include h-block;
 
-  column-gap: globals.round-to(globals.$SIZE-LG * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-LG * globals.$MAJOR-HALF);
 }
 
 @mixin h-block__2xl {
   @include h-block;
 
-  column-gap: globals.round-to(globals.$SIZE-XL * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-XL * globals.$MAJOR-HALF);
 }
 
 @mixin v-block {
@@ -66,37 +66,37 @@
 @mixin v-block__xs {
   @include v-block;
 
-  row-gap: globals.round-to(globals.$SIZE-2XS * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-2XS * globals.$MAJOR-HALF);
 }
 
 @mixin v-block__sm {
   @include v-block;
 
-  row-gap: globals.round-to(globals.$SIZE-XS * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-XS * globals.$MAJOR-HALF);
 }
 
 @mixin v-block__md {
   @include v-block;
 
-  row-gap: globals.round-to(globals.$SIZE-SM * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-SM * globals.$MAJOR-HALF);
 }
 
 @mixin v-block__lg {
   @include v-block;
 
-  row-gap: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
 }
 
 @mixin v-block__xl {
   @include v-block;
 
-  row-gap: globals.round-to(globals.$SIZE-LG * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-LG * globals.$MAJOR-HALF);
 }
 
 @mixin v-block__2xl {
   @include v-block;
 
-  row-gap: globals.round-to(globals.$SIZE-XL * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-XL * globals.$MAJOR-HALF);
 }
 
 
@@ -108,37 +108,37 @@
 @mixin h-inline__xs {
   @include h-inline;
 
-  column-gap: globals.round-to(globals.$SIZE-2XS * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-2XS * globals.$MAJOR-HALF);
 }
 
 @mixin h-inline__sm {
   @include h-inline;
 
-  column-gap: globals.round-to(globals.$SIZE-XS * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-XS * globals.$MAJOR-HALF);
 }
 
 @mixin h-inline__md {
   @include h-inline;
 
-  column-gap: globals.round-to(globals.$SIZE-SM * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-SM * globals.$MAJOR-HALF);
 }
 
 @mixin h-inline__lg {
   @include h-inline;
 
-  column-gap: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
 }
 
 @mixin h-inline__xl {
   @include h-inline;
 
-  column-gap: globals.round-to(globals.$SIZE-LG * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-LG * globals.$MAJOR-HALF);
 }
 
 @mixin h-inline__2xl {
   @include h-inline;
 
-  column-gap: globals.round-to(globals.$SIZE-XL * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-XL * globals.$MAJOR-HALF);
 }
 
 @mixin v-inline {
@@ -149,35 +149,35 @@
 @mixin v-inline__xs {
   @include v-inline;
 
-  row-gap: globals.round-to(globals.$SIZE-2XS * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-2XS * globals.$MAJOR-HALF);
 }
 
 @mixin v-inline__sm {
   @include v-inline;
 
-  row-gap: globals.round-to(globals.$SIZE-XS * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-XS * globals.$MAJOR-HALF);
 }
 
 @mixin v-inline__md {
   @include v-inline;
 
-  row-gap: globals.round-to(globals.$SIZE-SM * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-SM * globals.$MAJOR-HALF);
 }
 
 @mixin v-inline__lg {
   @include v-inline;
 
-  row-gap: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
 }
 
 @mixin v-inline__xl {
   @include v-inline;
 
-  row-gap: globals.round-to(globals.$SIZE-LG * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-LG * globals.$MAJOR-HALF);
 }
 
 @mixin v-inline__2xl {
   @include v-inline;
 
-  row-gap: globals.round-to(globals.$SIZE-XL * globals.$MAJOR-HALF);
+  gap: globals.round-to(globals.$SIZE-XL * globals.$MAJOR-HALF);
 }
