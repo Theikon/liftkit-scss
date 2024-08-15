@@ -22,39 +22,27 @@
   grid-template-rows: auto auto;
   grid-template-columns: 1fr 1fr;
 
-  &__xs {
-    @extend .grid;
-
+  &--xs {
     gap: globals.round-to(globals.$SIZE-2XS * globals.$MAJOR-HALF);
   }
 
-  &__sm {
-    @extend .grid;
-
+  &--sm {
     gap: globals.round-to(globals.$SIZE-XS * globals.$MAJOR-HALF);
   }
 
-  &__md {
-    @extend .grid;
-
+  &--md {
     gap: globals.round-to(globals.$SIZE-SM * globals.$MAJOR-HALF);
   }
 
-  &__lg {
-    @extend .grid;
-
+  &--lg {
     gap: globals.round-to(globals.$SIZE-MD);
   }
 
-  &__xl {
-    @extend .grid;
-
+  &--xl {
     gap: globals.round-to(globals.$SIZE-LG);
   }
 
-  &__2xl {
-    @extend .grid;
-
+  &--2xl {
     gap: globals.round-to(globals.$SIZE-XL);
   }
 }
