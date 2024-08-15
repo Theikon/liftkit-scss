@@ -22,7 +22,7 @@
 @use "colors";
 @use "sizes";
 
-.button__text {
+.label {
   @include colors.fg__primary;
 
   position: relative;
@@ -34,8 +34,9 @@
   // Ensure visual consistency across different buttons.
   border: 1px solid transparent;
   border-radius: 9999px; // round
+  background-color: transparent;
 
-  &.large {
+  &--large {
     font-size: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
   }
 
@@ -43,36 +44,43 @@
   // manually specify which icons are present inside the button.
   // Do not use @extend-at rule as non-conforming browsers will drop the entire
   // rule!
-  &.start {
+  &--icon-left {
     padding-right: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
     padding-left: globals.round-to(globals.$SIZE-SM);
   }
 
-  &.end {
+  &--icon-right {
     padding-right: globals.round-to(globals.$SIZE-SM);
   }
 
-  &:has(.button__icon.start) {
+  &:has(.button__icon-left) {
     padding-right: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
     padding-left: globals.round-to(globals.$SIZE-SM);
   }
 
-  &:has(.button__icon.end) {
+  &:has(.button__icon-right) {
     padding-right: globals.round-to(globals.$SIZE-SM);
   }
 }
 
 .button {
-  @extend .button__text;
+  @extend .label;
 
   @include colors.bg__primary;
+
+  &--large {
+    font-size: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
+  }
 }
 
 .button__outline {
-  @extend .button__text;
+  @extend .label;
 
   border-color: var(--outline);
-  background-color: transparent;
+
+  &--large {
+    font-size: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
+  }
 }
 
 .button__content {
@@ -82,7 +90,8 @@
   column-gap: globals.round-to(math.div(globals.$SIZE-MD * globals.$MAJOR-HALF, math.pow(globals.$MAJOR, 2)));
 }
 
-.button__icon {
+.button__icon-left,
+.button__icon-right {
   @include sizes.w__sm;
   @include sizes.h__sm;
 }
