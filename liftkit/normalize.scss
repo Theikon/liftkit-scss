@@ -36,40 +36,8 @@ body {
   margin: 0; /* Remove the margin in all browsers. */
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-li {
+address {
   font: inherit;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-a {
-  @include colors.fg__primary;
-
-  font: inherit;
-  text-decoration: underline;
-}
-
-ul,
-ol {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-  list-style: none;
-}
-
-picture,
-img,
-svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
 }
 
 /*
@@ -83,7 +51,6 @@ Grouping content
 */
 
 hr {
-  box-sizing: content-box;
   height: 0; /* 1 */
   margin: 0;
   color: var(--outline); /* 2 */
@@ -93,6 +60,32 @@ hr {
 Text-level semantics
 ====================
 */
+
+:where(h1, h2, h3, h4, h5, h6, p, li) {
+  font: inherit;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+:where(a) {
+  @include colors.fg__primary;
+
+  font: inherit;
+  text-decoration: underline;
+}
+
+:where(ul, ol) {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+:where(picture, img, svg) {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
 /**
 Add the correct text decoration in Chrome, Edge, and Safari.
