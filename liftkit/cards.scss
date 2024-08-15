@@ -20,7 +20,7 @@
 @use "globals";
 @use "colors";
 
-@mixin _set_scale($scale) {
+@mixin card-scale($scale) {
   @if type-of($scale) != number {
     @error "#{$scale} is not a number";
   }
@@ -37,71 +37,38 @@
 
   // In order to provide optical correctness to the card padding symmetry,
   // determine the largest font size within the card.
-  &:has(.body) {
-    @include _set_scale(globals.$SIZE-MD);
+  // Note that while :has is not widely available yet, :is is. In particular,
+  // :is is forgiving, which means that browser not supporting :has will not
+  // drop the entire rule.
+  :is(&--display-1, &:has(.display-1)) {
+    @include card-scale(globals.$SIZE-2XL);
   }
 
-  &:has(.subheading) {
-    @include _set_scale(math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER));
+  :is(&--display-2, &:has(.display-2)) {
+    @include card-scale(globals.$SIZE-XL);
   }
 
-  &:has(.heading) {
-    @include _set_scale(globals.$SIZE-MD * globals.$MAJOR-QUARTER);
+  :is(&--title-a, &:has(.title-a)) {
+    @include card-scale(globals.$SIZE-LG * globals.$MAJOR-HALF);
   }
 
-  &:has(.title-c) {
-    @include _set_scale(globals.$SIZE-MD * globals.$MAJOR-HALF);
+  :is(&--title-b, &:has(.title-b)) {
+    @include card-scale(globals.$SIZE-LG);
   }
 
-  &:has(.title-b) {
-    @include _set_scale(globals.$SIZE-LG);
+  :is(&--title-c, &:has(.title-c)) {
+    @include card-scale(globals.$SIZE-MD * globals.$MAJOR-HALF);
   }
 
-  &:has(.title-a) {
-    @include _set_scale(globals.$SIZE-LG * globals.$MAJOR-HALF);
+  :is(&--heading, &:has(.heading)) {
+    @include card-scale(globals.$SIZE-MD * globals.$MAJOR-QUARTER);
   }
 
-  &:has(.display-2) {
-    @include _set_scale(globals.$SIZE-XL);
+  :is(&--subheading, &:has(.subheading)) {
+    @include card-scale(math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER));
   }
 
-  &:has(.display-1) {
-    @include _set_scale(globals.$SIZE-2XL);
-  }
-
-  // Since the :has pseudo-class is newly available, provide a fallback to
-  // manually specify the largest font size within the card.
-  // Do not use @extend-at rule as non-conforming browsers will drop the entire
-  // rule!
-  &.scale__body {
-    @include _set_scale(globals.$SIZE-MD);
-  }
-
-  &.scale__subheading {
-    @include _set_scale(math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER));
-  }
-
-  &.scale__heading {
-    @include _set_scale(globals.$SIZE-MD * globals.$MAJOR-QUARTER);
-  }
-
-  &.scale__title-c {
-    @include _set_scale(globals.$SIZE-MD * globals.$MAJOR-HALF);
-  }
-
-  &.scale__title-b {
-    @include _set_scale(globals.$SIZE-LG);
-  }
-
-  &.scale__title-a {
-    @include _set_scale(globals.$SIZE-LG * globals.$MAJOR-HALF);
-  }
-
-  &.scale__display-2 {
-    @include _set_scale(globals.$SIZE-XL);
-  }
-
-  &.scale__display-1 {
-    @include _set_scale(globals.$SIZE-2XL);
+  :is(&--body, &:has(.body)) {
+    @include card-scale(globals.$SIZE-MD);
   }
 }
