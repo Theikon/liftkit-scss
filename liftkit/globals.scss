@@ -28,6 +28,10 @@ $MAJOR-EIGHT: math.pow($SCALE, .125); // ϕ^1/8
 $MINOR: $MAJOR - 1.0; // ϕ - 1
 $MINOR-HALF: $MAJOR-HALF - 1.0; // √ϕ - 1
 $MINOR-QUARTER: $MAJOR-QUARTER - 1.0; // ϕ^1/4 - 1
+$MINOR-EIGHT: $MAJOR-EIGHT - 1.0; // ϕ^1/8 - 1
+
+$SIZE-4XS: 1em * math.pow($SCALE, -5.0);
+$SIZE-3XS: 1em * math.pow($SCALE, -4.0);
 
 $SIZE-2XS: 1em * math.pow($SCALE, -3.0);
 $SIZE-XS: 1em * math.pow($SCALE, -2.0);
