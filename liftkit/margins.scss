@@ -17,12 +17,10 @@
  */
 @use "globals";
 
-@mixin set_height($x) {
+@mixin line-height($x) {
   @if not unitless($x) {
     @error "#{$x} is not dimensionless";
   }
-  line-height: globals.round-to($x);
-
   --2xs: #{globals.round-to(1em * $x * globals.$MINOR-QUARTER)};
   --xs: #{globals.round-to(1em * $x * globals.$MINOR-HALF)};
   --sm: #{globals.round-to(1em * $x * globals.$MINOR)};
@@ -30,10 +28,12 @@
   --lg: #{globals.round-to($x * globals.$SIZE-LG)};
   --xl: #{globals.round-to($x * globals.$SIZE-XL)};
   --2xl: #{globals.round-to($x * globals.$SIZE-2XL)};
+
+  line-height: globals.round-to($x);
 }
 
 :root {
-  @include set_height(globals.$MAJOR-HALF);
+  @include line-height(globals.$MAJOR-HALF);
 }
 
 @mixin m-top__2xs {
