@@ -46,7 +46,7 @@
   }
 
   .section__md {
-    padding: globals.round-to(globals.$SIZE-LG);
+    padding: globals.round-to(globals.$SIZE-XL) globals.round-to(globals.$SIZE-LG);
   }
 
   .section__lg {
