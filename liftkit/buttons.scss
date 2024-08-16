@@ -61,7 +61,7 @@
   @include blocks.h-block;
 
   align-items: center;
-  column-gap: globals.round-to(math.div(globals.$SIZE-MD * globals.$MAJOR-HALF, math.pow(globals.$MAJOR, 2)));
+  column-gap: globals.round-to(globals.$SIZE-XS * globals.$MAJOR-HALF);
 }
 
 .button__icon {
