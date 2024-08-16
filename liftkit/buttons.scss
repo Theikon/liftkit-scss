@@ -22,7 +22,7 @@
 @use "colors";
 @use "sizes";
 
-.label {
+.button {
   @include colors.fg__primary;
 
   position: relative;
@@ -31,42 +31,26 @@
   padding: globals.round-to(math.div(globals.$SIZE-SM, globals.$MAJOR-HALF)) globals.round-to(globals.$SIZE-MD);
   text-decoration: none;
 
-  // Ensure visual consistency across different buttons.
   border: 1px solid transparent;
   border-radius: 9999px; // round
   background-color: transparent;
 
-  &--large {
-    font-size: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
+  &--fill {
+    @include colors.bg__primary;
   }
 
-  // Note that while :has is not widely available yet, :is is. In particular,
-  // :is is forgiving, which means that browser not supporting :has will not
-  // drop the entire rule.
-  :is(&--icon-left, &:has(.button__icon-left)) {
+  &--outline {
+    border-color: var(--outline);
+  }
+
+  &--start-icon {
     padding-right: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
     padding-left: globals.round-to(globals.$SIZE-SM);
   }
 
-  :is(&--icon-right, &:has(.button__icon-right)) {
+  &--end-icon {
     padding-right: globals.round-to(globals.$SIZE-SM);
   }
-}
-
-.button {
-  @extend .label;
-
-  @include colors.bg__primary;
-
-  &--large {
-    font-size: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
-  }
-}
-
-.button__outline {
-  @extend .label;
-
-  border-color: var(--outline);
 
   &--large {
     font-size: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
@@ -80,8 +64,7 @@
   column-gap: globals.round-to(math.div(globals.$SIZE-MD * globals.$MAJOR-HALF, math.pow(globals.$MAJOR, 2)));
 }
 
-.button__icon-left,
-.button__icon-right {
+.button__icon {
   @include sizes.w__sm;
   @include sizes.h__sm;
 }
