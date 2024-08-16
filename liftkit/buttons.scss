@@ -40,25 +40,15 @@
     font-size: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
   }
 
-  // Since the :has pseudo-class is newly available, provide a fallback to
-  // manually specify which icons are present inside the button.
-  // Do not use @extend-at rule as non-conforming browsers will drop the entire
-  // rule!
-  &--icon-left {
+  // Note that while :has is not widely available yet, :is is. In particular,
+  // :is is forgiving, which means that browser not supporting :has will not
+  // drop the entire rule.
+  :is(&--icon-left, &:has(.button__icon-left)) {
     padding-right: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
     padding-left: globals.round-to(globals.$SIZE-SM);
   }
 
-  &--icon-right {
-    padding-right: globals.round-to(globals.$SIZE-SM);
-  }
-
-  &:has(.button__icon-left) {
-    padding-right: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
-    padding-left: globals.round-to(globals.$SIZE-SM);
-  }
-
-  &:has(.button__icon-right) {
+  :is(&--icon-right, &:has(.button__icon-right)) {
     padding-right: globals.round-to(globals.$SIZE-SM);
   }
 }
