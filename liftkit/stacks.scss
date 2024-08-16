@@ -16,18 +16,25 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 .stack {
+  position: relative;
   display: grid;
+  overflow: hidden;
   isolation: isolate;
+}
 
-  &__layer {
-    grid-area: 1 / 1;
+.stack__layer {
+  grid-area: 1 / 1;
 
-    &--above {
-      z-index: 1;
-    }
+  &--float {
+    position: absolute;
+    inset: 0;
+  }
 
-    &--below {
-      z-index: -1;
-    }
+  &--above {
+    z-index: 1;
+  }
+
+  &--below {
+    z-index: -1;
   }
 }
