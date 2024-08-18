@@ -98,9 +98,9 @@ $TYPE-SCALES: (
   ),
   "label": (
     "regular": (
-      "size": math.div(globals.$SIZE-MD, math.pow(globals.$MAJOR-EIGHT, 2)),
+      "size": math.div(math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER), globals.$MAJOR-EIGHT),
       "spacing": -0.004em,
-      "weight": 500,
+      "weight": 600,
     ),
     "bold": (
       "weight": 700,
