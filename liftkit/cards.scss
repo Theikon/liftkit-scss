@@ -19,6 +19,7 @@
 
 @use "globals";
 @use "colors";
+@use "fonts";
 
 @mixin card-scale($scale) {
   @if type-of($scale) != number {
@@ -41,34 +42,50 @@
   // :is is forgiving, which means that browser not supporting :has will not
   // drop the entire rule.
   :is(&--display-1, &:has(.display-1)) {
-    @include card-scale(globals.$SIZE-2XL);
+    @include card-scale(fonts.lookup("display-1", "regular", "size"));
   }
 
   :is(&--display-2, &:has(.display-2)) {
-    @include card-scale(globals.$SIZE-XL);
+    @include card-scale(fonts.lookup("display-2", "regular", "size"));
   }
 
   :is(&--title-a, &:has(.title-a)) {
-    @include card-scale(globals.$SIZE-LG * globals.$MAJOR-HALF);
+    @include card-scale(fonts.lookup("title-a", "regular", "size"));
   }
 
   :is(&--title-b, &:has(.title-b)) {
-    @include card-scale(globals.$SIZE-LG);
+    @include card-scale(fonts.lookup("title-b", "regular", "size"));
   }
 
   :is(&--title-c, &:has(.title-c)) {
-    @include card-scale(globals.$SIZE-MD * globals.$MAJOR-HALF);
+    @include card-scale(fonts.lookup("title-c", "regular", "size"));
   }
 
   :is(&--heading, &:has(.heading)) {
-    @include card-scale(globals.$SIZE-MD * globals.$MAJOR-QUARTER);
+    @include card-scale(fonts.lookup("heading", "regular", "size"));
   }
 
   :is(&--subheading, &:has(.subheading)) {
-    @include card-scale(math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER));
+    @include card-scale(fonts.lookup("subheading", "regular", "size"));
   }
 
   :is(&--body, &:has(.body)) {
-    @include card-scale(globals.$SIZE-MD);
+    @include card-scale(fonts.lookup("body", "regular", "size"));
+  }
+
+  :is(&--callout, &:has(.callout)) {
+    @include card-scale(fonts.lookup("callout", "regular", "size"));
+  }
+
+  :is(&--label, &:has(.label)) {
+    @include card-scale(fonts.lookup("label", "regular", "size"));
+  }
+
+  :is(&--caption, &:has(.caption)) {
+    @include card-scale(fonts.lookup("caption", "regular", "size"));
+  }
+
+  :is(&--overline, &:has(.overline)) {
+    @include card-scale(fonts.lookup("overline", "regular", "size"));
   }
 }
