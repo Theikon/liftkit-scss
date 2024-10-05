@@ -22,7 +22,7 @@
 @use "boxes";
 @use "sizes";
 
-.button__text {
+.button {
   @include colors.fg__primary;
 
   position: relative;
@@ -31,55 +31,37 @@
   padding: globals.round-to(math.div(globals.$SIZE-SM, globals.$MAJOR-HALF)) globals.round-to(globals.$SIZE-MD);
   text-decoration: none;
 
-  // Ensure visual consistency across different buttons.
   border: 1px solid transparent;
   border-radius: 9999px; // round
+  background-color: transparent;
 
-  &.large {
+  &--fill {
+    @include colors.bg__primary;
+  }
+
+  &--outline {
+    border-color: var(--outline);
+  }
+
+  &--start-icon {
+    padding-right: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
+    padding-left: globals.round-to(globals.$SIZE-SM);
+  }
+
+  &--end-icon {
+    padding-right: globals.round-to(globals.$SIZE-SM);
+  }
+
+  &--large {
     font-size: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
   }
-
-  // Since the :has pseudo-class is newly available, provide a fallback to
-  // manually specify which icons are present inside the button.
-  // Do not use @extend-at rule as non-conforming browsers will drop the entire
-  // rule!
-  &.start {
-    padding-right: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
-    padding-left: globals.round-to(globals.$SIZE-SM);
-  }
-
-  &.end {
-    padding-right: globals.round-to(globals.$SIZE-SM);
-  }
-
-  &:has(.button__icon.start) {
-    padding-right: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
-    padding-left: globals.round-to(globals.$SIZE-SM);
-  }
-
-  &:has(.button__icon.end) {
-    padding-right: globals.round-to(globals.$SIZE-SM);
-  }
-}
-
-.button {
-  @extend .button__text;
-
-  @include colors.bg__primary;
-}
-
-.button__outline {
-  @extend .button__text;
-
-  border-color: var(--outline);
-  background-color: transparent;
 }
 
 .button__content {
   @include boxes.h-box;
 
   align-items: center;
-  column-gap: globals.round-to(math.div(globals.$SIZE-MD * globals.$MAJOR-HALF, math.pow(globals.$MAJOR, 2)));
+  column-gap: globals.round-to(math.div(globals.$SIZE-SM, globals.$MAJOR-HALF));
 }
 
 .button__icon {

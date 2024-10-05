@@ -15,24 +15,20 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-.state-layer {
+.state {
   position: absolute;
   inset: 0;
   transition: opacity 0.2s ease;
   pointer-events: none;
   opacity: 0;
 
-  background-color: black;
+  background-color: rgb(0 0 0);
 }
 
-*:hover > .state-layer {
+:hover > .state {
   opacity: 8%;
 }
 
-*:active > .state-layer {
-  opacity: 10%;
-}
-
-*:focus-visible > .state-layer {
+:is(:active > .state, :focus-visible > .state) {
   opacity: 10%;
 }
