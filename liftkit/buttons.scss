@@ -18,8 +18,8 @@
 @use "sass:math";
 
 @use "globals";
-@use "blocks";
 @use "colors";
+@use "boxes";
 @use "sizes";
 
 .button__text {
@@ -76,7 +76,7 @@
 }
 
 .button__content {
-  @include blocks.h-block;
+  @include boxes.h-box;
 
   align-items: center;
   column-gap: globals.round-to(math.div(globals.$SIZE-MD * globals.$MAJOR-HALF, math.pow(globals.$MAJOR, 2)));
