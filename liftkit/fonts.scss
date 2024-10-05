@@ -15,163 +15,211 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
+@use "sass:list";
 @use "sass:math";
+@use "sass:map";
 
 @use "globals";
 @use "margins";
 
+$TYPE-STYLES: (
+    "regular",
+    "bold"
+);
+$TYPE-SCALES: (
+    "display-1": (
+        "regular": (
+            "size": globals.$SIZE-2XL,
+            "height": globals.$MAJOR-QUARTER,
+            "spacing": -0.022em
+        ),
+        "bold": (
+            "weight": 700
+        )
+    ),
+    "display-2": (
+        "regular": (
+            "size": globals.$SIZE-XL * globals.$MAJOR-HALF,
+            "spacing": -0.022em
+        ),
+        "bold": (
+            "weight": 700
+        )
+    ),
+    "title-a": (
+        "regular": (
+            "size": globals.$SIZE-LG * globals.$MAJOR-HALF,
+            "spacing": -0.022em
+        ),
+        "bold": (
+            "weight": 700
+        )
+    ),
+    "title-b": (
+        "regular": (
+            "size": globals.$SIZE-LG,
+            "spacing": -0.02em
+        )
+    ),
+    "title-c": (
+        "regular": (
+            "size": math.div(globals.$SIZE-LG, globals.$MAJOR-HALF),
+            "spacing": -0.017em
+        )
+    ),
+    "heading": (
+        "regular": (
+            "size": globals.$SIZE-MD * globals.$MAJOR-QUARTER,
+            "spacing": -0.014em,
+            "weight": 600
+        ),
+        "bold": (
+            "weight": 700
+        )
+    ),
+    "subheading": (
+        "regular": (
+            "size": math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER),
+            "spacing": -0.007em
+        )
+    ),
+    "body": (
+        "regular": (
+            "size": globals.$SIZE-MD,
+            "height": globals.$MAJOR,
+            "spacing": -0.011em
+        )
+    ),
+    "callout": (
+        "regular": (
+            "size": math.div(globals.$SIZE-MD, globals.$MAJOR-EIGHT),
+            "spacing": -0.009em
+        )
+    ),
+    "label": (
+        "regular": (
+            "size": math.div(math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER), globals.$MAJOR-EIGHT),
+            "spacing": -0.004em,
+            "weight": 600,
+        ),
+        "bold": (
+            "weight": 700,
+        )
+    ),
+    "caption": (
+        "regular": (
+            "size": math.div(globals.$SIZE-MD, globals.$MAJOR-HALF),
+            "spacing": -0.007em
+        )
+    ),
+    "overline": (
+        "regular": (
+            "size": math.div(math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER), globals.$MAJOR-EIGHT),
+            "spacing": 1em * math.div(globals.$MINOR, 10)
+        )
+    )
+);
+
+@function lookup($type-scale, $type-style, $type-property, $optional: false) {
+  @if type-of($type-property) != string {
+    @error "#{$type-property} is not a string";
+  }
+  @if list.index($TYPE-STYLES, $type-style) == null {
+    @error "#{$type-style} is not a valid type style";
+  }
+  $property: map.get($TYPE-SCALES, $type-scale, $type-style, $type-property);
+  @if $property == null {
+    @if not $optional {
+      @error "#{$type-property} is not a valid property of #{$type-style} #{$type-scale}";
+    }
+  }
+  @return $property;
+}
+
+@mixin declare($type-scale) {
+  $line-height: lookup($type-scale, "regular", "height", true);
+  @if $line-height == null {
+    $line-height: globals.$MAJOR-HALF; // default
+  } @else {
+    @include margins.adjust-to($line-height);
+  }
+  font-size: globals.round-to(lookup($type-scale, "regular", "size"));
+  line-height: globals.round-to($line-height);
+  letter-spacing: globals.round-to(lookup($type-scale, "regular", "spacing"));
+
+  $font-weight: lookup($type-scale, "regular", "weight", true);
+  @if $font-weight != null {
+    font-weight: globals.round-to($font-weight);
+  }
+
+  &--bold {
+    $font-weight: lookup($type-scale, "bold", "weight", true);
+    @if $font-weight == null {
+      $font-weight: 600; // default
+    }
+    font-weight: globals.round-to($font-weight);
+  }
+}
+
 :root {
-  font-family: "Inter", sans-serif;
+  @include margins.adjust-to(globals.$MAJOR-HALF);
+
+  font: #{globals.round-to(globals.$SIZE-MD)} / #{globals.round-to(globals.$MAJOR-HALF)} "Inter", "Segoe UI", "Helvetica Neue", "Arial", sans-serif;
 }
 
 .display-1 {
-  @include margins.set_height(globals.$MAJOR-QUARTER);
-
-  font-size: globals.round-to(globals.$SIZE-2XL);
-  letter-spacing: -0.022em;
+  @include declare("display-1");
 }
 
 .display-2 {
-  font-size: globals.round-to(globals.$SIZE-XL);
-  line-height: globals.round-to(globals.$MAJOR-HALF);
-  letter-spacing: -0.022em;
+  @include declare("display-2");
 }
 
 .title-a {
-  font-size: globals.round-to(globals.$SIZE-LG * globals.$MAJOR-HALF);
-  line-height: globals.round-to(globals.$MAJOR-HALF);
-  letter-spacing: -0.022em;
+  @include declare("title-a");
 }
 
 .title-b {
-  font-size: globals.round-to(globals.$SIZE-LG);
-  line-height: globals.round-to(globals.$MAJOR-HALF);
-  letter-spacing: -0.02em;
+  @include declare("title-b");
 }
 
 .title-c {
-  font-size: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
-  line-height: globals.round-to(globals.$MAJOR-HALF);
-  letter-spacing: -0.017em;
+  @include declare("title-c");
 }
 
 .heading {
-  font-size: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-QUARTER);
-  font-weight: 600;
-  line-height: globals.round-to(globals.$MAJOR-HALF);
-  letter-spacing: -0.014em;
+  @include declare("heading");
 }
 
 .subheading {
-  font-size: globals.round-to(math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER));
-  line-height: globals.round-to(globals.$MAJOR-HALF);
-  letter-spacing: -0.007em;
+  @include declare("subheading");
 }
 
 .body {
-  @include margins.set_height(globals.$MAJOR);
-
-  font-size: globals.round-to(globals.$SIZE-MD);
-  letter-spacing: -0.011em;
+  @include declare("body");
 }
 
 .callout {
-  font-size: globals.round-to(math.div(globals.$SIZE-MD, globals.$MAJOR-EIGHT));
-  line-height: globals.round-to(globals.$MAJOR-HALF);
-  letter-spacing: -0.009em;
+  @include declare("callout");
 }
 
 .label {
-  font-size: globals.round-to(math.div(globals.$SIZE-MD, math.pow(globals.$MAJOR-EIGHT, 2)));
-  font-weight: 500;
-  line-height: globals.round-to(globals.$MAJOR-HALF);
-  letter-spacing: -0.004em;
+  @include declare("label");
 }
 
 .caption {
-  font-size: globals.round-to(math.div(globals.$SIZE-MD, globals.$MAJOR-HALF));
-  line-height: globals.round-to(globals.$MAJOR-HALF);
-  letter-spacing: -0.007em;
+  @include declare("caption");
 }
 
 .overline {
-  @extend .caption;
-
-  letter-spacing: globals.round-to(math.div(1em * globals.$MINOR, 10));
-  text-transform: uppercase;
+  @include declare("overline");
 }
 
+@media screen and (max-width: 991px) {
 
-.display-1__bold {
-  @extend .display-1;
-
-  font-weight: 700;
-}
-
-.display-2__bold {
-  @extend .display-2;
-
-  font-weight: 700;
-}
-
-.title-a__bold {
-  @extend .title-a;
-
-  font-weight: 700;
-}
-
-.title-b__bold {
-  @extend .title-b;
-
-  font-weight: 600;
-}
-
-.title-c__bold {
-  @extend .title-c;
-
-  font-weight: 600;
-}
-
-.heading__bold {
-  @extend .heading;
-
-  font-weight: 700;
-}
-
-.subheading__bold {
-  @extend .subheading;
-
-  font-weight: 600;
-}
-
-.body__bold {
-  @extend .body;
-
-  font-weight: 600;
-}
-
-.callout__bold {
-  @extend .callout;
-
-  font-weight: 600;
-}
-
-.label__bold {
-  @extend .label;
-
-  font-weight: 700;
-}
-
-.caption__bold {
-  @extend .caption;
-
-  font-weight: 600;
-}
-
-.overline__bold {
-  @extend .overline;
-
-  font-weight: 600;
+  .display-2 {
+    font-size: globals.round-to(globals.$SIZE-XL);
+  }
 }
 
 @media screen and (max-width: 767px) {
