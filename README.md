@@ -1,13 +1,12 @@
 # LiftKit SCSS
 
 A fork of LiftKit CSS utilizing the power of the CSS preprocessor Sass to
-enhance the source where possible, focusing on consistency and ease of use. I
-am pleased to announce that LiftKit SCSS is now stable and ready for production
-use.
+enhance the original where possible, focusing on consistency and ease of use. I
+am pleased to announce that LiftKit SCSS is stable and already out in the wild.
 
 Huge thanks to [@chainlift](https://www.github.com/chainlift) for designing
-LiftKit, a framework utilizing the golden ratio to provide an oddly-satisfying
-look and feel.
+LiftKit, a design system utilizing the golden ratio to provide an
+oddly-satisfying look and feel.
 
 ## Overview
 
@@ -15,15 +14,15 @@ The aim of the fork is not to provide a drag-and-drop replacement for LiftKit
 CSS. This means that LiftKit SCSS is *not* compatible with LiftKit CSS out of
 the box.
 
-LiftKit SCSS uses mixins in favor of non-semantic classes in order to achieve
-a significantly smaller footprint and encourage semantic naming of classes in
-the DOM. Due to this, the following utility classes of LiftKit CSS are only
-available in LiftKit SCSS using the `@include`-at rule:
+LiftKit SCSS uses mixins in favor of non-semantic class names in order to
+achieve a significantly smaller footprint and encourage semantic naming of
+classes in the DOM. Due to this, the following utility classes of LiftKit CSS
+are only available in LiftKit SCSS using the `@include`-at rule:
 
 - Margins (such as `m-top__sm`) and padding (such as `p-bottom__md`). Note the
   shortening of `pad` to just `p`.
 - Shadows (such as `shadow__md`). Note the name change for consistency.
-- Blocks (such as `h-block` or `v-block__sm`). Note the name change for
+- Boxes (such as `h-box` or `v-inline__sm`). Note the name change for
   consistency.
 - Font and background colors (such as `bg__error` or `fg__primary`).
 - Sizes for both width and height (such as `w__sm` or `h__2xl`). Note the name
@@ -46,7 +45,7 @@ and import the `liftkit.scss` file for example as follows:
 @use "liftkit";
 
 nav {
-  @include liftkit.h-block__md;
+  @include liftkit.h-box__md;
   @include liftkit.bg__surface-container;
 
   align-items: center;
