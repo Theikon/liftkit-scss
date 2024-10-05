@@ -17,84 +17,84 @@
  */
 @use "globals";
 
-@mixin h-block {
+@mixin h-box {
   display: flex;
   flex-direction: row;
 }
 
-@mixin h-block__xs {
-  @include h-block;
+@mixin h-box__xs {
+  @include h-box;
 
   column-gap: globals.round-to(globals.$SIZE-2XS * globals.$MAJOR-HALF);
 }
 
-@mixin h-block__sm {
-  @include h-block;
+@mixin h-box__sm {
+  @include h-box;
 
   column-gap: globals.round-to(globals.$SIZE-XS * globals.$MAJOR-HALF);
 }
 
-@mixin h-block__md {
-  @include h-block;
+@mixin h-box__md {
+  @include h-box;
 
   column-gap: globals.round-to(globals.$SIZE-SM * globals.$MAJOR-HALF);
 }
 
-@mixin h-block__lg {
-  @include h-block;
+@mixin h-box__lg {
+  @include h-box;
 
   column-gap: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
 }
 
-@mixin h-block__xl {
-  @include h-block;
+@mixin h-box__xl {
+  @include h-box;
 
   column-gap: globals.round-to(globals.$SIZE-LG * globals.$MAJOR-HALF);
 }
 
-@mixin h-block__2xl {
-  @include h-block;
+@mixin h-box__2xl {
+  @include h-box;
 
   column-gap: globals.round-to(globals.$SIZE-XL * globals.$MAJOR-HALF);
 }
 
-@mixin v-block {
+@mixin v-box {
   display: flex;
   flex-direction: column;
 }
 
-@mixin v-block__xs {
-  @include v-block;
+@mixin v-box__xs {
+  @include v-box;
 
   row-gap: globals.round-to(globals.$SIZE-2XS * globals.$MAJOR-HALF);
 }
 
-@mixin v-block__sm {
-  @include v-block;
+@mixin v-box__sm {
+  @include v-box;
 
   row-gap: globals.round-to(globals.$SIZE-XS * globals.$MAJOR-HALF);
 }
 
-@mixin v-block__md {
-  @include v-block;
+@mixin v-box__md {
+  @include v-box;
 
   row-gap: globals.round-to(globals.$SIZE-SM * globals.$MAJOR-HALF);
 }
 
-@mixin v-block__lg {
-  @include v-block;
+@mixin v-box__lg {
+  @include v-box;
 
   row-gap: globals.round-to(globals.$SIZE-MD * globals.$MAJOR-HALF);
 }
 
-@mixin v-block__xl {
-  @include v-block;
+@mixin v-box__xl {
+  @include v-box;
 
   row-gap: globals.round-to(globals.$SIZE-LG * globals.$MAJOR-HALF);
 }
 
-@mixin v-block__2xl {
-  @include v-block;
+@mixin v-box__2xl {
+  @include v-box;
 
   row-gap: globals.round-to(globals.$SIZE-XL * globals.$MAJOR-HALF);
 }
