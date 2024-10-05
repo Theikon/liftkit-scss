@@ -17,9 +17,9 @@
  */
 @use "liftkit/state-layers";
 @use "liftkit/containers";
-@use "liftkit/normalize";
 @use "liftkit/sections";
 @use "liftkit/buttons";
+@use "liftkit/resets";
 @use "liftkit/cards";
 @use "liftkit/fonts";
 @use "liftkit/grids";
@@ -27,6 +27,8 @@
 @forward "liftkit/globals";
 @forward "liftkit/margins";
 @forward "liftkit/shadows";
-@forward "liftkit/blocks";
 @forward "liftkit/colors";
+@forward "liftkit/boxes";
 @forward "liftkit/sizes";
+
+@debug "LiftKit-v1.3.0";
