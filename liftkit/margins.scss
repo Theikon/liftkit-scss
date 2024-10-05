@@ -17,23 +17,17 @@
  */
 @use "globals";
 
-@mixin set_height($x) {
-  @if not unitless($x) {
-    @error "#{$x} is not dimensionless";
+@mixin adjust-to($line-height) {
+  @if not unitless($line-height) {
+    @error "#{$line-height} is not dimensionless";
   }
-  line-height: globals.round-to($x);
-
-  --2xs: #{globals.round-to(1em * $x * globals.$MINOR-QUARTER)};
-  --xs: #{globals.round-to(1em * $x * globals.$MINOR-HALF)};
-  --sm: #{globals.round-to(1em * $x * globals.$MINOR)};
-  --md: #{globals.round-to($x * globals.$SIZE-MD)};
-  --lg: #{globals.round-to($x * globals.$SIZE-LG)};
-  --xl: #{globals.round-to($x * globals.$SIZE-XL)};
-  --2xl: #{globals.round-to($x * globals.$SIZE-2XL)};
-}
-
-:root {
-  @include set_height(globals.$MAJOR-HALF);
+  --2xs: #{globals.round-to(1em * $line-height * globals.$MINOR-QUARTER)};
+  --xs: #{globals.round-to(1em * $line-height * globals.$MINOR-HALF)};
+  --sm: #{globals.round-to(1em * $line-height * globals.$MINOR)};
+  --md: #{globals.round-to($line-height * globals.$SIZE-MD)};
+  --lg: #{globals.round-to($line-height * globals.$SIZE-LG)};
+  --xl: #{globals.round-to($line-height * globals.$SIZE-XL)};
+  --2xl: #{globals.round-to($line-height * globals.$SIZE-2XL)};
 }
 
 @mixin m-top__2xs {
