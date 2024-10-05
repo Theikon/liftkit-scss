@@ -19,8 +19,9 @@
 
 @use "globals";
 @use "colors";
+@use "fonts";
 
-@mixin _set_scale($scale) {
+@mixin card-scale($scale) {
   @if type-of($scale) != number {
     @error "#{$scale} is not a number";
   }
@@ -37,71 +38,54 @@
 
   // In order to provide optical correctness to the card padding symmetry,
   // determine the largest font size within the card.
-  &:has(.body) {
-    @include _set_scale(globals.$SIZE-MD);
+  // Note that while :has is not widely available yet, :is is. In particular,
+  // :is is forgiving, which means that browser not supporting :has will not
+  // drop the entire rule.
+  :is(&--overline, &:has(.overline)) {
+    @include card-scale(fonts.lookup("overline", "regular", "size"));
   }
 
-  &:has(.subheading) {
-    @include _set_scale(math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER));
+  :is(&--caption, &:has(.caption)) {
+    @include card-scale(fonts.lookup("caption", "regular", "size"));
   }
 
-  &:has(.heading) {
-    @include _set_scale(globals.$SIZE-MD * globals.$MAJOR-QUARTER);
+  :is(&--label, &:has(.label)) {
+    @include card-scale(fonts.lookup("label", "regular", "size"));
   }
 
-  &:has(.title-c) {
-    @include _set_scale(globals.$SIZE-MD * globals.$MAJOR-HALF);
+  :is(&--callout, &:has(.callout)) {
+    @include card-scale(fonts.lookup("callout", "regular", "size"));
   }
 
-  &:has(.title-b) {
-    @include _set_scale(globals.$SIZE-LG);
+  :is(&--body, &:has(.body)) {
+    @include card-scale(fonts.lookup("body", "regular", "size"));
   }
 
-  &:has(.title-a) {
-    @include _set_scale(globals.$SIZE-LG * globals.$MAJOR-HALF);
+  :is(&--subheading, &:has(.subheading)) {
+    @include card-scale(fonts.lookup("subheading", "regular", "size"));
   }
 
-  &:has(.display-2) {
-    @include _set_scale(globals.$SIZE-XL);
+  :is(&--heading, &:has(.heading)) {
+    @include card-scale(fonts.lookup("heading", "regular", "size"));
   }
 
-  &:has(.display-1) {
-    @include _set_scale(globals.$SIZE-2XL);
+  :is(&--title-c, &:has(.title-c)) {
+    @include card-scale(fonts.lookup("title-c", "regular", "size"));
   }
 
-  // Since the :has pseudo-class is newly available, provide a fallback to
-  // manually specify the largest font size within the card.
-  // Do not use @extend-at rule as non-conforming browsers will drop the entire
-  // rule!
-  &.scale__body {
-    @include _set_scale(globals.$SIZE-MD);
+  :is(&--title-b, &:has(.title-b)) {
+    @include card-scale(fonts.lookup("title-b", "regular", "size"));
   }
 
-  &.scale__subheading {
-    @include _set_scale(math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER));
+  :is(&--title-a, &:has(.title-a)) {
+    @include card-scale(fonts.lookup("title-a", "regular", "size"));
   }
 
-  &.scale__heading {
-    @include _set_scale(globals.$SIZE-MD * globals.$MAJOR-QUARTER);
+  :is(&--display-2, &:has(.display-2)) {
+    @include card-scale(fonts.lookup("display-2", "regular", "size"));
   }
 
-  &.scale__title-c {
-    @include _set_scale(globals.$SIZE-MD * globals.$MAJOR-HALF);
-  }
-
-  &.scale__title-b {
-    @include _set_scale(globals.$SIZE-LG);
-  }
-
-  &.scale__title-a {
-    @include _set_scale(globals.$SIZE-LG * globals.$MAJOR-HALF);
-  }
-
-  &.scale__display-2 {
-    @include _set_scale(globals.$SIZE-XL);
-  }
-
-  &.scale__display-1 {
-    @include _set_scale(globals.$SIZE-2XL);
+  :is(&--display-1, &:has(.display-1)) {
+    @include card-scale(fonts.lookup("display-1", "regular", "size"));
   }
 }
