@@ -215,13 +215,6 @@ $TYPE-SCALES: (
   @include declare("overline");
 }
 
-@media screen and (max-width: 991px) {
-
-  .display-2 {
-    font-size: globals.round-to(globals.$SIZE-XL);
-  }
-}
-
 @media screen and (max-width: 767px) {
 
   .display-1 {
