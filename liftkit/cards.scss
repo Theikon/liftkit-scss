@@ -38,54 +38,99 @@
 
   // In order to provide optical correctness to the card padding symmetry,
   // determine the largest font size within the card.
-  // Note that while :has is not widely available yet, :is is. In particular,
-  // :is is forgiving, which means that browser not supporting :has will not
-  // drop the entire rule.
-  :is(&--display-1, &:has(.display-1)) {
-    @include card-scale(fonts.lookup("display-1", "regular", "size"));
+  :where(&:has(.overline)) {
+    @include card-scale(fonts.lookup("overline", "regular", "size"));
   }
 
-  :is(&--display-2, &:has(.display-2)) {
-    @include card-scale(fonts.lookup("display-2", "regular", "size"));
-  }
-
-  :is(&--title-a, &:has(.title-a)) {
-    @include card-scale(fonts.lookup("title-a", "regular", "size"));
-  }
-
-  :is(&--title-b, &:has(.title-b)) {
-    @include card-scale(fonts.lookup("title-b", "regular", "size"));
-  }
-
-  :is(&--title-c, &:has(.title-c)) {
-    @include card-scale(fonts.lookup("title-c", "regular", "size"));
-  }
-
-  :is(&--heading, &:has(.heading)) {
-    @include card-scale(fonts.lookup("heading", "regular", "size"));
-  }
-
-  :is(&--subheading, &:has(.subheading)) {
-    @include card-scale(fonts.lookup("subheading", "regular", "size"));
-  }
-
-  :is(&--body, &:has(.body)) {
-    @include card-scale(fonts.lookup("body", "regular", "size"));
-  }
-
-  :is(&--callout, &:has(.callout)) {
-    @include card-scale(fonts.lookup("callout", "regular", "size"));
-  }
-
-  :is(&--label, &:has(.label)) {
-    @include card-scale(fonts.lookup("label", "regular", "size"));
-  }
-
-  :is(&--caption, &:has(.caption)) {
+  :where(&:has(.caption)) {
     @include card-scale(fonts.lookup("caption", "regular", "size"));
   }
 
-  :is(&--overline, &:has(.overline)) {
+  :where(&:has(.label)) {
+    @include card-scale(fonts.lookup("label", "regular", "size"));
+  }
+
+  :where(&:has(.callout)) {
+    @include card-scale(fonts.lookup("callout", "regular", "size"));
+  }
+
+  :where(&:has(.body)) {
+    @include card-scale(fonts.lookup("body", "regular", "size"));
+  }
+
+  :where(&:has(.subheading)) {
+    @include card-scale(fonts.lookup("subheading", "regular", "size"));
+  }
+
+  :where(&:has(.heading)) {
+    @include card-scale(fonts.lookup("heading", "regular", "size"));
+  }
+
+  :where(&:has(.title-c)) {
+    @include card-scale(fonts.lookup("title-c", "regular", "size"));
+  }
+
+  :where(&:has(.title-b)) {
+    @include card-scale(fonts.lookup("title-b", "regular", "size"));
+  }
+
+  :where(&:has(.title-a)) {
+    @include card-scale(fonts.lookup("title-a", "regular", "size"));
+  }
+
+  :where(&:has(.display-2)) {
+    @include card-scale(fonts.lookup("display-2", "regular", "size"));
+  }
+
+  :where(&:has(.display-1)) {
+    @include card-scale(fonts.lookup("display-1", "regular", "size"));
+  }
+
+  &--display-1 {
+    @include card-scale(fonts.lookup("display-1", "regular", "size"));
+  }
+
+  &--display-2 {
+    @include card-scale(fonts.lookup("display-2", "regular", "size"));
+  }
+
+  &--title-a {
+    @include card-scale(fonts.lookup("title-a", "regular", "size"));
+  }
+
+  &--title-b {
+    @include card-scale(fonts.lookup("title-b", "regular", "size"));
+  }
+
+  &--title-c {
+    @include card-scale(fonts.lookup("title-c", "regular", "size"));
+  }
+
+  &--heading {
+    @include card-scale(fonts.lookup("heading", "regular", "size"));
+  }
+
+  &--subheading {
+    @include card-scale(fonts.lookup("subheading", "regular", "size"));
+  }
+
+  &--body {
+    @include card-scale(fonts.lookup("body", "regular", "size"));
+  }
+
+  &--callout {
+    @include card-scale(fonts.lookup("callout", "regular", "size"));
+  }
+
+  &--label {
+    @include card-scale(fonts.lookup("label", "regular", "size"));
+  }
+
+  &--caption {
+    @include card-scale(fonts.lookup("caption", "regular", "size"));
+  }
+
+  &--overline {
     @include card-scale(fonts.lookup("overline", "regular", "size"));
   }
 }
