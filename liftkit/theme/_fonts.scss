@@ -1,4 +1,4 @@
-/*!
+/*
  * LiftKit is a lightweight framework for clean, minimalist designs.
  * Copyright (c) 2024-2026 Niklas Simandi
  *
@@ -20,8 +20,8 @@
 @use "sass:math";
 @use "sass:map";
 
-@use "globals";
-@use "margins";
+@use "../globals";
+@use "../geometry/margins";
 
 $TYPE-STYLES: (
     "regular",

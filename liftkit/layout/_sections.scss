@@ -1,4 +1,4 @@
-/*!
+/*
  * LiftKit is a lightweight framework for clean, minimalist designs.
  * Copyright (c) 2024-2026 Niklas Simandi
  *
@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-@use "globals";
+@use "../globals";
 
 .section__xs {
   padding: globals.round-to(globals.$SIZE-LG) globals.round-to(globals.$SIZE-2XL);

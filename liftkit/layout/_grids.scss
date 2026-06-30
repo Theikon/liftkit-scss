@@ -1,0 +1,60 @@
+/*
+ * LiftKit is a lightweight framework for clean, minimalist designs.
+ * Copyright (c) 2024-2026 Niklas Simandi
+ *
+ * This program is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published by the
+ * Free Software Foundation, either version 3 of the License, or (at your
+ * option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+@use "../globals";
+
+.grid {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr;
+
+  &--xs {
+    gap: globals.round-to(globals.$SIZE-2XS * globals.$MAJOR-HALF);
+  }
+
+  &--sm {
+    gap: globals.round-to(globals.$SIZE-XS * globals.$MAJOR-HALF);
+  }
+
+  &--md {
+    gap: globals.round-to(globals.$SIZE-SM * globals.$MAJOR-HALF);
+  }
+
+  &--lg {
+    gap: globals.round-to(globals.$SIZE-MD);
+  }
+
+  &--xl {
+    gap: globals.round-to(globals.$SIZE-LG);
+  }
+
+  &--2xl {
+    gap: globals.round-to(globals.$SIZE-XL);
+  }
+}
+
+@for $k from 1 through 9 {
+  .col__#{$k} {
+    grid-template-rows: auto;
+    grid-template-columns: repeat($k, 1fr);
+  }
+
+  .row__#{$k} {
+    grid-template-rows: repeat($k, 1fr);
+    grid-template-columns: auto;
+  }
+}

@@ -1,6 +1,6 @@
-/*!
+/*
  * LiftKit is a lightweight framework for clean, minimalist designs.
- * Copyright (c) 2024-2026 Niklas Simandi
+ * Copyright (c) 2026 Niklas Simandi
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Affero General Public License as published by the
@@ -15,26 +15,8 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-.stack {
-  position: relative;
-  display: grid;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.stack__layer {
-  grid-area: 1 / 1;
-
-  &--float {
-    position: absolute;
-    inset: 0;
-  }
-
-  &--above {
-    z-index: 1;
-  }
-
-  &--below {
-    z-index: -1;
-  }
-}
+@forward "boxes";
+@forward "containers";
+@forward "grids";
+@forward "sections";
+@forward "stacks";

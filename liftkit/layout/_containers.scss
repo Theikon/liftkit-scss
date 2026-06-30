@@ -1,0 +1,63 @@
+/*
+ * LiftKit is a lightweight framework for clean, minimalist designs.
+ * Copyright (c) 2024-2026 Niklas Simandi
+ *
+ * This program is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published by the
+ * Free Software Foundation, either version 3 of the License, or (at your
+ * option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+@use "sass:math";
+
+@use "../globals";
+
+$BASE_MAX_WIDTH: 1000px !default; // 800px-1200px
+
+$_XS_MAX_WIDTH: math.round(math.div($BASE_MAX_WIDTH, globals.$MAJOR-HALF));
+$_SM_MAX_WIDTH: math.round(math.div($BASE_MAX_WIDTH, globals.$MAJOR-QUARTER));
+$_MD_MAX_WIDTH: math.round($BASE_MAX_WIDTH);
+$_LG_MAX_WIDTH: math.round($BASE_MAX_WIDTH * globals.$MAJOR-QUARTER);
+$_XL_MAX_WIDTH: math.round($BASE_MAX_WIDTH * globals.$MAJOR-HALF);
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+
+  &__xs {
+    @extend .container;
+
+    max-width: #{$_XS_MAX_WIDTH};
+  }
+
+  &__sm {
+    @extend .container;
+
+    max-width: #{$_SM_MAX_WIDTH};
+  }
+
+  &__md {
+    @extend .container;
+
+    max-width: #{$_MD_MAX_WIDTH};
+  }
+
+  &__lg {
+    @extend .container;
+
+    max-width: #{$_LG_MAX_WIDTH};
+  }
+
+  &__xl {
+    @extend .container;
+
+    max-width: #{$_XL_MAX_WIDTH};
+  }
+}

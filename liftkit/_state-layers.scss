@@ -1,4 +1,4 @@
-/*!
+/*
  * LiftKit is a lightweight framework for clean, minimalist designs.
  * Copyright (c) 2024-2026 Niklas Simandi
  *
@@ -15,46 +15,20 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-@use "globals";
+.state-layer {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  opacity: 0;
 
-.grid {
-  display: grid;
-  grid-template-rows: auto auto;
-  grid-template-columns: 1fr 1fr;
-
-  &--xs {
-    gap: globals.round-to(globals.$SIZE-2XS * globals.$MAJOR-HALF);
-  }
-
-  &--sm {
-    gap: globals.round-to(globals.$SIZE-XS * globals.$MAJOR-HALF);
-  }
-
-  &--md {
-    gap: globals.round-to(globals.$SIZE-SM * globals.$MAJOR-HALF);
-  }
-
-  &--lg {
-    gap: globals.round-to(globals.$SIZE-MD);
-  }
-
-  &--xl {
-    gap: globals.round-to(globals.$SIZE-LG);
-  }
-
-  &--2xl {
-    gap: globals.round-to(globals.$SIZE-XL);
-  }
+  background-color: rgb(0 0 0);
 }
 
-@for $k from 1 through 9 {
-  .col__#{$k} {
-    grid-template-rows: auto;
-    grid-template-columns: repeat($k, 1fr);
-  }
+:hover > .state-layer {
+  opacity: 8%;
+}
 
-  .row__#{$k} {
-    grid-template-rows: repeat($k, 1fr);
-    grid-template-columns: auto;
-  }
+:is(:active > .state-layer, :focus-visible > .state-layer) {
+  opacity: 10%;
 }

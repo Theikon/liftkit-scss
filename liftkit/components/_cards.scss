@@ -1,4 +1,4 @@
-/*!
+/*
  * LiftKit is a lightweight framework for clean, minimalist designs.
  * Copyright (c) 2024-2026 Niklas Simandi
  *
@@ -18,9 +18,9 @@
 @use "sass:meta";
 @use "sass:math";
 
-@use "globals";
-@use "colors";
-@use "fonts";
+@use "../globals";
+@use "../theme/colors";
+@use "../theme/fonts";
 
 @mixin card-scale($scale) {
   @if meta.type-of($scale) != number {
