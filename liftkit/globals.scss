@@ -15,6 +15,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
+@use "sass:meta";
 @use "sass:math";
 
 $SCALE: math.div(1.0 + math.sqrt(5.0), 2.0) !default; // ϕ
@@ -45,18 +46,18 @@ $SIZE-3XL: 1em * math.pow($SCALE, 4.0);
 $SIZE-4XL: 1em * math.pow($SCALE, 5.0);
 
 @function round-to($number, $ndigits: $PRECISION) {
-  @if type-of($number) != number {
+  @if meta.type-of($number) != number {
     @error "#{$number} is not a number";
   }
   @if $ndigits < 0 {
     @error "#{$ndigits} is negative";
   }
   @if $ndigits == 0 {
-    @return round($number);
+    @return math.round($number);
   }
   $factor: 1;
   @for $_ from 1 through $ndigits {
     $factor: $factor * 10;
   }
-  @return math.div(round($number * $factor), $factor);
+  @return math.div(math.round($number * $factor), $factor);
 }

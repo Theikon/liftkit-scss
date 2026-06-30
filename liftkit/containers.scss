@@ -28,13 +28,13 @@ $_WIDTH: 1000px; // 800px-1200px
   &__xs {
     @extend .container;
 
-    max-width: round(math.div($_WIDTH, globals.$MAJOR-HALF));
+    max-width: math.round(math.div($_WIDTH, globals.$MAJOR-HALF));
   }
 
   &__sm {
     @extend .container;
 
-    max-width: round(math.div($_WIDTH, globals.$MAJOR-QUARTER));
+    max-width: math.round(math.div($_WIDTH, globals.$MAJOR-QUARTER));
   }
 
   &__md {
@@ -46,12 +46,12 @@ $_WIDTH: 1000px; // 800px-1200px
   &__lg {
     @extend .container;
 
-    max-width: round($_WIDTH * globals.$MAJOR-QUARTER);
+    max-width: math.round($_WIDTH * globals.$MAJOR-QUARTER);
   }
 
   &__xl {
     @extend .container;
 
-    max-width: round($_WIDTH * globals.$MAJOR-HALF);
+    max-width: math.round($_WIDTH * globals.$MAJOR-HALF);
   }
 }

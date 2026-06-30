@@ -15,6 +15,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
+@use "sass:meta";
 @use "sass:list";
 @use "sass:math";
 @use "sass:map";
@@ -121,7 +122,7 @@ $TYPE-SCALES: (
 );
 
 @function lookup($type-scale, $type-style, $type-property, $optional: false) {
-  @if type-of($type-property) != string {
+  @if meta.type-of($type-property) != string {
     @error "#{$type-property} is not a string";
   }
   @if list.index($TYPE-STYLES, $type-style) == null {
