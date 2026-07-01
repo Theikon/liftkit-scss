@@ -1,0 +1,205 @@
+/*
+ * LiftKit is a lightweight framework for clean, minimalist designs.
+ * Copyright (c) 2026 Niklas Simandi
+ *
+ * This program is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published by the
+ * Free Software Foundation, either version 3 of the License, or (at your
+ * option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+@use "../globals";
+
+@mixin p-top__2xs {
+  padding-top: var(--2xs);
+}
+
+@mixin p-top__xs {
+  padding-top: var(--xs);
+}
+
+@mixin p-top__sm {
+  padding-top: var(--sm);
+}
+
+@mixin p-top__md {
+  padding-top: var(--md);
+}
+
+@mixin p-top__lg {
+  padding-top: var(--lg);
+}
+
+@mixin p-top__xl {
+  padding-top: var(--xl);
+}
+
+@mixin p-top__2xl {
+  padding-top: var(--2xl);
+}
+
+@mixin p-top__2xs {
+  padding-top: var(--2xs);
+}
+
+
+@mixin p-right__xs {
+  padding-right: var(--xs);
+}
+
+@mixin p-right__sm {
+  padding-right: var(--sm);
+}
+
+@mixin p-right__md {
+  padding-right: var(--md);
+}
+
+@mixin p-right__lg {
+  padding-right: var(--lg);
+}
+
+@mixin p-right__xl {
+  padding-right: var(--xl);
+}
+
+@mixin p-right__2xl {
+  padding-right: var(--2xl);
+}
+
+
+@mixin p-bottom__2xs {
+  padding-bottom: var(--2xs);
+}
+
+@mixin p-bottom__xs {
+  padding-bottom: var(--xs);
+}
+
+@mixin p-bottom__sm {
+  padding-bottom: var(--sm);
+}
+
+@mixin p-bottom__md {
+  padding-bottom: var(--md);
+}
+
+@mixin p-bottom__lg {
+  padding-bottom: var(--lg);
+}
+
+@mixin p-bottom__xl {
+  padding-bottom: var(--xl);
+}
+
+@mixin p-bottom__2xl {
+  padding-bottom: var(--2xl);
+}
+
+
+@mixin p-left__2xs {
+  padding-left: var(--2xs);
+}
+
+@mixin p-left__xs {
+  padding-left: var(--xs);
+}
+
+@mixin p-left__sm {
+  padding-left: var(--sm);
+}
+
+@mixin p-left__md {
+  padding-left: var(--md);
+}
+
+@mixin p-left__lg {
+  padding-left: var(--lg);
+}
+
+@mixin p-left__xl {
+  padding-left: var(--xl);
+}
+
+@mixin p-left__2xl {
+  padding-left: var(--2xl);
+}
+
+
+@mixin p-vertical__2xs {
+  padding-top: var(--2xs);
+  padding-bottom: var(--2xs);
+}
+
+@mixin p-vertical__xs {
+  padding-top: var(--xs);
+  padding-bottom: var(--xs);
+}
+
+@mixin p-vertical__sm {
+  padding-top: var(--sm);
+  padding-bottom: var(--sm);
+}
+
+@mixin p-vertical__md {
+  padding-top: var(--md);
+  padding-bottom: var(--md);
+}
+
+@mixin p-vertical__lg {
+  padding-top: var(--lg);
+  padding-bottom: var(--lg);
+}
+
+@mixin p-vertical__xl {
+  padding-top: var(--xl);
+  padding-bottom: var(--xl);
+}
+
+@mixin p-vertical__2xl {
+  padding-top: var(--2xl);
+  padding-bottom: var(--2xl);
+}
+
+
+@mixin p-horizontal__2xs {
+  padding-right: var(--2xs);
+  padding-left: var(--2xs);
+}
+
+@mixin p-horizontal__xs {
+  padding-right: var(--xs);
+  padding-left: var(--xs);
+}
+
+@mixin p-horizontal__sm {
+  padding-right: var(--sm);
+  padding-left: var(--sm);
+}
+
+@mixin p-horizontal__md {
+  padding-right: var(--md);
+  padding-left: var(--md);
+}
+
+@mixin p-horizontal__lg {
+  padding-right: var(--lg);
+  padding-left: var(--lg);
+}
+
+@mixin p-horizontal__xl {
+  padding-right: var(--xl);
+  padding-left: var(--xl);
+}
+
+@mixin p-horizontal__2xl {
+  padding-right: var(--2xl);
+  padding-left: var(--2xl);
+}
