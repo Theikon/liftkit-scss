@@ -19,7 +19,7 @@
 
 @use "../globals";
 
-$BASE_MAX_WIDTH: 1000px !default; // 800px-1200px
+$BASE_MAX_WIDTH: 800px !default; // 800px-1200px
 
 $_XS_MAX_WIDTH: math.round(math.div($BASE_MAX_WIDTH, globals.$MAJOR-HALF));
 $_SM_MAX_WIDTH: math.round(math.div($BASE_MAX_WIDTH, globals.$MAJOR-QUARTER));
