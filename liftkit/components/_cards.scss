@@ -39,55 +39,56 @@
   border-radius: calc(var(--scale) / #{globals.round-to(globals.$MAJOR-HALF)});
 
   // In order to provide optical correctness to the card padding symmetry,
-  // determine the largest font size within the card.
-  :where(&:has(.overline)) {
+  // attempt to determine the font size of the first child within the card.
+  :where(&:has(> .overline:first-child)) {
     @include card-scale(fonts.get-size("overline"));
   }
 
-  :where(&:has(.caption)) {
+  :where(&:has(> .caption:first-child)) {
     @include card-scale(fonts.get-size("caption"));
   }
 
-  :where(&:has(.label)) {
+  :where(&:has(> .label:first-child)) {
     @include card-scale(fonts.get-size("label"));
   }
 
-  :where(&:has(.callout)) {
+  :where(&:has(> .callout:first-child)) {
     @include card-scale(fonts.get-size("callout"));
   }
 
-  :where(&:has(.body)) {
+  :where(&:has(> .body:first-child)) {
     @include card-scale(fonts.get-size("body"));
   }
 
-  :where(&:has(.subheading)) {
+  :where(&:has(> .subheading:first-child)) {
     @include card-scale(fonts.get-size("subheading"));
   }
 
-  :where(&:has(.heading)) {
+  :where(&:has(> .heading:first-child)) {
     @include card-scale(fonts.get-size("heading"));
   }
 
-  :where(&:has(.title-c)) {
+  :where(&:has(> .title-c:first-child)) {
     @include card-scale(fonts.get-size("title-c"));
   }
 
-  :where(&:has(.title-b)) {
+  :where(&:has(> .title-b:first-child)) {
     @include card-scale(fonts.get-size("title-b"));
   }
 
-  :where(&:has(.title-a)) {
+  :where(&:has(> .title-a:first-child)) {
     @include card-scale(fonts.get-size("title-a"));
   }
 
-  :where(&:has(.display-2)) {
+  :where(&:has(> .display-2:first-child)) {
     @include card-scale(fonts.get-size("display-2"));
   }
 
-  :where(&:has(.display-1)) {
+  :where(&:has(> .display-1:first-child)) {
     @include card-scale(fonts.get-size("display-1"));
   }
 
+  // Allow overwriting the guessed card padding.
   &--display-1 {
     @include card-scale(fonts.get-size("display-1"));
   }
