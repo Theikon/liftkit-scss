@@ -118,7 +118,7 @@ $DARK: (
   "surface-container-highest": rgb(54, 52, 58),
 );
 
-@mixin set_theme($theme) {
+@mixin set-theme($theme) {
   --primary: #{map.get($theme, "primary")};
   --on-primary: #{map.get($theme, "on-primary")};
   --primary-container: #{map.get($theme, "primary-container")};
@@ -170,13 +170,13 @@ $DARK: (
 }
 
 :root {
-  @include set_theme($LIGHT);
+  @include set-theme($LIGHT);
 }
 
 @media (prefers-color-scheme: dark) {
 
   :root {
-    @include set_theme($DARK);
+    @include set-theme($DARK);
   }
 }
 
