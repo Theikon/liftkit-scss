@@ -21,18 +21,17 @@
 @use "sass:map";
 
 @use "../globals";
-@use "../geometry/margins";
 
-$TYPE-STYLES: (
+$_TYPE-FAMILIES: (
     "regular",
     "bold"
 );
-$TYPE-SCALES: (
+$_TYPE-SCALES: (
     "display-1": (
         "regular": (
             "size": globals.$SIZE-2XL,
             "height": globals.$MAJOR-QUARTER,
-            "spacing": -0.022em
+            "tracking": -0.022em
         ),
         "bold": (
             "weight": 700
@@ -41,7 +40,7 @@ $TYPE-SCALES: (
     "display-2": (
         "regular": (
             "size": globals.$SIZE-XL * globals.$MAJOR-HALF,
-            "spacing": -0.022em
+            "tracking": -0.022em
         ),
         "bold": (
             "weight": 700
@@ -50,7 +49,7 @@ $TYPE-SCALES: (
     "title-a": (
         "regular": (
             "size": globals.$SIZE-LG * globals.$MAJOR-HALF,
-            "spacing": -0.022em
+            "tracking": -0.022em
         ),
         "bold": (
             "weight": 700
@@ -59,19 +58,19 @@ $TYPE-SCALES: (
     "title-b": (
         "regular": (
             "size": globals.$SIZE-LG,
-            "spacing": -0.02em
+            "tracking": -0.02em
         )
     ),
     "title-c": (
         "regular": (
             "size": math.div(globals.$SIZE-LG, globals.$MAJOR-HALF),
-            "spacing": -0.017em
+            "tracking": -0.017em
         )
     ),
     "heading": (
         "regular": (
             "size": globals.$SIZE-MD * globals.$MAJOR-QUARTER,
-            "spacing": -0.014em,
+            "tracking": -0.014em,
             "weight": 600
         ),
         "bold": (
@@ -81,26 +80,26 @@ $TYPE-SCALES: (
     "subheading": (
         "regular": (
             "size": math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER),
-            "spacing": -0.007em
+            "tracking": -0.007em
         )
     ),
     "body": (
         "regular": (
             "size": globals.$SIZE-MD,
             "height": globals.$MAJOR,
-            "spacing": -0.011em
+            "tracking": -0.011em
         )
     ),
     "callout": (
         "regular": (
             "size": math.div(globals.$SIZE-MD, globals.$MAJOR-EIGHT),
-            "spacing": -0.009em
+            "tracking": -0.009em
         )
     ),
     "label": (
         "regular": (
             "size": math.div(math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER), globals.$MAJOR-EIGHT),
-            "spacing": -0.004em,
+            "tracking": -0.004em,
             "weight": 600,
         ),
         "bold": (
@@ -110,110 +109,147 @@ $TYPE-SCALES: (
     "caption": (
         "regular": (
             "size": math.div(globals.$SIZE-MD, globals.$MAJOR-HALF),
-            "spacing": -0.007em
+            "tracking": -0.007em
         )
     ),
     "overline": (
         "regular": (
             "size": math.div(math.div(globals.$SIZE-MD, globals.$MAJOR-QUARTER), globals.$MAJOR-EIGHT),
-            "spacing": 1em * math.div(globals.$MINOR, 10)
+            "tracking": 1em * math.div(globals.$MINOR, 10)
         )
     )
 );
 
-@function lookup($type-scale, $type-style, $type-property, $optional: false) {
+@function _get-type-property($type-scale, $type-family, $type-property, $optional: false) {
   @if meta.type-of($type-property) != string {
     @error "#{$type-property} is not a string";
   }
-  @if list.index($TYPE-STYLES, $type-style) == null {
-    @error "#{$type-style} is not a valid type style";
+  @if list.index($_TYPE-FAMILIES, $type-family) == null {
+    @error "#{$type-family} is not a valid type family";
   }
-  $property: map.get($TYPE-SCALES, $type-scale, $type-style, $type-property);
+  $property: map.get($_TYPE-SCALES, $type-scale, $type-family, $type-property);
   @if $property == null {
     @if not $optional {
-      @error "#{$type-property} is not a valid property of #{$type-style} #{$type-scale}";
+      @error "#{$type-property} is not a valid property of #{$type-family} #{$type-scale}";
     }
   }
   @return $property;
 }
 
-@mixin declare($type-scale) {
-  $line-height: lookup($type-scale, "regular", "height", true);
-  @if $line-height == null {
-    $line-height: globals.$MAJOR-HALF; // default
-  } @else {
-    @include margins.adjust-to($line-height);
-  }
-  font-size: globals.round-to(lookup($type-scale, "regular", "size"));
-  line-height: globals.round-to($line-height);
-  letter-spacing: globals.round-to(lookup($type-scale, "regular", "spacing"));
+@function get-size($type-scale, $type-family: "regular") {
+  @return _get-type-property($type-scale, $type-family, "size");
+}
 
-  $font-weight: lookup($type-scale, "regular", "weight", true);
-  @if $font-weight != null {
-    font-weight: globals.round-to($font-weight);
+@function get-line-height($type-scale, $type-family: "regular") {
+  $line-height: _get-type-property($type-scale, $type-family, "height", true);
+  @if $line-height == null {
+    $line-height: globals.$MAJOR-HALF;
+  }
+  @return $line-height;
+}
+
+@function get-tracking($type-scale, $type-family: "regular") {
+  @return _get-type-property($type-scale, $type-family, "tracking");
+}
+
+@function get-weight($type-scale, $type-family: "regular") {
+  $font-weight: _get-type-property($type-scale, $type-family, "weight", true);
+  @if $font-weight == null {
+    @if $type-family == "regular" {
+      $font-weight: 400;
+    } @else if $type-family == "bold" {
+      $font-weight: 600;
+    } @else {
+      @error "#{$type-family} is not a valid type family";
+    }
+  }
+  @return $font-weight;
+}
+
+@mixin _set-spacing($line-height) {
+  @if not math.is-unitless($line-height) {
+    @error "#{$line-height} is not dimensionless";
+  }
+  --2xs: #{globals.round-to(1em * $line-height * globals.$MINOR-QUARTER)};
+  --xs: #{globals.round-to(1em * $line-height * globals.$MINOR-HALF)};
+  --sm: #{globals.round-to(1em * $line-height * globals.$MINOR)};
+  --md: #{globals.round-to($line-height * globals.$SIZE-MD)};
+  --lg: #{globals.round-to($line-height * globals.$SIZE-LG)};
+  --xl: #{globals.round-to($line-height * globals.$SIZE-XL)};
+  --2xl: #{globals.round-to($line-height * globals.$SIZE-2XL)};
+}
+
+@mixin set-type($type-scale) {
+  $line-height: get-line-height($type-scale);
+  @if $line-height != globals.$MAJOR-HALF {
+    @include _set-spacing($line-height);
+  }
+  font-size: globals.round-to(get-size($type-scale));
+  line-height: globals.round-to($line-height);
+  letter-spacing: globals.round-to(get-tracking($type-scale));
+
+  $font-weight: get-weight($type-scale);
+  @if $font-weight != 400 {
+    font-weight: #{$font-weight};
   }
 
   &--bold {
-    $font-weight: lookup($type-scale, "bold", "weight", true);
-    @if $font-weight == null {
-      $font-weight: 600; // default
-    }
-    font-weight: globals.round-to($font-weight);
+    font-weight: #{get-weight($type-scale, "bold")};
   }
 }
 
 :root {
-  @include margins.adjust-to(globals.$MAJOR-HALF);
+  @include _set-spacing(globals.$MAJOR-HALF);
 
   font: #{globals.round-to(globals.$SIZE-MD)} / #{globals.round-to(globals.$MAJOR-HALF)} "Inter", "Segoe UI", "Helvetica Neue", "Arial", sans-serif;
 }
 
 .display-1 {
-  @include declare("display-1");
+  @include set-type("display-1");
 }
 
 .display-2 {
-  @include declare("display-2");
+  @include set-type("display-2");
 }
 
 .title-a {
-  @include declare("title-a");
+  @include set-type("title-a");
 }
 
 .title-b {
-  @include declare("title-b");
+  @include set-type("title-b");
 }
 
 .title-c {
-  @include declare("title-c");
+  @include set-type("title-c");
 }
 
 .heading {
-  @include declare("heading");
+  @include set-type("heading");
 }
 
 .subheading {
-  @include declare("subheading");
+  @include set-type("subheading");
 }
 
 .body {
-  @include declare("body");
+  @include set-type("body");
 }
 
 .callout {
-  @include declare("callout");
+  @include set-type("callout");
 }
 
 .label {
-  @include declare("label");
+  @include set-type("label");
 }
 
 .caption {
-  @include declare("caption");
+  @include set-type("caption");
 }
 
 .overline {
-  @include declare("overline");
+  @include set-type("overline");
 }
 
 @media screen and (max-width: 767px) {

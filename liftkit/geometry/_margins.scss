@@ -19,19 +19,6 @@
 
 @use "../globals";
 
-@mixin adjust-to($line-height) {
-  @if not math.is-unitless($line-height) {
-    @error "#{$line-height} is not dimensionless";
-  }
-  --2xs: #{globals.round-to(1em * $line-height * globals.$MINOR-QUARTER)};
-  --xs: #{globals.round-to(1em * $line-height * globals.$MINOR-HALF)};
-  --sm: #{globals.round-to(1em * $line-height * globals.$MINOR)};
-  --md: #{globals.round-to($line-height * globals.$SIZE-MD)};
-  --lg: #{globals.round-to($line-height * globals.$SIZE-LG)};
-  --xl: #{globals.round-to($line-height * globals.$SIZE-XL)};
-  --2xl: #{globals.round-to($line-height * globals.$SIZE-2XL)};
-}
-
 @mixin m-top__2xs {
   margin-top: var(--2xs);
 }
